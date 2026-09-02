@@ -1,12 +1,12 @@
 {
-  "status": "missing_secret",
-  "message": "GitHub Actions secret YANDEX_DIRECT_TOKEN is not configured.",
+  "status": "ok",
+  "message": "Yandex Direct report downloaded.",
   "client_login": "e-20027205",
-  "updated_at": "2026-09-02T09:47:50+00:00",
-  "http_status": null,
-  "request_id": null,
+  "updated_at": "2026-09-02T10:20:47+00:00",
+  "http_status": 200,
+  "request_id": "1952280358351903793",
   "units": null,
-  "api_access_pending": true,
+  "api_access_pending": false,
   "report_type": "SEARCH_QUERY_PERFORMANCE_REPORT",
   "date_range": "LAST_30_DAYS"
 }
