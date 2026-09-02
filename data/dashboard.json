@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T09:44:17+00:00",
+  "generated_at": "2026-09-02T09:47:50+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -9,7 +9,7 @@
       "message": "GitHub Actions secret YANDEX_DIRECT_TOKEN is not configured.",
       "http_status": null,
       "request_id": null,
-      "updated_at": "2026-09-02T09:43:02+00:00",
+      "updated_at": "2026-09-02T09:47:50+00:00",
       "report_type": "SEARCH_QUERY_PERFORMANCE_REPORT",
       "date_range": "LAST_30_DAYS"
     },
