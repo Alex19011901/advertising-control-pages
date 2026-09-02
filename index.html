@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advertising Control</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>Advertising Control</h1>
+          <p class="subtitle">Яндекс Директ -> реальные заявки Lead Control</p>
+        </div>
+        <div class="status-stack" aria-live="polite">
+          <span id="directStatus" class="pill pending">Яндекс Директ: API access pending</span>
+          <span id="leadStatus" class="pill pending">Lead Control: Нет данных</span>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Период заявок Lead Control">
+        <div class="segments">
+          <button type="button" data-range="today">Сегодня</button>
+          <button type="button" data-range="yesterday">Вчера</button>
+          <button type="button" data-range="7">7 дней</button>
+          <button type="button" data-range="30" class="active">30 дней</button>
+          <button type="button" data-range="all">Весь период</button>
+        </div>
+        <div>
+          <div id="updatedAt" class="stamp">Обновлено: Нет данных</div>
+          <div id="directMessage" class="stamp">API access pending</div>
+        </div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Главные KPI">
+        <article class="card kpi"><div class="label">Расход</div><div id="kpiCost" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Показы</div><div id="kpiImpressions" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Клики</div><div id="kpiClicks" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">CTR</div><div id="kpiCtr" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">CPC</div><div id="kpiCpc" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Конверсии Яндекс</div><div id="kpiDirectConversions" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Реальные заявки Lead Control</div><div id="kpiRealLeads" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Фактический CPL</div><div id="kpiFactCpl" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Качественные заявки</div><div id="kpiQualityLeads" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">CPL качественной заявки</div><div id="kpiQualityCpl" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">Продажи / результат</div><div id="kpiSales" class="value empty">Нет данных</div></article>
+        <article class="card kpi"><div class="label">ROAS</div><div id="kpiRoas" class="value empty">Нет данных</div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card panel">
+          <h2>Направление -> кампания -> группа -> объявление / запрос</h2>
+          <div id="breakdownEmpty" class="empty-state">Нет данных / API access pending</div>
+          <div class="table-wrap">
+            <table aria-label="Разрез рекламной эффективности">
+              <thead>
+                <tr>
+                  <th>Направление</th>
+                  <th>Кампания</th>
+                  <th>Группа</th>
+                  <th>Объявление / запрос</th>
+                  <th>Расход</th>
+                  <th>Показы</th>
+                  <th>Клики</th>
+                  <th>CTR</th>
+                  <th>CPC</th>
+                  <th>Конверсии</th>
+                  <th>Заявки LC</th>
+                  <th>CPL</th>
+                </tr>
+              </thead>
+              <tbody id="breakdownBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <aside class="card panel">
+          <h2>Lead Control</h2>
+          <div class="summary-row">
+            <div class="mini"><div class="label" id="leadRangeName">30 дней</div><b id="leadTotal">Нет данных</b></div>
+            <div class="mini"><div class="label">Вовремя</div><b id="leadOk">Нет данных</b></div>
+            <div class="mini"><div class="label">С опозданием</div><b id="leadLate">Нет данных</b></div>
+            <div class="mini"><div class="label">Ожидают</div><b id="leadPending">Нет данных</b></div>
+          </div>
+          <p id="leadPeriod" class="footnote">Нет данных</p>
+          <h2>Направления заявок</h2>
+          <div id="leadEvents" class="bars"></div>
+          <h2>Источники заявок</h2>
+          <div id="leadSources" class="bars"></div>
+        </aside>
+      </section>
+
+      <section class="content-grid">
+        <article class="card panel">
+          <h2>Сводка Яндекс Директ</h2>
+          <div class="summary-row">
+            <div class="mini"><div class="label">Строк отчёта</div><b id="directRows">Нет данных</b></div>
+            <div class="mini"><div class="label">Расход</div><b id="directCost">Нет данных</b></div>
+            <div class="mini"><div class="label">Клики</div><b id="directClicks">Нет данных</b></div>
+            <div class="mini"><div class="label">Конверсии</div><b id="directConversions">Нет данных</b></div>
+          </div>
+        </article>
+        <article class="card panel">
+          <h2>Статус данных</h2>
+          <p class="footnote">Рекламные KPI строятся только из API Яндекс Директа. Заявки берутся из опубликованного JSON Lead Control. Демонстрационные рекламные данные не используются.</p>
+        </article>
+      </section>
+    </main>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "status": "missing_secret",
+  "message": "GitHub Actions secret YANDEX_DIRECT_TOKEN is not configured.",
+  "client_login": "e-20027205",
+  "updated_at": "2026-09-02T09:43:02+00:00",
+  "http_status": null,
+  "request_id": null,
+  "units": null,
+  "api_access_pending": true,
+  "report_type": "SEARCH_QUERY_PERFORMANCE_REPORT",
+  "date_range": "LAST_30_DAYS"
+}

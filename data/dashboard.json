@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-02T09:44:17+00:00",
+  "project": "advertising-control-pages",
+  "client_login": "e-20027205",
+  "data_sources": {
+    "direct": {
+      "status": "missing_secret",
+      "message": "GitHub Actions secret YANDEX_DIRECT_TOKEN is not configured.",
+      "http_status": null,
+      "request_id": null,
+      "updated_at": "2026-09-02T09:43:02+00:00",
+      "report_type": "SEARCH_QUERY_PERFORMANCE_REPORT",
+      "date_range": "LAST_30_DAYS"
+    },
+    "lead_control": {
+      "status": "ok",
+      "message": "Lead Control JSON loaded.",
+      "url": "https://alex19011901.github.io/lead-control-pages/dashboard_view.json",
+      "snapshot_at": "2026-09-01T21:37:41+03:00",
+      "snapshot_generated_at": "2026-09-02T07:44:13Z"
+    }
+  },
+  "kpi": {
+    "cost": null,
+    "impressions": null,
+    "clicks": null,
+    "ctr": null,
+    "cpc": null,
+    "direct_conversions": null,
+    "real_leads": 230,
+    "fact_cpl": null,
+    "quality_leads": null,
+    "quality_cpl": null,
+    "sales_result": null,
+    "roas": null
+  },
+  "direct": {
+    "row_count": 0,
+    "totals": {
+      "cost": null,
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "cpc": null,
+      "direct_conversions": null,
+      "revenue": null,
+      "real_leads": 230,
+      "fact_cpl": null,
+      "roas": null
+    },
+    "breakdown": []
+  },
+  "lead_control": {
+    "ranges": {
+      "today": {
+        "start": "2026-09-02",
+        "end": "2026-09-02",
+        "real_leads": 0,
+        "status": {},
+        "source": {},
+        "event": {},
+        "channel": {}
+      },
+      "yesterday": {
+        "start": "2026-09-01",
+        "end": "2026-09-01",
+        "real_leads": 23,
+        "status": {
+          "OK": 17,
+          "-": 2,
+          "LATE_CRM": 1,
+          "PENDING": 3
+        },
+        "source": {
+          "САЙТ ТИЛЬДА": 7,
+          "MARQUIZ": 1,
+          "Заявка с ТГ": 1,
+          "Заявки хост": 8,
+          "Тильда Веранда": 2,
+          "Restoran.Cafe": 3,
+          "ТоМесто": 1
+        },
+        "event": {
+          "Свадьба": 4,
+          "Корпоратив": 10,
+          "Юбилей": 5,
+          "Не определено": 4
+        },
+        "channel": {
+          "TELEGRAM": 8,
+          "MAX": 15
+        }
+      },
+      "7": {
+        "start": "2026-08-27",
+        "end": "2026-09-02",
+        "real_leads": 62,
+        "status": {
+          "OK": 50,
+          "-": 3,
+          "LATE_CRM": 6,
+          "PENDING": 3
+        },
+        "source": {
+          "САЙТ ТИЛЬДА": 16,
+          "MARQUIZ": 3,
+          "Заявки хост": 30,
+          "Тильда Веранда": 3,
+          "Заявка с ТГ": 4,
+          "Restoran.Cafe": 3,
+          "ТоМесто": 1,
+          "ЗАЯВКА ПОЧТА": 2
+        },
+        "event": {
+          "Корпоратив": 24,
+          "Свадьба": 21,
+          "Бизнес мероприятие": 2,
+          "Выпускной": 1,
+          "Не определено": 7,
+          "Юбилей": 7
+        },
+        "channel": {
+          "TELEGRAM": 19,
+          "MAX": 43
+        }
+      },
+      "30": {
+        "start": "2026-08-04",
+        "end": "2026-09-02",
+        "real_leads": 230,
+        "status": {
+          "OK": 167,
+          "LATE_CRM": 45,
+          "-": 15,
+          "PENDING": 3
+        },
+        "source": {
+          "MARQUIZ": 18,
+          "САЙТ ТИЛЬДА": 55,
+          "Заявки хост": 115,
+          "Тильда Веранда": 15,
+          "Заявка с ТГ": 13,
+          "WedWed": 3,
+          "С улицы": 1,
+          "Restoran.Cafe": 3,
+          "ТоМесто": 1,
+          "ЗАЯВКА ПОЧТА": 6
+        },
+        "event": {
+          "Свадьба": 71,
+          "Юбилей": 35,
+          "Бизнес мероприятие": 8,
+          "Не определено": 35,
+          "Съёмки": 1,
+          "Корпоратив": 75,
+          "Детский праздник": 4,
+          "Выпускной": 1
+        },
+        "channel": {
+          "TELEGRAM": 75,
+          "MAX": 155
+        }
+      },
+      "all": {
+        "start": "2026-07-01",
+        "end": "2026-09-01",
+        "real_leads": 458,
+        "status": {
+          "LATE_CRM": 110,
+          "OK": 300,
+          "-": 45,
+          "PENDING": 3
+        },
+        "source": {
+          "САЙТ ТИЛЬДА": 114,
+          "Тильда Веранда": 41,
+          "Заявки хост": 234,
+          "Заявка с ТГ": 20,
+          "WedWed": 6,
+          "С улицы": 2,
+          "Заявка сайт": 3,
+          "MARQUIZ": 26,
+          "Restoran.Cafe": 4,
+          "ТоМесто": 1,
+          "ЗАЯВКА ПОЧТА": 7
+        },
+        "event": {
+          "Юбилей": 84,
+          "Корпоратив": 108,
+          "Не определено": 98,
+          "Свадьба": 142,
+          "Бизнес мероприятие": 16,
+          "Детский праздник": 5,
+          "Съёмки": 2,
+          "Поминки": 1,
+          "Деловое мероприятие": 1,
+          "Выпускной": 1
+        },
+        "channel": {
+          "TELEGRAM": 143,
+          "MAX": 315
+        }
+      }
+    },
+    "quality_statuses": []
+  }
+}
