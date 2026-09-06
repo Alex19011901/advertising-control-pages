@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 DATA_DIR = Path(os.getenv("AD_CONTROL_DATA_DIR", "data"))
@@ -48,6 +49,18 @@ def now_utc() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def today_moscow() -> str:
+    return datetime.now(ZoneInfo("Europe/Moscow")).date().isoformat()
+
+
+def effective_date_range() -> str:
+    date_from = os.getenv("YANDEX_DIRECT_DATE_FROM", "").strip()
+    if not date_from:
+        return DATE_RANGE
+    date_to = os.getenv("YANDEX_DIRECT_DATE_TO", "").strip() or today_moscow()
+    return f"{date_from}..{date_to}"
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -72,7 +85,7 @@ def write_status(
         "units": units,
         "api_access_pending": status in {"api_access_pending", "missing_secret", "not_checked"},
         "report_type": REPORT_TYPE,
-        "date_range": DATE_RANGE,
+        "date_range": effective_date_range(),
     }
     if error:
         payload["error"] = error
@@ -101,7 +114,8 @@ def report_body() -> bytes:
     date_to = os.getenv("YANDEX_DIRECT_DATE_TO", "").strip()
     selection: dict[str, Any] = {}
     date_range_type = DATE_RANGE
-    if date_from and date_to:
+    if date_from:
+        date_to = date_to or today_moscow()
         selection = {"DateFrom": date_from, "DateTo": date_to}
         date_range_type = "CUSTOM_DATE"
     payload = {
