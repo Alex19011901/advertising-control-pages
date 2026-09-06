@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-06T14:24:47+00:00",
+  "generated_at": "2026-09-06T15:53:28+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "8999036539644362120",
-      "updated_at": "2026-09-06T14:24:47+00:00",
+      "request_id": "8187588857204956430",
+      "updated_at": "2026-09-06T15:53:28+00:00",
       "report_type": "SEARCH_QUERY_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-06"
     },
@@ -25,7 +25,13 @@
       "message": "Lead Control advertising export loaded.",
       "url": "https://alex19011901.github.io/lead-control-pages/advertising_leads.json",
       "start_date": "2026-09-05",
-      "lead_count": 3
+      "lead_count": 3,
+      "metrika_attribution_map": {
+        "status": "unavailable",
+        "message": "HTTP Error 404: Not Found",
+        "url": "https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map.json"
+      },
+      "metrika_client_session_matches": 0
     }
   },
   "kpi": {
@@ -5477,7 +5483,8 @@
         "utm_campaign": "",
         "campaign_id": "",
         "group_id": "",
-        "ad_id": ""
+        "ad_id": "",
+        "attribution_method": "no_client_id"
       },
       {
         "lead_id": "9f1c58a122e50aa5",
@@ -5496,7 +5503,8 @@
         "utm_campaign": "",
         "campaign_id": "",
         "group_id": "",
-        "ad_id": ""
+        "ad_id": "",
+        "attribution_method": "no_client_id"
       },
       {
         "lead_id": "5620ac204b05fe04",
@@ -5515,7 +5523,8 @@
         "utm_campaign": "",
         "campaign_id": "",
         "group_id": "",
-        "ad_id": ""
+        "ad_id": "",
+        "attribution_method": "no_client_id"
       }
     ]
   },
