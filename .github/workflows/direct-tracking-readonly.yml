@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/direct-tracking-readonly.yml"
       - "scripts/direct_tracking_readonly.py"
+      - "scripts/summarize_direct_tracking.py"
 
 permissions:
   contents: write
@@ -34,11 +35,14 @@ jobs:
           YANDEX_DIRECT_CLIENT_LOGIN: e-20027205
         run: python scripts/direct_tracking_readonly.py
 
+      - name: Summarize exact UTM campaign mappings
+        run: python scripts/summarize_direct_tracking.py
+
       - name: Save diagnostic
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/direct_tracking_diagnostic.json
+          git add data/direct_tracking_diagnostic.json data/direct_tracking_summary.json
           if git diff --cached --quiet; then
             echo "No diagnostic changes"
           else
