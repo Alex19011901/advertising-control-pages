@@ -7,7 +7,9 @@ on:
       - ".github/workflows/advertising-control-refresh.yml"
       - "scripts/fetch_direct.py"
       - "scripts/build_dashboard.py"
+      - "scripts/build_dashboard_with_metrika.py"
       - "tests/test_attribution.py"
+      - "tests/test_metrika_client_join.py"
 
 permissions:
   contents: write
@@ -33,7 +35,7 @@ jobs:
           python-version: "3.12"
 
       - name: Test exact attribution logic
-        run: python -m unittest tests.test_attribution -v
+        run: python -m unittest tests.test_attribution tests.test_metrika_client_join -v
 
       - name: Fetch Yandex Direct report
         env:
@@ -45,7 +47,8 @@ jobs:
       - name: Build dashboard JSON
         env:
           LEAD_CONTROL_ADVERTISING_URL: https://alex19011901.github.io/lead-control-pages/advertising_leads.json
-        run: python scripts/build_dashboard.py
+          LEAD_CONTROL_METRIKA_ATTRIBUTION_URL: https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map.json
+        run: python scripts/build_dashboard_with_metrika.py
 
       - name: Save refreshed dashboard data
         run: |
