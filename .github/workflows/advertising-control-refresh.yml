@@ -8,6 +8,7 @@ on:
       - "scripts/fetch_direct.py"
       - "scripts/direct_tracking_readonly.py"
       - "scripts/summarize_direct_tracking.py"
+      - "scripts/audit_direct_source.py"
       - "scripts/build_dashboard.py"
       - "scripts/build_dashboard_with_metrika.py"
       - "tests/test_attribution.py"
@@ -54,6 +55,9 @@ jobs:
           python scripts/direct_tracking_readonly.py
           python scripts/summarize_direct_tracking.py
 
+      - name: Audit Direct source completeness
+        run: python scripts/audit_direct_source.py
+
       - name: Build dashboard JSON
         env:
           LEAD_CONTROL_ADVERTISING_URL: https://alex19011901.github.io/lead-control-pages/advertising_leads.json
@@ -70,6 +74,7 @@ jobs:
           cp data/direct_report.tsv /tmp/advertising-control-refresh/direct_report.tsv
           cp data/direct_tracking_diagnostic.json /tmp/advertising-control-refresh/direct_tracking_diagnostic.json
           cp data/direct_tracking_summary.json /tmp/advertising-control-refresh/direct_tracking_summary.json
+          cp data/direct_source_audit.json /tmp/advertising-control-refresh/direct_source_audit.json
           git fetch origin main
           git reset --hard origin/main
           cp /tmp/advertising-control-refresh/dashboard.json data/dashboard.json
@@ -77,7 +82,8 @@ jobs:
           cp /tmp/advertising-control-refresh/direct_report.tsv data/direct_report.tsv
           cp /tmp/advertising-control-refresh/direct_tracking_diagnostic.json data/direct_tracking_diagnostic.json
           cp /tmp/advertising-control-refresh/direct_tracking_summary.json data/direct_tracking_summary.json
-          git add data/dashboard.json data/direct_status.json data/direct_report.tsv data/direct_tracking_diagnostic.json data/direct_tracking_summary.json
+          cp /tmp/advertising-control-refresh/direct_source_audit.json data/direct_source_audit.json
+          git add data/dashboard.json data/direct_status.json data/direct_report.tsv data/direct_tracking_diagnostic.json data/direct_tracking_summary.json data/direct_source_audit.json
           if git diff --cached --quiet; then
             echo "No dashboard data changes"
           else
