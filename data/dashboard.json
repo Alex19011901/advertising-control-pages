@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-07T13:42:42+00:00",
+  "generated_at": "2026-09-07T13:44:24+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "4453094226380448842",
-      "updated_at": "2026-09-07T13:42:37+00:00",
+      "request_id": "5562580792029411704",
+      "updated_at": "2026-09-07T13:44:20+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-07"
     },
@@ -37,7 +37,7 @@
   },
   "kpi": {
     "cost": 55323.9,
-    "impressions": 134336,
+    "impressions": 134342,
     "clicks": 4611,
     "ctr": 3.43,
     "cpc": 12.0,
@@ -53,7 +53,7 @@
     "row_count": 587,
     "totals": {
       "cost": 55323.9,
-      "impressions": 134336,
+      "impressions": 134342,
       "clicks": 4611,
       "ctr": 3.43,
       "cpc": 12.0,
@@ -66,7 +66,7 @@
     "breakdown": [
       {
         "cost": 9376.35,
-        "impressions": 23635,
+        "impressions": 23636,
         "clicks": 1062,
         "ctr": 4.49,
         "cpc": 8.83,
@@ -85,7 +85,7 @@
       },
       {
         "cost": 6426.49,
-        "impressions": 29800,
+        "impressions": 29801,
         "clicks": 1078,
         "ctr": 3.62,
         "cpc": 5.96,
@@ -104,7 +104,7 @@
       },
       {
         "cost": 4402.79,
-        "impressions": 26694,
+        "impressions": 26696,
         "clicks": 1250,
         "ctr": 4.68,
         "cpc": 3.52,
@@ -389,7 +389,7 @@
       },
       {
         "cost": 604.33,
-        "impressions": 1586,
+        "impressions": 1588,
         "clicks": 23,
         "ctr": 1.45,
         "cpc": 26.28,
@@ -5978,7 +5978,7 @@
       "campaigns": [
         {
           "cost": 9442.87,
-          "impressions": 24506,
+          "impressions": 24507,
           "clicks": 1134,
           "ctr": 4.63,
           "cpc": 8.33,
@@ -5992,7 +5992,7 @@
         },
         {
           "cost": 8998.15,
-          "impressions": 55495,
+          "impressions": 55496,
           "clicks": 1401,
           "ctr": 2.52,
           "cpc": 6.42,
@@ -6062,7 +6062,7 @@
         },
         {
           "cost": 4402.79,
-          "impressions": 26694,
+          "impressions": 26696,
           "clicks": 1250,
           "ctr": 4.68,
           "cpc": 3.52,
@@ -6090,7 +6090,7 @@
         },
         {
           "cost": 764.14,
-          "impressions": 3477,
+          "impressions": 3479,
           "clicks": 79,
           "ctr": 2.27,
           "cpc": 9.67,
@@ -6148,7 +6148,7 @@
       "groups": [
         {
           "cost": 9442.87,
-          "impressions": 24353,
+          "impressions": 24354,
           "clicks": 1134,
           "ctr": 4.66,
           "cpc": 8.33,
@@ -6164,7 +6164,7 @@
         },
         {
           "cost": 6453.17,
-          "impressions": 30104,
+          "impressions": 30105,
           "clicks": 1084,
           "ctr": 3.6,
           "cpc": 5.95,
@@ -6180,7 +6180,7 @@
         },
         {
           "cost": 4402.79,
-          "impressions": 26694,
+          "impressions": 26696,
           "clicks": 1250,
           "ctr": 4.68,
           "cpc": 3.52,
@@ -6420,9 +6420,9 @@
         },
         {
           "cost": 679.54,
-          "impressions": 1809,
+          "impressions": 1811,
           "clicks": 75,
-          "ctr": 4.15,
+          "ctr": 4.14,
           "cpc": 9.06,
           "direct_conversions": 1.0,
           "revenue": null,
@@ -8966,7 +8966,7 @@
       "ads": [
         {
           "cost": 9376.35,
-          "impressions": 23635,
+          "impressions": 23636,
           "clicks": 1062,
           "ctr": 4.49,
           "cpc": 8.83,
@@ -8983,7 +8983,7 @@
         },
         {
           "cost": 6426.49,
-          "impressions": 29800,
+          "impressions": 29801,
           "clicks": 1078,
           "ctr": 3.62,
           "cpc": 5.96,
@@ -9000,7 +9000,7 @@
         },
         {
           "cost": 4402.79,
-          "impressions": 26694,
+          "impressions": 26696,
           "clicks": 1250,
           "ctr": 4.68,
           "cpc": 3.52,
@@ -9255,7 +9255,7 @@
         },
         {
           "cost": 604.33,
-          "impressions": 1586,
+          "impressions": 1588,
           "clicks": 23,
           "ctr": 1.45,
           "cpc": 26.28,
