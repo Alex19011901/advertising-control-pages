@@ -1,29 +1,8 @@
 {
   "schema_version": 1,
-  "utm_campaign_values_total": 5,
-  "exact_unique_values": 5,
+  "utm_campaign_values_total": 0,
+  "exact_unique_values": 0,
   "ambiguous_values": 0,
-  "exact_campaign_mapping": {
-    "Bankety_poisk_konversii": {
-      "campaign_id": "709907560",
-      "ads": 188
-    },
-    "Korporativy_do40_poisk_Loran": {
-      "campaign_id": "118776773",
-      "ads": 4
-    },
-    "Korporativy_poisk": {
-      "campaign_id": "118776773",
-      "ads": 568
-    },
-    "Svadba_poisk": {
-      "campaign_id": "118776779",
-      "ads": 520
-    },
-    "konferencii_poisk": {
-      "campaign_id": "118776764",
-      "ads": 152
-    }
-  },
+  "exact_campaign_mapping": {},
   "ambiguous_campaign_mapping": {}
 }
