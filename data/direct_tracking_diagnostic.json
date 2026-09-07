@@ -1,11 +1,336 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "mode": "read_only_direct_get",
-  "campaign_ids": [
+  "target_metrika_counter": 52597240,
+  "campaign_ids_from_report": [
     "118776773",
     "118776779",
     "709907560",
     "712849433"
+  ],
+  "campaigns_total": 27,
+  "campaigns_active_or_nonarchived": 14,
+  "campaigns_active_with_target_counter": 10,
+  "all_active_campaigns_have_target_counter": false,
+  "campaign_counter_audit": [
+    {
+      "campaign_id": "118194170",
+      "campaign_name": "Системная кампания eLama",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "118776760",
+      "campaign_name": "Поиск Банкеты",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        60220033,
+        52597240
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776764",
+      "campaign_name": "Поиск Конференция",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        60220033
+      ],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "118776773",
+      "campaign_name": "Поиск Корпоративы",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776779",
+      "campaign_name": "Поиск Свадебные банкеты",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776785",
+      "campaign_name": "Ремаркетинг",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776788",
+      "campaign_name": "РСЯ банкет",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776792",
+      "campaign_name": "РСЯ банкет Номера телефона (похожие)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776793",
+      "campaign_name": "РСЯ конференции",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776796",
+      "campaign_name": "РСЯ Корпоративы",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "118776798",
+      "campaign_name": "РСЯ Свадебные банкеты",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700089672",
+      "campaign_name": "Поиск Веранда",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ENDED",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        21405064,
+        60220033
+      ],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "700090618",
+      "campaign_name": "РСЯ Веранда в пределах 5 км",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        21405064,
+        60220033
+      ],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "700756959",
+      "campaign_name": "Поиск Детские праздники",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700756973",
+      "campaign_name": "Тест РСЯ Детские праздники",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792063",
+      "campaign_name": "Тест РСЯ банкет",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792068",
+      "campaign_name": "Тест РСЯ банкет Номера телефона (похожие)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792072",
+      "campaign_name": "Тест РСЯ конференции",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792082",
+      "campaign_name": "Тест РСЯ Корпоративы",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792084",
+      "campaign_name": "Тест РСЯ Свадебные банкеты",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "700792095",
+      "campaign_name": "Тест РСЯ Веранда",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ENDED",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        21405064,
+        60220033
+      ],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "702195391",
+      "campaign_name": "Тест РСЯ банкет (Похожие сайты)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "708328266",
+      "campaign_name": "РСЯ банкетное меню",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "709907560",
+      "campaign_name": "Поиск Банкеты( конверсии)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "709907569",
+      "campaign_name": "Поиск Банкеты( Ручные ставки)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        60220033,
+        52597240
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "712849433",
+      "campaign_name": "Поиск Банкеты квиз( конверсии)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
+      "metrika_counter_ids": [
+        60220033,
+        110789048
+      ],
+      "has_target_counter": false
+    },
+    {
+      "campaign_id": "712856378",
+      "campaign_name": "РСЯ банкет квиз",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        60220033,
+        110789048
+      ],
+      "has_target_counter": false
+    }
   ],
   "group_count": 419,
   "ad_count": 1323,
