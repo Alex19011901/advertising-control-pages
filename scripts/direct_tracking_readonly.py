@@ -15,6 +15,7 @@ REPORT = Path("data/direct_report.tsv")
 OUTPUT = Path("data/direct_tracking_diagnostic.json")
 BASE = "https://api.direct.yandex.com/json/v5"
 CLIENT_LOGIN = os.getenv("YANDEX_DIRECT_CLIENT_LOGIN", "e-20027205")
+TARGET_METRIKA_COUNTER = int(os.getenv("YANDEX_METRIKA_TARGET_COUNTER", "52597240"))
 
 
 def ssl_context() -> ssl.SSLContext:
@@ -53,7 +54,7 @@ def campaign_ids() -> list[int]:
             value = str(row.get("CampaignId") or "").strip()
             if value.isdigit() and int(value) not in ids:
                 ids.append(int(value))
-    return ids[:10]
+    return ids
 
 
 def sanitize_href(href: str) -> dict[str, Any]:
@@ -63,20 +64,78 @@ def sanitize_href(href: str) -> dict[str, Any]:
     parsed = urlsplit(text)
     query: dict[str, str] = {}
     for key, value in parse_qsl(parsed.query, keep_blank_values=True):
-        # Tracking templates are advertising configuration, not user data.
-        # Keep only attribution-related keys and truncate values.
         if key.lower().startswith("utm_") or key.lower() in {"yclid", "campaign", "cid", "gid", "gbid", "ad", "aid"}:
             query[key] = value[:200]
     return {"host": parsed.hostname or "", "path": parsed.path or "/", "query": query}
+
+
+def counter_items(value: Any) -> list[int]:
+    if isinstance(value, dict):
+        value = value.get("Items")
+    if not isinstance(value, list):
+        return []
+    result: list[int] = []
+    for item in value:
+        try:
+            result.append(int(item))
+        except (TypeError, ValueError):
+            continue
+    return result
+
+
+def campaign_counter_audit(token: str) -> list[dict[str, Any]]:
+    payload = {
+        "method": "get",
+        "params": {
+            "SelectionCriteria": {},
+            "FieldNames": ["Id", "Name", "Type", "State", "Status"],
+            "TextCampaignFieldNames": ["CounterIds"],
+            "DynamicTextCampaignFieldNames": ["CounterIds"],
+            "CpmBannerCampaignFieldNames": ["CounterIds"],
+            "SmartCampaignFieldNames": ["CounterId"],
+            "Page": {"Limit": 10000},
+        },
+    }
+    response = post("campaigns", payload, token)
+    campaigns = ((response.get("result") or {}).get("Campaigns") or [])
+    safe: list[dict[str, Any]] = []
+    for item in campaigns:
+        campaign_type = str(item.get("Type") or "")
+        counters: list[int] = []
+        if campaign_type == "TEXT_CAMPAIGN":
+            counters = counter_items((item.get("TextCampaign") or {}).get("CounterIds"))
+        elif campaign_type == "DYNAMIC_TEXT_CAMPAIGN":
+            counters = counter_items((item.get("DynamicTextCampaign") or {}).get("CounterIds"))
+        elif campaign_type == "CPM_BANNER_CAMPAIGN":
+            counters = counter_items((item.get("CpmBannerCampaign") or {}).get("CounterIds"))
+        elif campaign_type == "SMART_CAMPAIGN":
+            counter_id = (item.get("SmartCampaign") or {}).get("CounterId")
+            try:
+                counters = [int(counter_id)] if counter_id is not None else []
+            except (TypeError, ValueError):
+                counters = []
+        safe.append({
+            "campaign_id": str(item.get("Id") or ""),
+            "campaign_name": str(item.get("Name") or ""),
+            "type": campaign_type,
+            "state": str(item.get("State") or ""),
+            "status": str(item.get("Status") or ""),
+            "metrika_counter_ids": counters,
+            "has_target_counter": TARGET_METRIKA_COUNTER in counters,
+        })
+    return safe
 
 
 def main() -> int:
     token = os.getenv("YANDEX_DIRECT_TOKEN", "").strip()
     if not token:
         raise SystemExit("YANDEX_DIRECT_TOKEN is required")
+
     campaigns = campaign_ids()
     if not campaigns:
         raise SystemExit("No campaign IDs in Direct report")
+
+    campaign_audit = campaign_counter_audit(token)
 
     group_payload = {
         "method": "get",
@@ -127,10 +186,19 @@ def main() -> int:
             "href": sanitize_href(href),
         })
 
+    active_campaigns = [x for x in campaign_audit if x["state"] != "ARCHIVED"]
+    active_with_target = [x for x in active_campaigns if x["has_target_counter"]]
+
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "mode": "read_only_direct_get",
-        "campaign_ids": [str(x) for x in campaigns],
+        "target_metrika_counter": TARGET_METRIKA_COUNTER,
+        "campaign_ids_from_report": [str(x) for x in campaigns],
+        "campaigns_total": len(campaign_audit),
+        "campaigns_active_or_nonarchived": len(active_campaigns),
+        "campaigns_active_with_target_counter": len(active_with_target),
+        "all_active_campaigns_have_target_counter": bool(active_campaigns) and len(active_with_target) == len(active_campaigns),
+        "campaign_counter_audit": campaign_audit,
         "group_count": len(safe_groups),
         "ad_count": len(safe_ads),
         "groups_with_tracking_params": sum(1 for x in safe_groups if x["tracking_params"]),
@@ -143,10 +211,15 @@ def main() -> int:
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: payload[k] for k in (
-        "group_count", "ad_count", "groups_with_tracking_params", "ads_with_utm_campaign",
-        "ads_with_dynamic_campaign_id", "ads_with_dynamic_group_id", "ads_with_dynamic_ad_id"
-    )}, ensure_ascii=False))
+    print(json.dumps({
+        "target_metrika_counter": payload["target_metrika_counter"],
+        "campaigns_total": payload["campaigns_total"],
+        "campaigns_active_or_nonarchived": payload["campaigns_active_or_nonarchived"],
+        "campaigns_active_with_target_counter": payload["campaigns_active_with_target_counter"],
+        "all_active_campaigns_have_target_counter": payload["all_active_campaigns_have_target_counter"],
+        "group_count": payload["group_count"],
+        "ad_count": payload["ad_count"],
+    }, ensure_ascii=False))
     return 0
 
 
