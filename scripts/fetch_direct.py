@@ -20,12 +20,16 @@ REPORT_PATH = DATA_DIR / "direct_report.tsv"
 CLIENT_LOGIN = os.getenv("YANDEX_DIRECT_CLIENT_LOGIN", "e-20027205")
 REPORTS_URL = os.getenv("YANDEX_DIRECT_REPORTS_URL", "https://api.direct.yandex.com/json/v501/reports")
 DATE_RANGE = os.getenv("YANDEX_DIRECT_DATE_RANGE", "LAST_30_DAYS")
-REPORT_TYPE = os.getenv("YANDEX_DIRECT_REPORT_TYPE", "SEARCH_QUERY_PERFORMANCE_REPORT")
+REPORT_TYPE = os.getenv("YANDEX_DIRECT_REPORT_TYPE", "AD_PERFORMANCE_REPORT")
 INCLUDE_VAT = os.getenv("YANDEX_DIRECT_INCLUDE_VAT", "YES")
 INCLUDE_DISCOUNT = os.getenv("YANDEX_DIRECT_INCLUDE_DISCOUNT", "NO")
 MAX_ATTEMPTS = int(os.getenv("YANDEX_DIRECT_MAX_ATTEMPTS", "8"))
 REQUEST_TIMEOUT = int(os.getenv("YANDEX_DIRECT_REQUEST_TIMEOUT", "80"))
 
+# Canonical source for Advertising Control: one ad-level report that works for
+# search and network traffic alike. Do not include Query/Criterion here: those
+# fields are incompatible with AD_PERFORMANCE_REPORT and would also split the
+# same ad into multiple rows, which is undesirable for spend aggregation.
 FIELD_NAMES = [
     "Date",
     "CampaignId",
@@ -33,8 +37,6 @@ FIELD_NAMES = [
     "AdGroupId",
     "AdGroupName",
     "AdId",
-    "Query",
-    "Criterion",
     "Impressions",
     "Clicks",
     "Ctr",
