@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "utm_campaign_values_total": 4,
-  "exact_unique_values": 4,
+  "utm_campaign_values_total": 5,
+  "exact_unique_values": 5,
   "ambiguous_values": 0,
   "exact_campaign_mapping": {
     "Bankety_poisk_konversii": {
@@ -19,6 +19,10 @@
     "Svadba_poisk": {
       "campaign_id": "118776779",
       "ads": 520
+    },
+    "konferencii_poisk": {
+      "campaign_id": "118776764",
+      "ads": 152
     }
   },
   "ambiguous_campaign_mapping": {}

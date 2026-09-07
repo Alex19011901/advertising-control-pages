@@ -6,7 +6,8 @@
     "118776773",
     "118776779",
     "709907560",
-    "712849433"
+    "712849433",
+    "118776764"
   ],
   "campaigns_total": 27,
   "campaigns_active_or_nonarchived": 14,
@@ -332,10 +333,10 @@
       "has_target_counter": false
     }
   ],
-  "group_count": 419,
-  "ad_count": 1323,
+  "group_count": 495,
+  "ad_count": 1475,
   "groups_with_tracking_params": 43,
-  "ads_with_utm_campaign": 1280,
+  "ads_with_utm_campaign": 1432,
   "ads_with_dynamic_campaign_id": 0,
   "ads_with_dynamic_group_id": 0,
   "ads_with_dynamic_ad_id": 0,
@@ -2588,6 +2589,462 @@
       "campaign_id": "118776779",
       "group_id": "5596541487",
       "group_name": "банкетный зал для свадьбы москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983920",
+      "group_name": "аренда для пресс конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983921",
+      "group_name": "аренда зала для конференции москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983922",
+      "group_name": "аренда зала для конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983923",
+      "group_name": "аренда зала для проведения конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983924",
+      "group_name": "аренда помещений для проведения конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983925",
+      "group_name": "аренда помещения для конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983926",
+      "group_name": "аренда помещения для конференции москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983927",
+      "group_name": "аренда семинар",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983928",
+      "group_name": "большой зал для конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983929",
+      "group_name": "где можно провести конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983930",
+      "group_name": "где провести конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983931",
+      "group_name": "где провести конференцию в москве",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983932",
+      "group_name": "где провести пресс конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983933",
+      "group_name": "зал для конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983934",
+      "group_name": "зал для конференций москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983935",
+      "group_name": "зал для конференций тренингов",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983936",
+      "group_name": "зал для проведения конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983937",
+      "group_name": "зал под конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983938",
+      "group_name": "зал пресс конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983939",
+      "group_name": "зал для семинаров",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983940",
+      "group_name": "конференц зал",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983941",
+      "group_name": "конференц зал аренда",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983942",
+      "group_name": "конференц зал аренда москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983943",
+      "group_name": "конференц зал москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983944",
+      "group_name": "конференции семинары организация проведение",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983945",
+      "group_name": "медицинская конференция провести",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983946",
+      "group_name": "место проведения конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983947",
+      "group_name": "место проведения пресс конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983948",
+      "group_name": "организация и проведение деловых конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983949",
+      "group_name": "организация и проведение конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983950",
+      "group_name": "организация и проведение международных конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983951",
+      "group_name": "организация и проведение пресс конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983952",
+      "group_name": "организация конференции услуги",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983953",
+      "group_name": "организация конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983954",
+      "group_name": "организация конференций москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983955",
+      "group_name": "организация проводящие конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983956",
+      "group_name": "организовать и провести конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983957",
+      "group_name": "площадка для проведения конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983958",
+      "group_name": "подготовить и провести конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983959",
+      "group_name": "подготовка и проведение конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983960",
+      "group_name": "помещение проведения конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983961",
+      "group_name": "помещения конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983962",
+      "group_name": "помещения под конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983963",
+      "group_name": "проведем семинар конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983964",
+      "group_name": "проведение деловых конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983965",
+      "group_name": "проведение конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983966",
+      "group_name": "проведение конференций и семинаров",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983967",
+      "group_name": "проведение конференций москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983968",
+      "group_name": "проведение конференций стоимость",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983969",
+      "group_name": "проведение корпоративных конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983970",
+      "group_name": "проведение международной конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983971",
+      "group_name": "проведение научно практических конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983972",
+      "group_name": "проведение научной конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983973",
+      "group_name": "проведение пресс конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983974",
+      "group_name": "проведение форумов и конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983975",
+      "group_name": "провести бизнес конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983976",
+      "group_name": "провести деловую конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983977",
+      "group_name": "провести конференцию москва",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983978",
+      "group_name": "семинар москва аренда",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983979",
+      "group_name": "сколько стоит провести конференцию",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983980",
+      "group_name": "снять зал для конференции",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983981",
+      "group_name": "услуги по проведению конференций",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983982",
+      "group_name": "зал для проведения конференции с проектором",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983983",
+      "group_name": "зал для проведения конференции с экраном",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983984",
+      "group_name": "зал для проведения конференции с оборудованием",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983985",
+      "group_name": "бизнес завтрак",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983986",
+      "group_name": "бизнес завтрак +для предпринимателей",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983987",
+      "group_name": "бизнес завтрак мероприятие",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983988",
+      "group_name": "бизнес завтраки +в москве",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983989",
+      "group_name": "где провести бизнес завтрак",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983990",
+      "group_name": "где провести бизнес завтрак +в москве",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983991",
+      "group_name": "деловой завтрак бизнес завтрак",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983992",
+      "group_name": "организация бизнес завтраков",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983993",
+      "group_name": "площадка +для бизнес завтрака",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983994",
+      "group_name": "проведения бизнес завтрак",
+      "tracking_params": ""
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983995",
+      "group_name": "ресторан +для бизнес завтрака",
       "tracking_params": ""
     },
     {
@@ -20795,6 +21252,2438 @@
           "utm_source": "yandex_direct",
           "utm_medium": "cpc",
           "utm_campaign": "Svadba_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983920",
+      "ad_id": "16902905702",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983920",
+      "ad_id": "16902905703",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983921",
+      "ad_id": "16902905704",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983921",
+      "ad_id": "16902905705",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983922",
+      "ad_id": "16902905706",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983922",
+      "ad_id": "16902905707",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983923",
+      "ad_id": "16902905708",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983923",
+      "ad_id": "16902905709",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983924",
+      "ad_id": "16902905710",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983924",
+      "ad_id": "16902905711",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983925",
+      "ad_id": "16902905712",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983925",
+      "ad_id": "16902905713",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983926",
+      "ad_id": "16902905714",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983926",
+      "ad_id": "16902905715",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983927",
+      "ad_id": "16902905716",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983927",
+      "ad_id": "16902905717",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983928",
+      "ad_id": "16902905718",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983928",
+      "ad_id": "16902905719",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983929",
+      "ad_id": "16902905720",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983929",
+      "ad_id": "16902905721",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983930",
+      "ad_id": "16902905722",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983930",
+      "ad_id": "16902905723",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983931",
+      "ad_id": "16902905724",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983931",
+      "ad_id": "16902905725",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983932",
+      "ad_id": "16902905726",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983932",
+      "ad_id": "16902905727",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983933",
+      "ad_id": "16902905728",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983933",
+      "ad_id": "16902905729",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983934",
+      "ad_id": "16902905730",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983934",
+      "ad_id": "16902905731",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983935",
+      "ad_id": "16902905732",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983935",
+      "ad_id": "16902905733",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983936",
+      "ad_id": "16902905734",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983936",
+      "ad_id": "16902905735",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983937",
+      "ad_id": "16902905736",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983937",
+      "ad_id": "16902905737",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983938",
+      "ad_id": "16902905738",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983938",
+      "ad_id": "16902905739",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983939",
+      "ad_id": "16902905740",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983939",
+      "ad_id": "16902905741",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983940",
+      "ad_id": "16902905742",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983940",
+      "ad_id": "16902905743",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983941",
+      "ad_id": "16902905744",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983941",
+      "ad_id": "16902905745",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983942",
+      "ad_id": "16902905746",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983942",
+      "ad_id": "16902905747",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983943",
+      "ad_id": "16902905748",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983943",
+      "ad_id": "16902905749",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983944",
+      "ad_id": "16902905750",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983944",
+      "ad_id": "16902905751",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983945",
+      "ad_id": "16902905752",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983945",
+      "ad_id": "16902905753",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983946",
+      "ad_id": "16902905754",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983946",
+      "ad_id": "16902905755",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983947",
+      "ad_id": "16902905756",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983947",
+      "ad_id": "16902905757",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983948",
+      "ad_id": "16902905758",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983948",
+      "ad_id": "16902905759",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983949",
+      "ad_id": "16902905760",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983949",
+      "ad_id": "16902905761",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983950",
+      "ad_id": "16902905762",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983950",
+      "ad_id": "16902905763",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983951",
+      "ad_id": "16902905764",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983951",
+      "ad_id": "16902905765",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983952",
+      "ad_id": "16902905766",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983952",
+      "ad_id": "16902905767",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983953",
+      "ad_id": "16902905768",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983953",
+      "ad_id": "16902905769",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983954",
+      "ad_id": "16902905770",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983954",
+      "ad_id": "16902905771",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983955",
+      "ad_id": "16902905772",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983955",
+      "ad_id": "16902905773",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983956",
+      "ad_id": "16902905774",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983956",
+      "ad_id": "16902905775",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983957",
+      "ad_id": "16902905776",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983957",
+      "ad_id": "16902905777",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983958",
+      "ad_id": "16902905778",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983958",
+      "ad_id": "16902905779",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983959",
+      "ad_id": "16902905780",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983959",
+      "ad_id": "16902905781",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983960",
+      "ad_id": "16902905782",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983960",
+      "ad_id": "16902905783",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983961",
+      "ad_id": "16902905784",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983961",
+      "ad_id": "16902905785",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983962",
+      "ad_id": "16902905786",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983962",
+      "ad_id": "16902905787",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983963",
+      "ad_id": "16902905788",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983963",
+      "ad_id": "16902905789",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983964",
+      "ad_id": "16902905790",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983964",
+      "ad_id": "16902905791",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983965",
+      "ad_id": "16902905792",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983965",
+      "ad_id": "16902905793",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983966",
+      "ad_id": "16902905794",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983966",
+      "ad_id": "16902905795",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983967",
+      "ad_id": "16902905796",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983967",
+      "ad_id": "16902905797",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983968",
+      "ad_id": "16902905798",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983968",
+      "ad_id": "16902905799",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983969",
+      "ad_id": "16902905800",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983969",
+      "ad_id": "16902905801",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983970",
+      "ad_id": "16902905802",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983970",
+      "ad_id": "16902905803",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983971",
+      "ad_id": "16902905804",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983971",
+      "ad_id": "16902905805",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983972",
+      "ad_id": "16902905806",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983972",
+      "ad_id": "16902905807",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983973",
+      "ad_id": "16902905808",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983973",
+      "ad_id": "16902905809",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983974",
+      "ad_id": "16902905810",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983974",
+      "ad_id": "16902905811",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983975",
+      "ad_id": "16902905812",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983975",
+      "ad_id": "16902905813",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983976",
+      "ad_id": "16902905814",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983976",
+      "ad_id": "16902905815",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983977",
+      "ad_id": "16902905816",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983977",
+      "ad_id": "16902905817",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983978",
+      "ad_id": "16902905818",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983978",
+      "ad_id": "16902905819",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983979",
+      "ad_id": "16902905820",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983979",
+      "ad_id": "16902905821",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983980",
+      "ad_id": "16902905822",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983980",
+      "ad_id": "16902905823",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983981",
+      "ad_id": "16902905824",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983981",
+      "ad_id": "16902905825",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983982",
+      "ad_id": "16902905826",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983982",
+      "ad_id": "16902905827",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983983",
+      "ad_id": "16902905828",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983983",
+      "ad_id": "16902905829",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983984",
+      "ad_id": "16902905830",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983984",
+      "ad_id": "16902905831",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983985",
+      "ad_id": "16902905832",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983985",
+      "ad_id": "16902905833",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983986",
+      "ad_id": "16902905834",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983986",
+      "ad_id": "16902905835",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983987",
+      "ad_id": "16902905836",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983987",
+      "ad_id": "16902905837",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983988",
+      "ad_id": "16902905838",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983988",
+      "ad_id": "16902905839",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983989",
+      "ad_id": "16902905840",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983989",
+      "ad_id": "16902905841",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983990",
+      "ad_id": "16902905842",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983990",
+      "ad_id": "16902905843",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983991",
+      "ad_id": "16902905844",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983991",
+      "ad_id": "16902905845",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983992",
+      "ad_id": "16902905846",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983992",
+      "ad_id": "16902905847",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983993",
+      "ad_id": "16902905848",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983993",
+      "ad_id": "16902905849",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983994",
+      "ad_id": "16902905850",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983994",
+      "ad_id": "16902905851",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983995",
+      "ad_id": "16902905852",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
+          "utm_term": "{keyword}"
+        }
+      }
+    },
+    {
+      "campaign_id": "118776764",
+      "group_id": "5552983995",
+      "ad_id": "16902905853",
+      "type": "TEXT_AD",
+      "href": {
+        "host": "moscowbanket.ru",
+        "path": "/conference/",
+        "query": {
+          "utm_source": "yandex_direct",
+          "utm_medium": "cpc",
+          "utm_campaign": "konferencii_poisk",
           "utm_term": "{keyword}"
         }
       }
