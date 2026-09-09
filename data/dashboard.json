@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-08T21:49:11+00:00",
+  "generated_at": "2026-09-09T00:10:27+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "8762604031150412144",
-      "updated_at": "2026-09-08T21:49:07+00:00",
+      "request_id": "2911882816711384239",
+      "updated_at": "2026-09-09T00:10:22+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-09"
     },
@@ -37,7 +37,7 @@
   },
   "kpi": {
     "cost": 87985.96,
-    "impressions": 260826,
+    "impressions": 260827,
     "clicks": 6725,
     "ctr": 2.58,
     "cpc": 13.08,
@@ -50,10 +50,10 @@
     "roas": null
   },
   "direct": {
-    "row_count": 872,
+    "row_count": 873,
     "totals": {
       "cost": 87985.96,
-      "impressions": 260826,
+      "impressions": 260827,
       "clicks": 6725,
       "ctr": 2.58,
       "cpc": 13.08,
@@ -2327,9 +2327,9 @@
       },
       {
         "cost": 42.35,
-        "impressions": 458,
+        "impressions": 459,
         "clicks": 56,
-        "ctr": 12.23,
+        "ctr": 12.2,
         "cpc": 0.76,
         "direct_conversions": 72.0,
         "revenue": null,
@@ -7150,7 +7150,7 @@
         },
         {
           "cost": 8866.32,
-          "impressions": 47340,
+          "impressions": 47341,
           "clicks": 1078,
           "ctr": 2.28,
           "cpc": 8.22,
@@ -8594,9 +8594,9 @@
         },
         {
           "cost": 93.74,
-          "impressions": 748,
+          "impressions": 749,
           "clicks": 74,
-          "ctr": 9.89,
+          "ctr": 9.88,
           "cpc": 1.27,
           "direct_conversions": 89.0,
           "revenue": null,
@@ -12603,9 +12603,9 @@
         },
         {
           "cost": 42.35,
-          "impressions": 458,
+          "impressions": 459,
           "clicks": 56,
-          "ctr": 12.23,
+          "ctr": 12.2,
           "cpc": 0.76,
           "direct_conversions": 72.0,
           "revenue": null,
