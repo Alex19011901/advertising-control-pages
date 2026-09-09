@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-09T14:31:35+00:00",
+  "generated_at": "2026-09-09T18:32:40+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "6705882310841187683",
-      "updated_at": "2026-09-09T14:31:30+00:00",
+      "request_id": "3226706637382357478",
+      "updated_at": "2026-09-09T18:32:36+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-09"
     },
@@ -17,15 +17,15 @@
       "status": "ok",
       "message": "Lead Control JSON loaded.",
       "url": "https://alex19011901.github.io/lead-control-pages/dashboard_view.json",
-      "snapshot_at": "2026-09-09T14:26:42+03:00",
-      "snapshot_generated_at": "2026-09-09T12:54:38Z"
+      "snapshot_at": "2026-09-09T19:52:00+03:00",
+      "snapshot_generated_at": "2026-09-09T18:28:20Z"
     },
     "lead_attribution": {
       "status": "ok",
       "message": "Lead Control advertising export loaded.",
       "url": "https://alex19011901.github.io/lead-control-pages/advertising_leads.json",
       "start_date": "2026-09-05",
-      "lead_count": 34,
+      "lead_count": 38,
       "metrika_attribution_map": {
         "status": "ok",
         "url": "https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map.json",
@@ -36,12 +36,12 @@
     }
   },
   "kpi": {
-    "cost": 120222.11,
-    "impressions": 374157,
-    "clicks": 7976,
+    "cost": 120223.31,
+    "impressions": 374313,
+    "clicks": 7978,
     "ctr": 2.13,
     "cpc": 15.07,
-    "direct_conversions": 1499.0,
+    "direct_conversions": 1506.0,
     "real_leads": 0,
     "fact_cpl": null,
     "quality_leads": null,
@@ -52,12 +52,12 @@
   "direct": {
     "row_count": 1159,
     "totals": {
-      "cost": 120222.11,
-      "impressions": 374157,
-      "clicks": 7976,
+      "cost": 120223.31,
+      "impressions": 374313,
+      "clicks": 7978,
       "ctr": 2.13,
       "cpc": 15.07,
-      "direct_conversions": 1499.0,
+      "direct_conversions": 1506.0,
       "revenue": null,
       "real_leads": 0,
       "fact_cpl": null,
@@ -66,9 +66,9 @@
     "breakdown": [
       {
         "cost": 23027.04,
-        "impressions": 89200,
+        "impressions": 89253,
         "clicks": 1557,
-        "ctr": 1.75,
+        "ctr": 1.74,
         "cpc": 14.79,
         "direct_conversions": 61.0,
         "revenue": null,
@@ -85,7 +85,7 @@
       },
       {
         "cost": 12681.59,
-        "impressions": 67158,
+        "impressions": 67184,
         "clicks": 2060,
         "ctr": 3.07,
         "cpc": 6.16,
@@ -103,11 +103,11 @@
         "ad_or_query": "17085710335"
       },
       {
-        "cost": 9693.85,
-        "impressions": 61946,
-        "clicks": 1655,
+        "cost": 9694.31,
+        "impressions": 61977,
+        "clicks": 1656,
         "ctr": 2.67,
-        "cpc": 5.86,
+        "cpc": 5.85,
         "direct_conversions": 21.0,
         "revenue": null,
         "real_leads": null,
@@ -123,11 +123,11 @@
       },
       {
         "cost": 3877.18,
-        "impressions": 22108,
+        "impressions": 22120,
         "clicks": 297,
         "ctr": 1.34,
         "cpc": 13.05,
-        "direct_conversions": 247.0,
+        "direct_conversions": 249.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -142,11 +142,11 @@
       },
       {
         "cost": 3558.19,
-        "impressions": 26958,
+        "impressions": 26971,
         "clicks": 261,
         "ctr": 0.97,
         "cpc": 13.63,
-        "direct_conversions": 224.0,
+        "direct_conversions": 226.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -256,7 +256,7 @@
       },
       {
         "cost": 1438.51,
-        "impressions": 4269,
+        "impressions": 4271,
         "clicks": 63,
         "ctr": 1.48,
         "cpc": 22.83,
@@ -332,11 +332,11 @@
       },
       {
         "cost": 1159.0,
-        "impressions": 9131,
+        "impressions": 9133,
         "clicks": 177,
         "ctr": 1.94,
         "cpc": 6.55,
-        "direct_conversions": 159.0,
+        "direct_conversions": 160.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -426,11 +426,11 @@
         "ad_or_query": "1915822986185365500"
       },
       {
-        "cost": 1067.79,
-        "impressions": 19523,
-        "clicks": 207,
-        "ctr": 1.06,
-        "cpc": 5.16,
+        "cost": 1068.53,
+        "impressions": 19525,
+        "clicks": 208,
+        "ctr": 1.07,
+        "cpc": 5.14,
         "direct_conversions": 1.0,
         "revenue": null,
         "real_leads": null,
@@ -788,7 +788,7 @@
       },
       {
         "cost": 639.55,
-        "impressions": 4946,
+        "impressions": 4950,
         "clicks": 54,
         "ctr": 1.09,
         "cpc": 11.84,
@@ -883,7 +883,7 @@
       },
       {
         "cost": 606.52,
-        "impressions": 6764,
+        "impressions": 6765,
         "clicks": 27,
         "ctr": 0.4,
         "cpc": 22.46,
@@ -1054,7 +1054,7 @@
       },
       {
         "cost": 525.93,
-        "impressions": 7970,
+        "impressions": 7971,
         "clicks": 54,
         "ctr": 0.68,
         "cpc": 9.74,
@@ -1263,7 +1263,7 @@
       },
       {
         "cost": 431.01,
-        "impressions": 2511,
+        "impressions": 2512,
         "clicks": 115,
         "ctr": 4.58,
         "cpc": 3.75,
@@ -1301,7 +1301,7 @@
       },
       {
         "cost": 411.9,
-        "impressions": 4274,
+        "impressions": 4275,
         "clicks": 23,
         "ctr": 0.54,
         "cpc": 17.91,
@@ -1320,7 +1320,7 @@
       },
       {
         "cost": 406.42,
-        "impressions": 5391,
+        "impressions": 5393,
         "clicks": 25,
         "ctr": 0.46,
         "cpc": 16.26,
@@ -1495,7 +1495,7 @@
         "clicks": 95,
         "ctr": 18.92,
         "cpc": 3.88,
-        "direct_conversions": null,
+        "direct_conversions": 1.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -2137,7 +2137,7 @@
       },
       {
         "cost": 143.28,
-        "impressions": 480,
+        "impressions": 481,
         "clicks": 4,
         "ctr": 0.83,
         "cpc": 35.82,
@@ -2293,7 +2293,7 @@
         "clicks": 4,
         "ctr": 1.43,
         "cpc": 31.71,
-        "direct_conversions": 2.0,
+        "direct_conversions": 3.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -2726,9 +2726,9 @@
       },
       {
         "cost": 47.34,
-        "impressions": 572,
+        "impressions": 574,
         "clicks": 64,
-        "ctr": 11.19,
+        "ctr": 11.15,
         "cpc": 0.74,
         "direct_conversions": 78.0,
         "revenue": null,
@@ -4113,7 +4113,7 @@
       },
       {
         "cost": null,
-        "impressions": 191,
+        "impressions": 192,
         "clicks": null,
         "ctr": 0.0,
         "cpc": null,
@@ -4265,7 +4265,7 @@
       },
       {
         "cost": null,
-        "impressions": 155,
+        "impressions": 156,
         "clicks": null,
         "ctr": 0.0,
         "cpc": null,
@@ -7916,7 +7916,7 @@
       "campaigns": [
         {
           "cost": 23272.09,
-          "impressions": 91501,
+          "impressions": 91554,
           "clicks": 1660,
           "ctr": 1.81,
           "cpc": 14.02,
@@ -7929,9 +7929,9 @@
           "campaign": "Тест РСЯ банкет"
         },
         {
-          "cost": 19227.11,
-          "impressions": 136880,
-          "clicks": 2852,
+          "cost": 19227.85,
+          "impressions": 136918,
+          "clicks": 2853,
           "ctr": 2.08,
           "cpc": 6.74,
           "direct_conversions": 15.0,
@@ -7986,11 +7986,11 @@
         },
         {
           "cost": 11414.9,
-          "impressions": 69867,
+          "impressions": 69898,
           "clicks": 1370,
           "ctr": 1.96,
           "cpc": 8.33,
-          "direct_conversions": 1297.0,
+          "direct_conversions": 1303.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -7999,11 +7999,11 @@
           "campaign": "Тест РСЯ Свадебные банкеты"
         },
         {
-          "cost": 9693.85,
-          "impressions": 61946,
-          "clicks": 1655,
+          "cost": 9694.31,
+          "impressions": 61977,
+          "clicks": 1656,
           "ctr": 2.67,
-          "cpc": 5.86,
+          "cpc": 5.85,
           "direct_conversions": 21.0,
           "revenue": null,
           "real_leads": 0,
@@ -8028,11 +8028,11 @@
         },
         {
           "cost": 2556.86,
-          "impressions": 11980,
+          "impressions": 11983,
           "clicks": 282,
           "ctr": 2.35,
           "cpc": 9.07,
-          "direct_conversions": 4.0,
+          "direct_conversions": 5.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8086,9 +8086,9 @@
       "groups": [
         {
           "cost": 23272.09,
-          "impressions": 90950,
+          "impressions": 91003,
           "clicks": 1660,
-          "ctr": 1.83,
+          "ctr": 1.82,
           "cpc": 14.02,
           "direct_conversions": 61.0,
           "revenue": null,
@@ -8102,7 +8102,7 @@
         },
         {
           "cost": 12865.57,
-          "impressions": 68659,
+          "impressions": 68685,
           "clicks": 2090,
           "ctr": 3.04,
           "cpc": 6.16,
@@ -8117,11 +8117,11 @@
           "group": "корпоратив на 200 челоек"
         },
         {
-          "cost": 9693.85,
-          "impressions": 61946,
-          "clicks": 1655,
+          "cost": 9694.31,
+          "impressions": 61977,
+          "clicks": 1656,
           "ctr": 2.67,
-          "cpc": 5.86,
+          "cpc": 5.85,
           "direct_conversions": 21.0,
           "revenue": null,
           "real_leads": 0,
@@ -8134,11 +8134,11 @@
         },
         {
           "cost": 7455.85,
-          "impressions": 49608,
+          "impressions": 49633,
           "clicks": 559,
           "ctr": 1.13,
           "cpc": 13.34,
-          "direct_conversions": 472.0,
+          "direct_conversions": 476.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8214,11 +8214,11 @@
         },
         {
           "cost": 1950.34,
-          "impressions": 5216,
+          "impressions": 5218,
           "clicks": 255,
           "ctr": 4.89,
           "cpc": 7.65,
-          "direct_conversions": 3.0,
+          "direct_conversions": 4.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8326,11 +8326,11 @@
         },
         {
           "cost": 1287.03,
-          "impressions": 9822,
+          "impressions": 9824,
           "clicks": 199,
           "ctr": 2.03,
           "cpc": 6.47,
-          "direct_conversions": 188.0,
+          "direct_conversions": 189.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8373,11 +8373,11 @@
           "group": "корпоратив 40"
         },
         {
-          "cost": 1131.3,
-          "impressions": 20999,
-          "clicks": 211,
-          "ctr": 1.0,
-          "cpc": 5.36,
+          "cost": 1132.04,
+          "impressions": 21001,
+          "clicks": 212,
+          "ctr": 1.01,
+          "cpc": 5.34,
           "direct_conversions": 1.0,
           "revenue": null,
           "real_leads": 0,
@@ -8694,7 +8694,7 @@
         },
         {
           "cost": 667.44,
-          "impressions": 5883,
+          "impressions": 5887,
           "clicks": 55,
           "ctr": 0.93,
           "cpc": 12.14,
@@ -8822,7 +8822,7 @@
         },
         {
           "cost": 606.52,
-          "impressions": 6764,
+          "impressions": 6765,
           "clicks": 27,
           "ctr": 0.4,
           "cpc": 22.46,
@@ -8874,7 +8874,7 @@
           "clicks": 32,
           "ctr": 2.06,
           "cpc": 17.73,
-          "direct_conversions": 31.0,
+          "direct_conversions": 32.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8918,7 +8918,7 @@
         },
         {
           "cost": 525.93,
-          "impressions": 7970,
+          "impressions": 7971,
           "clicks": 54,
           "ctr": 0.68,
           "cpc": 9.74,
@@ -9030,7 +9030,7 @@
         },
         {
           "cost": 459.45,
-          "impressions": 5673,
+          "impressions": 5674,
           "clicks": 24,
           "ctr": 0.42,
           "cpc": 19.14,
@@ -9046,7 +9046,7 @@
         },
         {
           "cost": 431.01,
-          "impressions": 2645,
+          "impressions": 2646,
           "clicks": 115,
           "ctr": 4.35,
           "cpc": 3.75,
@@ -9094,7 +9094,7 @@
         },
         {
           "cost": 406.42,
-          "impressions": 5391,
+          "impressions": 5393,
           "clicks": 25,
           "ctr": 0.46,
           "cpc": 16.26,
@@ -9494,9 +9494,9 @@
         },
         {
           "cost": 180.45,
-          "impressions": 1250,
+          "impressions": 1251,
           "clicks": 155,
-          "ctr": 12.4,
+          "ctr": 12.39,
           "cpc": 1.16,
           "direct_conversions": 163.0,
           "revenue": null,
@@ -9574,7 +9574,7 @@
         },
         {
           "cost": 143.28,
-          "impressions": 1120,
+          "impressions": 1121,
           "clicks": 4,
           "ctr": 0.36,
           "cpc": 35.82,
@@ -9702,9 +9702,9 @@
         },
         {
           "cost": 99.3,
-          "impressions": 928,
+          "impressions": 930,
           "clicks": 83,
-          "ctr": 8.94,
+          "ctr": 8.92,
           "cpc": 1.2,
           "direct_conversions": 95.0,
           "revenue": null,
@@ -9814,7 +9814,7 @@
         },
         {
           "cost": 37.92,
-          "impressions": 604,
+          "impressions": 605,
           "clicks": 4,
           "ctr": 0.66,
           "cpc": 9.48,
@@ -11752,9 +11752,9 @@
       "ads": [
         {
           "cost": 23027.04,
-          "impressions": 89200,
+          "impressions": 89253,
           "clicks": 1557,
-          "ctr": 1.75,
+          "ctr": 1.74,
           "cpc": 14.79,
           "direct_conversions": 61.0,
           "revenue": null,
@@ -11769,7 +11769,7 @@
         },
         {
           "cost": 12681.59,
-          "impressions": 67158,
+          "impressions": 67184,
           "clicks": 2060,
           "ctr": 3.07,
           "cpc": 6.16,
@@ -11785,11 +11785,11 @@
           "group": "корпоратив на 200 челоек"
         },
         {
-          "cost": 9693.85,
-          "impressions": 61946,
-          "clicks": 1655,
+          "cost": 9694.31,
+          "impressions": 61977,
+          "clicks": 1656,
           "ctr": 2.67,
-          "cpc": 5.86,
+          "cpc": 5.85,
           "direct_conversions": 21.0,
           "revenue": null,
           "real_leads": 0,
@@ -11803,11 +11803,11 @@
         },
         {
           "cost": 3877.18,
-          "impressions": 22108,
+          "impressions": 22120,
           "clicks": 297,
           "ctr": 1.34,
           "cpc": 13.05,
-          "direct_conversions": 247.0,
+          "direct_conversions": 249.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -11820,11 +11820,11 @@
         },
         {
           "cost": 3558.19,
-          "impressions": 26958,
+          "impressions": 26971,
           "clicks": 261,
           "ctr": 0.97,
           "cpc": 13.63,
-          "direct_conversions": 224.0,
+          "direct_conversions": 226.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -11922,7 +11922,7 @@
         },
         {
           "cost": 1438.51,
-          "impressions": 4269,
+          "impressions": 4271,
           "clicks": 63,
           "ctr": 1.48,
           "cpc": 22.83,
@@ -11990,11 +11990,11 @@
         },
         {
           "cost": 1159.0,
-          "impressions": 9131,
+          "impressions": 9133,
           "clicks": 177,
           "ctr": 1.94,
           "cpc": 6.55,
-          "direct_conversions": 159.0,
+          "direct_conversions": 160.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -12074,11 +12074,11 @@
           "group": "банкеты корпоративы"
         },
         {
-          "cost": 1067.79,
-          "impressions": 19523,
-          "clicks": 207,
-          "ctr": 1.06,
-          "cpc": 5.16,
+          "cost": 1068.53,
+          "impressions": 19525,
+          "clicks": 208,
+          "ctr": 1.07,
+          "cpc": 5.14,
           "direct_conversions": 1.0,
           "revenue": null,
           "real_leads": 0,
@@ -12398,7 +12398,7 @@
         },
         {
           "cost": 639.55,
-          "impressions": 4946,
+          "impressions": 4950,
           "clicks": 54,
           "ctr": 1.09,
           "cpc": 11.84,
@@ -12483,7 +12483,7 @@
         },
         {
           "cost": 606.52,
-          "impressions": 6764,
+          "impressions": 6765,
           "clicks": 27,
           "ctr": 0.4,
           "cpc": 22.46,
@@ -12636,7 +12636,7 @@
         },
         {
           "cost": 525.93,
-          "impressions": 7970,
+          "impressions": 7971,
           "clicks": 54,
           "ctr": 0.68,
           "cpc": 9.74,
@@ -12823,7 +12823,7 @@
         },
         {
           "cost": 431.01,
-          "impressions": 2511,
+          "impressions": 2512,
           "clicks": 115,
           "ctr": 4.58,
           "cpc": 3.75,
@@ -12857,7 +12857,7 @@
         },
         {
           "cost": 411.9,
-          "impressions": 4274,
+          "impressions": 4275,
           "clicks": 23,
           "ctr": 0.54,
           "cpc": 17.91,
@@ -12874,7 +12874,7 @@
         },
         {
           "cost": 406.42,
-          "impressions": 5391,
+          "impressions": 5393,
           "clicks": 25,
           "ctr": 0.46,
           "cpc": 16.26,
@@ -13031,7 +13031,7 @@
           "clicks": 95,
           "ctr": 18.92,
           "cpc": 3.88,
-          "direct_conversions": null,
+          "direct_conversions": 1.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -13605,7 +13605,7 @@
         },
         {
           "cost": 143.28,
-          "impressions": 480,
+          "impressions": 481,
           "clicks": 4,
           "ctr": 0.83,
           "cpc": 35.82,
@@ -13745,7 +13745,7 @@
           "clicks": 4,
           "ctr": 1.43,
           "cpc": 31.71,
-          "direct_conversions": 2.0,
+          "direct_conversions": 3.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -14132,9 +14132,9 @@
         },
         {
           "cost": 47.34,
-          "impressions": 572,
+          "impressions": 574,
           "clicks": 64,
-          "ctr": 11.19,
+          "ctr": 11.15,
           "cpc": 0.74,
           "direct_conversions": 78.0,
           "revenue": null,
@@ -15373,7 +15373,7 @@
         },
         {
           "cost": null,
-          "impressions": 191,
+          "impressions": 192,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
@@ -15509,7 +15509,7 @@
         },
         {
           "cost": null,
-          "impressions": 155,
+          "impressions": 156,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
@@ -18779,10 +18779,10 @@
     "historical_backfill": false,
     "start_date": "2026-09-05",
     "summary": {
-      "total": 34,
+      "total": 38,
       "with_yclid": 5,
       "exact_id_matches_available": 0,
-      "unmatched": 34,
+      "unmatched": 38,
       "by_campaign": {},
       "by_group": {},
       "by_ad": {}
@@ -19459,8 +19459,8 @@
         "has_metrika_client_id": false,
         "metrika_client_id_sha256": "",
         "event_type": "Свадьба",
-        "status": "PENDING",
-        "crm_found": false,
+        "status": "OK",
+        "crm_found": true,
         "crm_status": "",
         "utm_source": "",
         "utm_medium": "",
@@ -19480,9 +19480,9 @@
         "yclid_sha256": "",
         "has_metrika_client_id": false,
         "metrika_client_id_sha256": "",
-        "event_type": "",
-        "status": "PENDING",
-        "crm_found": false,
+        "event_type": "Свадьба",
+        "status": "OK",
+        "crm_found": true,
         "crm_status": "",
         "utm_source": "",
         "utm_medium": "",
@@ -19535,6 +19535,94 @@
         "group_id": "",
         "ad_id": "",
         "attribution_method": "no_client_id"
+      },
+      {
+        "lead_id": "5d50b515a2ed2293",
+        "created_at": "2026-09-09T17:23:38+03:00",
+        "created_ts": 1788963818,
+        "source": "Заявки хост",
+        "channel": "MAX",
+        "has_yclid": false,
+        "yclid_sha256": "",
+        "has_metrika_client_id": false,
+        "metrika_client_id_sha256": "",
+        "event_type": "Свадьба",
+        "status": "OK",
+        "crm_found": true,
+        "crm_status": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "campaign_id": "",
+        "group_id": "",
+        "ad_id": "",
+        "attribution_method": "no_client_id"
+      },
+      {
+        "lead_id": "282cfe919727ddee",
+        "created_at": "2026-09-09T18:15:33+03:00",
+        "created_ts": 1788966933,
+        "source": "Заявки хост",
+        "channel": "MAX",
+        "has_yclid": false,
+        "yclid_sha256": "",
+        "has_metrika_client_id": false,
+        "metrika_client_id_sha256": "",
+        "event_type": "Корпоратив",
+        "status": "OK",
+        "crm_found": true,
+        "crm_status": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "campaign_id": "",
+        "group_id": "",
+        "ad_id": "",
+        "attribution_method": "no_client_id"
+      },
+      {
+        "lead_id": "0e0b8802dba333fd",
+        "created_at": "2026-09-09T18:30:37+03:00",
+        "created_ts": 1788967837,
+        "source": "САЙТ ТИЛЬДА",
+        "channel": "TELEGRAM",
+        "has_yclid": false,
+        "yclid_sha256": "",
+        "has_metrika_client_id": false,
+        "metrika_client_id_sha256": "",
+        "event_type": "",
+        "status": "PENDING",
+        "crm_found": false,
+        "crm_status": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "campaign_id": "",
+        "group_id": "",
+        "ad_id": "",
+        "attribution_method": "no_client_id"
+      },
+      {
+        "lead_id": "5df519ccfc9de723",
+        "created_at": "2026-09-09T19:52:00+03:00",
+        "created_ts": 1788972720,
+        "source": "Тильда Веранда",
+        "channel": "MAX",
+        "has_yclid": false,
+        "yclid_sha256": "",
+        "has_metrika_client_id": false,
+        "metrika_client_id_sha256": "",
+        "event_type": "",
+        "status": "-",
+        "crm_found": false,
+        "crm_status": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "campaign_id": "",
+        "group_id": "",
+        "ad_id": "",
+        "attribution_method": "no_client_id"
       }
     ]
   },
@@ -19543,25 +19631,27 @@
       "today": {
         "start": "2026-09-09",
         "end": "2026-09-09",
-        "real_leads": 6,
+        "real_leads": 10,
         "status": {
-          "PENDING": 4,
-          "OK": 2
+          "OK": 6,
+          "PENDING": 3,
+          "-": 1
         },
         "source": {
-          "САЙТ ТИЛЬДА": 1,
+          "САЙТ ТИЛЬДА": 2,
           "MARQUIZ": 1,
-          "Заявки хост": 4
+          "Заявки хост": 6,
+          "Тильда Веранда": 1
         },
         "event": {
-          "Свадьба": 1,
-          "Корпоратив": 2,
+          "Свадьба": 3,
+          "Корпоратив": 3,
           "Юбилей": 1,
           "Не определено": 2
         },
         "channel": {
-          "TELEGRAM": 2,
-          "MAX": 4
+          "TELEGRAM": 3,
+          "MAX": 7
         }
       },
       "yesterday": {
@@ -19591,49 +19681,49 @@
       "7": {
         "start": "2026-09-03",
         "end": "2026-09-09",
-        "real_leads": 46,
+        "real_leads": 50,
         "status": {
-          "OK": 40,
-          "-": 2,
-          "PENDING": 4
+          "OK": 44,
+          "-": 3,
+          "PENDING": 3
         },
         "source": {
-          "САЙТ ТИЛЬДА": 13,
-          "Тильда Веранда": 2,
+          "САЙТ ТИЛЬДА": 14,
+          "Тильда Веранда": 3,
           "Заявка с ТГ": 4,
-          "Заявки хост": 19,
+          "Заявки хост": 21,
           "MARQUIZ": 5,
           "WedWed": 1,
           "ЗАЯВКА ПОЧТА": 2
         },
         "event": {
           "Юбилей": 10,
-          "Свадьба": 16,
-          "Корпоратив": 15,
+          "Свадьба": 18,
+          "Корпоратив": 16,
           "Не определено": 3
         },
         "channel": {
-          "TELEGRAM": 18,
-          "MAX": 28
+          "TELEGRAM": 19,
+          "MAX": 31
         }
       },
       "30": {
         "start": "2026-08-11",
         "end": "2026-09-09",
-        "real_leads": 225,
+        "real_leads": 229,
         "status": {
           "LATE_CRM": 29,
-          "OK": 179,
-          "-": 13,
-          "PENDING": 4
+          "OK": 183,
+          "-": 14,
+          "PENDING": 3
         },
         "source": {
-          "САЙТ ТИЛЬДА": 56,
+          "САЙТ ТИЛЬДА": 57,
           "MARQUIZ": 16,
           "Заявка с ТГ": 13,
-          "Заявки хост": 112,
+          "Заявки хост": 114,
           "WedWed": 3,
-          "Тильда Веранда": 13,
+          "Тильда Веранда": 14,
           "С улицы": 1,
           "Restoran.Cafe": 2,
           "ТоМесто": 1,
@@ -19641,32 +19731,32 @@
         },
         "event": {
           "Юбилей": 35,
-          "Свадьба": 71,
+          "Свадьба": 73,
           "Бизнес мероприятие": 6,
-          "Корпоратив": 76,
+          "Корпоратив": 77,
           "Не определено": 19,
           "Детский праздник": 4,
           "Выпускной": 1
         },
         "channel": {
-          "TELEGRAM": 74,
-          "MAX": 151
+          "TELEGRAM": 75,
+          "MAX": 154
         }
       },
       "all": {
         "start": "2026-07-01",
         "end": "2026-09-09",
-        "real_leads": 501,
+        "real_leads": 505,
         "status": {
           "LATE_CRM": 110,
-          "OK": 340,
-          "-": 47,
-          "PENDING": 4
+          "OK": 344,
+          "-": 48,
+          "PENDING": 3
         },
         "source": {
-          "САЙТ ТИЛЬДА": 128,
-          "Тильда Веранда": 43,
-          "Заявки хост": 255,
+          "САЙТ ТИЛЬДА": 129,
+          "Тильда Веранда": 44,
+          "Заявки хост": 257,
           "Заявка с ТГ": 21,
           "WedWed": 7,
           "С улицы": 2,
@@ -19678,8 +19768,8 @@
         },
         "event": {
           "Юбилей": 94,
-          "Корпоратив": 121,
-          "Свадьба": 160,
+          "Корпоратив": 122,
+          "Свадьба": 162,
           "Не определено": 56,
           "Бизнес мероприятие": 17,
           "Детский праздник": 5,
@@ -19689,8 +19779,8 @@
           "Выпускной": 1
         },
         "channel": {
-          "TELEGRAM": 160,
-          "MAX": 341
+          "TELEGRAM": 161,
+          "MAX": 344
         }
       }
     },
