@@ -1,0 +1,143 @@
+name: One-off Canonical CRM Status Live Check
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/canonical-status-live-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      LEAD_CONTROL_SHA: f5b038e7966aceef9929489057d5979c70f4cc38
+    steps:
+      - name: Checkout Advertising Control
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify isolated status-map and join checks
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          checks = [
+              ("tests/test_canonical_lead_status_map.py", [
+                  "test_uses_only_crm_feedback_for_canonical_status",
+                  "test_accepts_list_payload_and_skips_empty_feedback",
+              ]),
+              ("tests/test_canonical_lead_status_join.py", [
+                  "test_exact_lead_id_join_overrides_noncanonical_status",
+                  "test_never_falls_back_when_exact_lead_id_is_missing_or_unmatched",
+              ]),
+          ]
+          passed = 0
+          for path_text, names in checks:
+              path = Path(path_text)
+              spec = importlib.util.spec_from_file_location(path.stem, path)
+              module = importlib.util.module_from_spec(spec)
+              assert spec and spec.loader
+              spec.loader.exec_module(module)
+              for name in names:
+                  getattr(module, name)()
+                  passed += 1
+          print({"unit_checks": passed, "status": "passed"})
+          PY
+
+      - name: Fetch one exact Lead Control snapshot read-only
+        run: |
+          set -euo pipefail
+          base="https://raw.githubusercontent.com/Alex19011901/lead-control-pages/${LEAD_CONTROL_SHA}/runtime-data"
+          curl --fail --silent --show-error --location --retry 2 "$base/leads.json" -o /tmp/leads.json
+          curl --fail --silent --show-error --location --retry 2 "$base/advertising_leads.json" -o /tmp/advertising_leads.json
+          test -s /tmp/leads.json
+          test -s /tmp/advertising_leads.json
+          echo "Lead Control snapshot: ${LEAD_CONTROL_SHA}"
+
+      - name: Check exact lead_id CRM-status join on live snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          import sys
+
+          sys.path.insert(0, str(Path("scripts").resolve()))
+          from build_canonical_lead_status_map import build_status_map
+          from join_canonical_lead_status import join_canonical_statuses
+
+          leads_payload = json.loads(Path("/tmp/leads.json").read_text(encoding="utf-8"))
+          advertising_payload = json.loads(Path("/tmp/advertising_leads.json").read_text(encoding="utf-8"))
+
+          original = {
+              str(row.get("lead_id") or ""): (
+                  str(row.get("campaign_id") or ""),
+                  str(row.get("group_id") or ""),
+                  str(row.get("ad_id") or ""),
+                  str(row.get("metrika_client_id_sha256") or ""),
+                  str(row.get("yclid_sha256") or ""),
+              )
+              for row in advertising_payload.get("leads", [])
+              if isinstance(row, dict) and str(row.get("lead_id") or "")
+          }
+
+          status_map = build_status_map(leads_payload)
+          joined, stats = join_canonical_statuses(advertising_payload, status_map)
+
+          after = {
+              str(row.get("lead_id") or ""): (
+                  str(row.get("campaign_id") or ""),
+                  str(row.get("group_id") or ""),
+                  str(row.get("ad_id") or ""),
+                  str(row.get("metrika_client_id_sha256") or ""),
+                  str(row.get("yclid_sha256") or ""),
+              )
+              for row in joined.get("leads", [])
+              if isinstance(row, dict) and str(row.get("lead_id") or "")
+          }
+
+          if original != after:
+              raise SystemExit("ERROR: attribution or hashed identifiers changed during CRM-status join")
+
+          joined_rows = [row for row in joined.get("leads", []) if isinstance(row, dict)]
+          status_counts = Counter(
+              str(row.get("crm_status") or "")
+              for row in joined_rows
+              if row.get("crm_status_source") == "crm_feedback_exact_lead_id"
+          )
+          attributed = [
+              row for row in joined_rows
+              if str(row.get("campaign_id") or row.get("group_id") or row.get("ad_id") or "").strip()
+          ]
+          attributed_with_canonical_status = sum(
+              1 for row in attributed
+              if row.get("crm_status_source") == "crm_feedback_exact_lead_id"
+          )
+
+          output = {
+              "status": "proved" if stats["matched"] > 0 and original == after else "not_proved",
+              "lead_control_sha": "f5b038e7966aceef9929489057d5979c70f4cc38",
+              "advertising_leads_total": stats["total"],
+              "canonical_status_map_total": len(status_map),
+              "exact_lead_id_status_matches": stats["matched"],
+              "unmatched": stats["unmatched"],
+              "without_lead_id": stats["without_lead_id"],
+              "attribution_fields_unchanged": original == after,
+              "attributed_leads_total": len(attributed),
+              "attributed_leads_with_canonical_status": attributed_with_canonical_status,
+              "canonical_status_counts": dict(sorted(status_counts.items())),
+              "operation": "read_only_exact_lead_id_join",
+          }
+          print(json.dumps(output, ensure_ascii=False, sort_keys=True))
+          if output["status"] != "proved":
+              raise SystemExit(3)
+          PY
