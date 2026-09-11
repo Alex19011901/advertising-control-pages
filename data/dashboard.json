@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-11T01:01:15+00:00",
+  "generated_at": "2026-09-11T05:55:50+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "3207531100194073064",
-      "updated_at": "2026-09-11T01:01:10+00:00",
+      "request_id": "6909278080201745655",
+      "updated_at": "2026-09-11T05:55:45+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-11"
     },
@@ -36,12 +36,12 @@
     }
   },
   "kpi": {
-    "cost": 152903.37,
-    "impressions": 517922,
-    "clicks": 9675,
+    "cost": 152927.35,
+    "impressions": 517937,
+    "clicks": 9677,
     "ctr": 1.87,
     "cpc": 15.8,
-    "direct_conversions": 2024.0,
+    "direct_conversions": 2025.0,
     "real_leads": 0,
     "fact_cpl": null,
     "quality_leads": null,
@@ -50,14 +50,14 @@
     "roas": null
   },
   "direct": {
-    "row_count": 1434,
+    "row_count": 1439,
     "totals": {
-      "cost": 152903.37,
-      "impressions": 517922,
-      "clicks": 9675,
+      "cost": 152927.35,
+      "impressions": 517937,
+      "clicks": 9677,
       "ctr": 1.87,
       "cpc": 15.8,
-      "direct_conversions": 2024.0,
+      "direct_conversions": 2025.0,
       "revenue": null,
       "real_leads": 0,
       "fact_cpl": null,
@@ -66,7 +66,7 @@
     "breakdown": [
       {
         "cost": 29085.35,
-        "impressions": 121617,
+        "impressions": 121621,
         "clicks": 1718,
         "ctr": 1.41,
         "cpc": 16.93,
@@ -84,10 +84,10 @@
         "ad_or_query": "17085709725"
       },
       {
-        "cost": 15909.88,
-        "impressions": 84242,
-        "clicks": 2607,
-        "ctr": 3.09,
+        "cost": 15913.14,
+        "impressions": 84245,
+        "clicks": 2608,
+        "ctr": 3.1,
         "cpc": 6.1,
         "direct_conversions": 14.0,
         "revenue": null,
@@ -104,7 +104,7 @@
       },
       {
         "cost": 11966.55,
-        "impressions": 76276,
+        "impressions": 76277,
         "clicks": 1853,
         "ctr": 2.43,
         "cpc": 6.46,
@@ -123,7 +123,7 @@
       },
       {
         "cost": 7046.32,
-        "impressions": 68005,
+        "impressions": 68007,
         "clicks": 527,
         "ctr": 0.77,
         "cpc": 13.37,
@@ -141,12 +141,12 @@
         "ad_or_query": "17085710534"
       },
       {
-        "cost": 5528.58,
-        "impressions": 39931,
-        "clicks": 424,
+        "cost": 5549.3,
+        "impressions": 39934,
+        "clicks": 425,
         "ctr": 1.06,
-        "cpc": 13.04,
-        "direct_conversions": 356.0,
+        "cpc": 13.06,
+        "direct_conversions": 357.0,
         "revenue": null,
         "real_leads": null,
         "fact_cpl": null,
@@ -845,7 +845,7 @@
       },
       {
         "cost": 705.28,
-        "impressions": 5383,
+        "impressions": 5384,
         "clicks": 60,
         "ctr": 1.11,
         "cpc": 11.75,
@@ -8518,13 +8518,32 @@
         "group": "банкетный зал 90",
         "ad_id": "1915822986185365522",
         "ad_or_query": "1915822986185365522"
+      },
+      {
+        "cost": null,
+        "impressions": 1,
+        "clicks": null,
+        "ctr": 0.0,
+        "cpc": null,
+        "direct_conversions": null,
+        "revenue": null,
+        "real_leads": null,
+        "fact_cpl": null,
+        "roas": null,
+        "direction": "Ремаркетинг",
+        "campaign_id": "118776785",
+        "campaign": "Ремаркетинг",
+        "group_id": "5552984378",
+        "group": "Новая группа",
+        "ad_id": "16902928678",
+        "ad_or_query": "16902928678"
       }
     ],
     "entities": {
       "campaigns": [
         {
           "cost": 29505.18,
-          "impressions": 125069,
+          "impressions": 125073,
           "clicks": 1826,
           "ctr": 1.46,
           "cpc": 16.16,
@@ -8537,9 +8556,9 @@
           "campaign": "Тест РСЯ банкет"
         },
         {
-          "cost": 23285.88,
-          "impressions": 164720,
-          "clicks": 3542,
+          "cost": 23289.14,
+          "impressions": 164724,
+          "clicks": 3543,
           "ctr": 2.15,
           "cpc": 6.57,
           "direct_conversions": 18.0,
@@ -8593,12 +8612,12 @@
           "campaign": "Поиск Банкеты( конверсии)"
         },
         {
-          "cost": 17587.53,
-          "impressions": 136550,
-          "clicks": 1916,
+          "cost": 17608.25,
+          "impressions": 136555,
+          "clicks": 1917,
           "ctr": 1.4,
-          "cpc": 9.18,
-          "direct_conversions": 1762.0,
+          "cpc": 9.19,
+          "direct_conversions": 1763.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8608,7 +8627,7 @@
         },
         {
           "cost": 11966.55,
-          "impressions": 76276,
+          "impressions": 76277,
           "clicks": 1853,
           "ctr": 2.43,
           "cpc": 6.46,
@@ -8650,9 +8669,9 @@
         },
         {
           "cost": null,
-          "impressions": 44,
+          "impressions": 45,
           "clicks": 1,
-          "ctr": 2.27,
+          "ctr": 2.22,
           "cpc": 0.0,
           "direct_conversions": 1.0,
           "revenue": null,
@@ -8694,7 +8713,7 @@
       "groups": [
         {
           "cost": 29505.18,
-          "impressions": 124257,
+          "impressions": 124261,
           "clicks": 1826,
           "ctr": 1.47,
           "cpc": 16.16,
@@ -8709,9 +8728,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 16105.28,
-          "impressions": 85969,
-          "clicks": 2640,
+          "cost": 16108.54,
+          "impressions": 85972,
+          "clicks": 2641,
           "ctr": 3.07,
           "cpc": 6.1,
           "direct_conversions": 14.0,
@@ -8725,12 +8744,12 @@
           "group": "корпоратив на 200 челоек"
         },
         {
-          "cost": 12595.38,
-          "impressions": 108650,
-          "clicks": 952,
+          "cost": 12616.1,
+          "impressions": 108655,
+          "clicks": 953,
           "ctr": 0.88,
-          "cpc": 13.23,
-          "direct_conversions": 789.0,
+          "cpc": 13.24,
+          "direct_conversions": 790.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -8742,7 +8761,7 @@
         },
         {
           "cost": 11966.55,
-          "impressions": 76276,
+          "impressions": 76277,
           "clicks": 1853,
           "ctr": 2.43,
           "cpc": 6.46,
@@ -9366,7 +9385,7 @@
         },
         {
           "cost": 733.17,
-          "impressions": 6546,
+          "impressions": 6547,
           "clicks": 61,
           "ctr": 0.93,
           "cpc": 12.02,
@@ -10790,9 +10809,9 @@
         },
         {
           "cost": null,
-          "impressions": 44,
+          "impressions": 45,
           "clicks": 1,
-          "ctr": 2.27,
+          "ctr": 2.22,
           "cpc": 0.0,
           "direct_conversions": 1.0,
           "revenue": null,
@@ -12664,7 +12683,7 @@
       "ads": [
         {
           "cost": 29085.35,
-          "impressions": 121617,
+          "impressions": 121621,
           "clicks": 1718,
           "ctr": 1.41,
           "cpc": 16.93,
@@ -12680,10 +12699,10 @@
           "group": "Банкеты"
         },
         {
-          "cost": 15909.88,
-          "impressions": 84242,
-          "clicks": 2607,
-          "ctr": 3.09,
+          "cost": 15913.14,
+          "impressions": 84245,
+          "clicks": 2608,
+          "ctr": 3.1,
           "cpc": 6.1,
           "direct_conversions": 14.0,
           "revenue": null,
@@ -12698,7 +12717,7 @@
         },
         {
           "cost": 11966.55,
-          "impressions": 76276,
+          "impressions": 76277,
           "clicks": 1853,
           "ctr": 2.43,
           "cpc": 6.46,
@@ -12715,7 +12734,7 @@
         },
         {
           "cost": 7046.32,
-          "impressions": 68005,
+          "impressions": 68007,
           "clicks": 527,
           "ctr": 0.77,
           "cpc": 13.37,
@@ -12731,12 +12750,12 @@
           "group": "свадьба в москве"
         },
         {
-          "cost": 5528.58,
-          "impressions": 39931,
-          "clicks": 424,
+          "cost": 5549.3,
+          "impressions": 39934,
+          "clicks": 425,
           "ctr": 1.06,
-          "cpc": 13.04,
-          "direct_conversions": 356.0,
+          "cpc": 13.06,
+          "direct_conversions": 357.0,
           "revenue": null,
           "real_leads": 0,
           "fact_cpl": null,
@@ -13361,7 +13380,7 @@
         },
         {
           "cost": 705.28,
-          "impressions": 5383,
+          "impressions": 5384,
           "clicks": 60,
           "ctr": 1.11,
           "cpc": 11.75,
@@ -20226,6 +20245,23 @@
           "campaign": "Поиск Банкеты квиз( конверсии)",
           "group_id": "5773918681",
           "group": "банкетный зал 90"
+        },
+        {
+          "cost": null,
+          "impressions": 1,
+          "clicks": null,
+          "ctr": 0.0,
+          "cpc": null,
+          "direct_conversions": null,
+          "revenue": null,
+          "real_leads": 0,
+          "fact_cpl": null,
+          "roas": null,
+          "ad_id": "16902928678",
+          "campaign_id": "118776785",
+          "campaign": "Ремаркетинг",
+          "group_id": "5552984378",
+          "group": "Новая группа"
         }
       ]
     }

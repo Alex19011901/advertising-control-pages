@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
   "source_report_type": "AD_PERFORMANCE_REPORT",
-  "rows": 1434,
+  "rows": 1439,
   "date_min": "2026-09-05",
   "date_max": "2026-09-11",
   "required_fields_missing": [],
   "unique_campaigns_with_activity": 12,
   "unique_groups_with_activity": 248,
-  "unique_ads_with_activity": 445,
+  "unique_ads_with_activity": 446,
   "duplicate_date_ad_keys": [],
   "totals": {
-    "impressions": 517922,
-    "clicks": 9675,
-    "cost": 152903.37,
-    "conversions": 2024.0
+    "impressions": 517937,
+    "clicks": 9677,
+    "cost": 152927.35,
+    "conversions": 2025.0
   },
   "active_campaigns_total": 12,
   "active_campaigns_with_activity_in_period": 12,
