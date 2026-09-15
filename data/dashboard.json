@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-14T23:06:38+00:00",
+  "generated_at": "2026-09-15T01:25:31+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "8737885291933544260",
-      "updated_at": "2026-09-14T23:06:32+00:00",
+      "request_id": "3706867392529715652",
+      "updated_at": "2026-09-15T01:25:27+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-15"
     },
@@ -36,9 +36,9 @@
     }
   },
   "kpi": {
-    "cost": 230740.19,
+    "cost": 230745.22,
     "impressions": 771070,
-    "clicks": 14500,
+    "clicks": 14501,
     "ctr": 1.88,
     "cpc": 15.91,
     "direct_conversions": 3184.0,
@@ -52,9 +52,9 @@
   "direct": {
     "row_count": 2280,
     "totals": {
-      "cost": 230740.19,
+      "cost": 230745.22,
       "impressions": 771070,
-      "clicks": 14500,
+      "clicks": 14501,
       "ctr": 1.88,
       "cpc": 15.91,
       "direct_conversions": 3184.0,
@@ -84,9 +84,9 @@
         "ad_or_query": "17085709725"
       },
       {
-        "cost": 21816.77,
+        "cost": 21821.8,
         "impressions": 110437,
-        "clicks": 3579,
+        "clicks": 3580,
         "ctr": 3.24,
         "cpc": 6.1,
         "direct_conversions": 19.0,
@@ -9297,9 +9297,9 @@
           "campaign": "Тест РСЯ банкет"
         },
         {
-          "cost": 34598.34,
+          "cost": 34603.37,
           "impressions": 247975,
-          "clicks": 5167,
+          "clicks": 5168,
           "ctr": 2.08,
           "cpc": 6.7,
           "direct_conversions": 25.0,
@@ -9469,9 +9469,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 22138.07,
+          "cost": 22143.1,
           "impressions": 113318,
-          "clicks": 3642,
+          "clicks": 3643,
           "ctr": 3.21,
           "cpc": 6.08,
           "direct_conversions": 19.0,
@@ -13728,9 +13728,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 21816.77,
+          "cost": 21821.8,
           "impressions": 110437,
-          "clicks": 3579,
+          "clicks": 3580,
           "ctr": 3.24,
           "cpc": 6.1,
           "direct_conversions": 19.0,
