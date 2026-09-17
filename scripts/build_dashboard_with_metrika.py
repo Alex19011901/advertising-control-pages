@@ -16,7 +16,7 @@ import build_dashboard as base
 
 METRIKA_ATTRIBUTION_URL = os.getenv(
     "LEAD_CONTROL_METRIKA_ATTRIBUTION_URL",
-    "https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map.json",
+    "https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map_52597240.json",
 )
 LOCAL_METRIKA_EXPORT = Path(os.getenv("YANDEX_METRIKA_EXPORT", "data/metrika_52597240.json"))
 TARGET_METRIKA_COUNTER = int(os.getenv("YANDEX_METRIKA_TARGET_COUNTER", "52597240"))
@@ -253,9 +253,19 @@ def load_map() -> tuple[dict[str, Any], dict[str, Any]]:
         try:
             payload = json.loads(LOCAL_METRIKA_EXPORT.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
-            return {"status": "invalid_json", "message": str(exc), "source": "local_file", "url": str(LOCAL_METRIKA_EXPORT)}, {"rows": []}
-        return map_status_from_payload("local_file", str(LOCAL_METRIKA_EXPORT), payload)
+            local_status = {"status": "invalid_json", "message": str(exc), "source": "local_file", "url": str(LOCAL_METRIKA_EXPORT)}
+            remote_status, remote_payload = load_remote_map()
+            return (remote_status, remote_payload) if remote_status.get("status") == "ok" else (local_status, {"rows": []})
+        local_status, local_payload = map_status_from_payload("local_file", str(LOCAL_METRIKA_EXPORT), payload)
+        if local_status.get("status") == "ok":
+            return local_status, local_payload
+        remote_status, remote_payload = load_remote_map()
+        return (remote_status, remote_payload) if remote_status.get("status") == "ok" else (local_status, local_payload)
 
+    return load_remote_map()
+
+
+def load_remote_map() -> tuple[dict[str, Any], dict[str, Any]]:
     request = Request(METRIKA_ATTRIBUTION_URL, headers={"User-Agent": "advertising-control-pages"})
     try:
         with urlopen(request, timeout=30, context=ssl.create_default_context()) as response:

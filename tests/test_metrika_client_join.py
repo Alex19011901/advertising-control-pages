@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import build_dashboard_with_metrika as mod
 from build_dashboard_with_metrika import enrich_leads
 from build_dashboard_with_metrika import map_status_from_payload
 
@@ -95,6 +98,50 @@ class MetrikaClientJoinTests(unittest.TestCase):
         })
         self.assertEqual(status["status"], "counter_mismatch")
         self.assertEqual(payload["rows"], [])
+
+    def test_local_missing_secret_falls_back_to_remote_map(self) -> None:
+        class FakeResponse:
+            def __enter__(self) -> FakeResponse:
+                return self
+
+            def __exit__(self, *_args: object) -> None:
+                return None
+
+            def read(self) -> bytes:
+                return json.dumps({
+                    "status": "ok",
+                    "counter_id": 52597240,
+                    "rows": [{"client_id_sha256": "abc", "campaign_id": "123"}],
+                }).encode("utf-8")
+
+        def fake_urlopen(*_args: object, **_kwargs: object) -> FakeResponse:
+            return FakeResponse()
+
+        old_local = mod.LOCAL_METRIKA_EXPORT
+        old_url = mod.METRIKA_ATTRIBUTION_URL
+        old_urlopen = mod.urlopen
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                local = Path(tmp) / "metrika.json"
+                local.write_text(json.dumps({
+                    "status": "missing_secret",
+                    "counter_id": 52597240,
+                    "message": "GitHub Actions secret is not configured.",
+                    "rows": [],
+                }), encoding="utf-8")
+                mod.LOCAL_METRIKA_EXPORT = local
+                mod.METRIKA_ATTRIBUTION_URL = "https://example.test/metrika_attribution_map_52597240.json"
+                mod.urlopen = fake_urlopen
+
+                status, payload = mod.load_map()
+
+            self.assertEqual(status["status"], "ok")
+            self.assertEqual(status["source"], "remote_legacy")
+            self.assertEqual(payload["rows"], [{"client_id_sha256": "abc", "campaign_id": "123"}])
+        finally:
+            mod.LOCAL_METRIKA_EXPORT = old_local
+            mod.METRIKA_ATTRIBUTION_URL = old_url
+            mod.urlopen = old_urlopen
 
 
 if __name__ == "__main__":
