@@ -95,23 +95,47 @@ def is_tilda_lead(lead: dict[str, Any]) -> bool:
     return "tilda" in source or "тильда" in source
 
 
-def tilda_client_id_summary(leads: list[dict[str, Any]]) -> dict[str, Any]:
+def has_metrika_client_id(lead: dict[str, Any]) -> bool:
+    return bool(str(lead.get("metrika_client_id_sha256") or "").strip())
+
+
+def tilda_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[str, int]:
+    window = [
+        lead
+        for lead in leads
+        if (parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW)) >= start
+    ]
+    with_client_id = sum(1 for lead in window if has_metrika_client_id(lead))
+    return {
+        "total": len(window),
+        "with_client_id": with_client_id,
+        "without_client_id": len(window) - with_client_id,
+    }
+
+
+def tilda_client_id_summary(leads: list[dict[str, Any]], now: datetime | None = None) -> dict[str, Any]:
+    now_moscow = (now or datetime.now(MOSCOW)).astimezone(MOSCOW)
+    today_start = now_moscow.replace(hour=0, minute=0, second=0, microsecond=0)
+    last_7_days_start = now_moscow - timedelta(days=7)
     tilda_leads = [lead for lead in leads if is_tilda_lead(lead)]
     latest = sorted(
         tilda_leads,
         key=lambda lead: parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW),
         reverse=True,
     )[:5]
+    with_client_id = sum(1 for lead in tilda_leads if has_metrika_client_id(lead))
     return {
         "total": len(tilda_leads),
-        "with_client_id": sum(1 for lead in tilda_leads if str(lead.get("metrika_client_id_sha256") or "").strip()),
-        "without_client_id": sum(1 for lead in tilda_leads if not str(lead.get("metrika_client_id_sha256") or "").strip()),
+        "with_client_id": with_client_id,
+        "without_client_id": len(tilda_leads) - with_client_id,
+        "today": tilda_window_summary(tilda_leads, today_start),
+        "last_7_days": tilda_window_summary(tilda_leads, last_7_days_start),
         "latest": [
             {
                 "lead_id": str(lead.get("lead_id") or ""),
                 "created_at": str(lead.get("created_at") or ""),
                 "source": str(lead.get("source") or ""),
-                "has_metrika_client_id": bool(str(lead.get("metrika_client_id_sha256") or "").strip()),
+                "has_metrika_client_id": has_metrika_client_id(lead),
                 "attribution_method": str(lead.get("attribution_method") or ""),
             }
             for lead in latest

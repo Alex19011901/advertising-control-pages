@@ -255,9 +255,16 @@ function renderTildaClientIdSummary(summary) {
   byId("tildaTotal").textContent = fmtNumber(summary.total ?? null);
   byId("tildaWithClient").textContent = fmtNumber(summary.with_client_id ?? null);
   byId("tildaWithoutClient").textContent = fmtNumber(summary.without_client_id ?? null);
+  byId("tildaToday").textContent = fmtClientIdRatio(summary.today);
+  byId("tilda7Days").textContent = fmtClientIdRatio(summary.last_7_days);
   byId("tildaLatest").textContent = latest
     ? `Последняя Tilda: ${fmtDate(latest.created_at)} · ClientID ${latest.has_metrika_client_id ? "есть" : "нет"} · ${methodLabel(latest.attribution_method)}`
     : "Нет Tilda-заявок в текущем export.";
+}
+
+function fmtClientIdRatio(windowSummary) {
+  if (!windowSummary) return "Нет данных";
+  return `${fmtNumber(windowSummary.with_client_id ?? 0)} / ${fmtNumber(windowSummary.total ?? 0)}`;
 }
 
 function renderAttributedLeads() {

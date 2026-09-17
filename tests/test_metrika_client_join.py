@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 import json
 import sys
 import tempfile
@@ -110,6 +113,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(payload["rows"], [])
 
     def test_tilda_client_id_summary_counts_tilda_sources(self) -> None:
+        moscow = timezone(timedelta(hours=3))
         summary = tilda_client_id_summary([
             {
                 "lead_id": "site-old",
@@ -132,10 +136,12 @@ class MetrikaClientJoinTests(unittest.TestCase):
                 "metrika_client_id_sha256": "hash",
                 "attribution_method": "client_id_no_session_match",
             },
-        ])
+        ], now=datetime(2026, 9, 17, 13, 0, tzinfo=moscow))
         self.assertEqual(summary["total"], 2)
         self.assertEqual(summary["with_client_id"], 1)
         self.assertEqual(summary["without_client_id"], 1)
+        self.assertEqual(summary["today"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
+        self.assertEqual(summary["last_7_days"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
         self.assertEqual(summary["latest"][0]["lead_id"], "site-new")
         self.assertTrue(summary["latest"][0]["has_metrika_client_id"])
 

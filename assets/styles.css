@@ -220,6 +220,11 @@ h2 {
   margin-bottom: 10px;
 }
 
+.summary-row.tilda-fresh {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 10px;
+}
+
 .attribution-summary {
   margin-bottom: 10px;
 }
