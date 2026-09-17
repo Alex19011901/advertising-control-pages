@@ -160,6 +160,20 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(matched, 0)
         self.assertEqual(result[0]["attribution_method"], "callibri_url_ids")
 
+    def test_callibri_phone_match_is_labeled_separately(self) -> None:
+        leads = [{
+            "lead_id": "host-callibri",
+            "created_at": "2026-09-17T12:00:00+03:00",
+            "source": "Заявки хост",
+            "campaign_id": "712849433",
+            "group_id": "5773918677",
+            "ad_id": "1915822986185365518",
+            "advertising_id_source": "callibri_phone_time_match",
+        }]
+        result, matched = enrich_leads(leads, [])
+        self.assertEqual(matched, 0)
+        self.assertEqual(result[0]["attribution_method"], "callibri_phone_time_match")
+
     def test_hostess_call_summary_counts_host_source(self) -> None:
         moscow = timezone(timedelta(hours=3))
         summary = hostess_call_summary([
@@ -174,8 +188,8 @@ class MetrikaClientJoinTests(unittest.TestCase):
                 "created_at": "2026-09-17T12:00:00+03:00",
                 "source": "Заявки хост",
                 "campaign_id": "712849433",
-                "advertising_id_source": "callibri",
-                "attribution_method": "callibri_url_ids",
+                "advertising_id_source": "callibri_phone_time_match",
+                "attribution_method": "callibri_phone_time_match",
             },
             {
                 "lead_id": "site",

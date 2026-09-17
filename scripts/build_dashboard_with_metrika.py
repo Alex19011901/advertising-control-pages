@@ -108,6 +108,10 @@ def has_ad_ids(lead: dict[str, Any]) -> bool:
     return bool(str(lead.get("ad_id") or lead.get("group_id") or lead.get("campaign_id") or "").strip())
 
 
+def is_callibri_attribution(lead: dict[str, Any]) -> bool:
+    return str(lead.get("advertising_id_source") or "").startswith("callibri")
+
+
 def tilda_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[str, int]:
     window = [
         lead
@@ -159,7 +163,7 @@ def hostess_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict
         if (parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW)) >= start
     ]
     with_ad_ids = sum(1 for lead in window if has_ad_ids(lead))
-    with_callibri = sum(1 for lead in window if str(lead.get("advertising_id_source") or "") == "callibri")
+    with_callibri = sum(1 for lead in window if is_callibri_attribution(lead))
     return {
         "total": len(window),
         "with_ad_ids": with_ad_ids,
@@ -179,7 +183,7 @@ def hostess_call_summary(leads: list[dict[str, Any]], now: datetime | None = Non
         reverse=True,
     )[:5]
     with_ad_ids = sum(1 for lead in hostess_leads if has_ad_ids(lead))
-    with_callibri = sum(1 for lead in hostess_leads if str(lead.get("advertising_id_source") or "") == "callibri")
+    with_callibri = sum(1 for lead in hostess_leads if is_callibri_attribution(lead))
     return {
         "total": len(hostess_leads),
         "with_ad_ids": with_ad_ids,
@@ -276,7 +280,8 @@ def enrich_leads(
     for original in leads:
         lead = copy.deepcopy(original)
         if has_ad_ids(lead):
-            method = "callibri_url_ids" if str(lead.get("advertising_id_source") or "") == "callibri" else "direct_url_ids"
+            source = str(lead.get("advertising_id_source") or "")
+            method = "callibri_phone_time_match" if source == "callibri_phone_time_match" else ("callibri_url_ids" if source.startswith("callibri") else "direct_url_ids")
             lead["attribution_method"] = method
             methods[method] += 1
             enriched.append(lead)

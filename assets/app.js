@@ -216,6 +216,7 @@ function methodLabel(value) {
     client_session_unmapped_utm_campaign: "Есть визит, нет ID кампании",
     client_session_without_direct_ids: "Есть визит, нет рекламы",
     callibri_url_ids: "Callibri ID в заявке",
+    callibri_phone_time_match: "Callibri звонок + хостес",
     ambiguous_client_sessions: "Неоднозначно",
     client_id_no_session_match: "ClientID без визита",
     no_client_id: "Нет ClientID"
