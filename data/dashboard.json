@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-17T06:15:26+00:00",
+  "generated_at": "2026-09-17T06:36:47+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "6301007833588306754",
-      "updated_at": "2026-09-17T06:15:20+00:00",
+      "request_id": "8148507892471514126",
+      "updated_at": "2026-09-17T06:36:44+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-17"
     },
@@ -27,32 +27,34 @@
       "start_date": "2026-09-05",
       "lead_count": 114,
       "metrika_attribution_map": {
-        "status": "ok",
-        "source": "remote_legacy",
-        "url": "https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map_52597240.json",
+        "status": "missing_secret",
+        "source": "local_file",
+        "url": "data/metrika_52597240.json",
         "counter_id": 52597240,
         "target_counter_id": 52597240,
+        "attribution": "AUTOMATIC",
+        "target_attribution": "AUTOMATIC",
         "date1": "2026-09-05",
         "date2": "2026-09-16",
-        "mapped_rows": 18106,
-        "rows_with_client_id": 18990,
-        "visits_total": null,
-        "hits_total": null
+        "mapped_rows": 0,
+        "rows_with_client_id": 0,
+        "visits_total": 0,
+        "hits_total": 0,
+        "message": "GitHub Actions secret YANDEX_METRIKA_READ_TOKEN is not configured."
       },
-      "metrika_client_session_matches": 1,
+      "metrika_client_session_matches": 0,
       "metrika_exact_utm_campaign_mappings": 0,
       "metrika_attribution_diagnostics": {
         "leads_total": 114,
         "leads_with_metrika_client_id": 1,
-        "metrika_clients_in_map": 11047,
-        "metrika_rows": 18106,
-        "matched": 1,
-        "unmatched": 113,
+        "metrika_clients_in_map": 0,
+        "metrika_rows": 0,
+        "matched": 0,
+        "unmatched": 114,
         "method_counts": {
-          "metrika_client_session_exact": 1,
+          "client_id_no_session_match": 1,
           "no_client_id": 113
         },
-        "lookback_days": 30,
         "bounce_session_grace_seconds": 1800
       }
     }
@@ -64,8 +66,8 @@
     "ctr": 1.7,
     "cpc": 17.33,
     "direct_conversions": 3798.0,
-    "real_leads": 1,
-    "fact_cpl": 295865.13,
+    "real_leads": 0,
+    "fact_cpl": null,
     "quality_leads": null,
     "quality_cpl": null,
     "sales_result": null,
@@ -81,8 +83,8 @@
       "cpc": 17.33,
       "direct_conversions": 3798.0,
       "revenue": null,
-      "real_leads": 1,
-      "fact_cpl": 295865.13,
+      "real_leads": 0,
+      "fact_cpl": null,
       "roas": null
     },
     "breakdown": [
@@ -493,8 +495,8 @@
         "cpc": 401.66,
         "direct_conversions": 1.0,
         "revenue": null,
-        "real_leads": 1,
-        "fact_cpl": 2409.95,
+        "real_leads": null,
+        "fact_cpl": null,
         "roas": null,
         "direction": "Поиск Банкеты( конверсии)",
         "campaign_id": "709907560",
@@ -14734,8 +14736,8 @@
           "cpc": 401.66,
           "direct_conversions": 1.0,
           "revenue": null,
-          "real_leads": 1,
-          "fact_cpl": 2409.95,
+          "real_leads": 0,
+          "fact_cpl": null,
           "roas": null,
           "ad_id": "17718636795",
           "campaign_id": "709907560",
@@ -23355,13 +23357,11 @@
     "summary": {
       "total": 114,
       "with_yclid": 5,
-      "exact_id_matches_available": 1,
-      "unmatched": 113,
+      "exact_id_matches_available": 0,
+      "unmatched": 114,
       "by_campaign": {},
       "by_group": {},
-      "by_ad": {
-        "17718636795": 1
-      }
+      "by_ad": {}
     },
     "leads": [
       {
@@ -24921,18 +24921,10 @@
         "utm_source": "yandex_direct",
         "utm_medium": "cpc",
         "utm_campaign": "Bankety_poisk_konversii",
-        "campaign_id": "709907560",
-        "group_id": "5750739685",
-        "ad_id": "17718636795",
-        "metrika_visit_datetime": "2026-09-14 13:18:50",
-        "metrika_utm_source": "yandex_direct",
-        "metrika_utm_medium": "cpc",
-        "metrika_utm_campaign": "Bankety_poisk_konversii",
-        "metrika_phrase_or_condition": "",
-        "metrika_campaign_name": "Поиск Банкеты( конверсии)",
-        "metrika_group_name": "банкетные залы",
-        "metrika_ad_name": "Банкетный зал в Центре Москвы! Оборудование бесплатно!",
-        "attribution_method": "metrika_client_session_exact"
+        "campaign_id": "",
+        "group_id": "",
+        "ad_id": "",
+        "attribution_method": "client_id_no_session_match"
       },
       {
         "lead_id": "8b2ed8a4b3615dfc",
