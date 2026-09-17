@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-17T06:02:03+00:00",
+  "generated_at": "2026-09-17T06:02:54+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "5784045237909811224",
-      "updated_at": "2026-09-17T01:20:55+00:00",
+      "request_id": "1510090001452681091",
+      "updated_at": "2026-09-17T06:02:49+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-17"
     },
@@ -33,7 +33,7 @@
         "counter_id": 52597240,
         "target_counter_id": 52597240,
         "date1": "2026-09-05",
-        "date2": "2026-09-15",
+        "date2": "2026-09-16",
         "mapped_rows": 0,
         "rows_with_client_id": 0,
         "visits_total": 0,
@@ -59,11 +59,11 @@
     }
   },
   "kpi": {
-    "cost": 295842.7,
-    "impressions": 1001608,
-    "clicks": 17064,
+    "cost": 295865.13,
+    "impressions": 1001612,
+    "clicks": 17068,
     "ctr": 1.7,
-    "cpc": 17.34,
+    "cpc": 17.33,
     "direct_conversions": 3798.0,
     "real_leads": 0,
     "fact_cpl": null,
@@ -73,13 +73,13 @@
     "roas": null
   },
   "direct": {
-    "row_count": 2919,
+    "row_count": 2922,
     "totals": {
-      "cost": 295842.7,
-      "impressions": 1001608,
-      "clicks": 17064,
+      "cost": 295865.13,
+      "impressions": 1001612,
+      "clicks": 17068,
       "ctr": 1.7,
-      "cpc": 17.34,
+      "cpc": 17.33,
       "direct_conversions": 3798.0,
       "revenue": null,
       "real_leads": 0,
@@ -88,11 +88,11 @@
     },
     "breakdown": [
       {
-        "cost": 55649.48,
-        "impressions": 223350,
-        "clicks": 2805,
+        "cost": 55650.24,
+        "impressions": 223351,
+        "clicks": 2806,
         "ctr": 1.26,
-        "cpc": 19.84,
+        "cpc": 19.83,
         "direct_conversions": 148.0,
         "revenue": null,
         "real_leads": null,
@@ -107,9 +107,9 @@
         "ad_or_query": "17085709725"
       },
       {
-        "cost": 25565.1,
+        "cost": 25567.17,
         "impressions": 140792,
-        "clicks": 4116,
+        "clicks": 4117,
         "ctr": 2.92,
         "cpc": 6.21,
         "direct_conversions": 25.0,
@@ -297,11 +297,11 @@
         "ad_or_query": "17085710564"
       },
       {
-        "cost": 3453.92,
-        "impressions": 12146,
-        "clicks": 219,
-        "ctr": 1.8,
-        "cpc": 15.77,
+        "cost": 3464.84,
+        "impressions": 12148,
+        "clicks": 220,
+        "ctr": 1.81,
+        "cpc": 15.75,
         "direct_conversions": 5.0,
         "revenue": null,
         "real_leads": null,
@@ -1285,6 +1285,25 @@
         "ad_or_query": "17085710364"
       },
       {
+        "cost": 919.89,
+        "impressions": 1348,
+        "clicks": 253,
+        "ctr": 18.77,
+        "cpc": 3.64,
+        "direct_conversions": 2.0,
+        "revenue": null,
+        "real_leads": null,
+        "fact_cpl": null,
+        "roas": null,
+        "direction": "Тест РСЯ банкет (Похожие сайты)",
+        "campaign_id": "702195391",
+        "campaign": "Тест РСЯ банкет (Похожие сайты)",
+        "group_id": "5622970380",
+        "group": "Банкеты",
+        "ad_id": "17201006658",
+        "ad_or_query": "17201006658"
+      },
+      {
         "cost": 912.8,
         "impressions": 14,
         "clicks": 4,
@@ -1302,25 +1321,6 @@
         "group": "мероприятия банкеты",
         "ad_id": "1915822986185365510",
         "ad_or_query": "1915822986185365510"
-      },
-      {
-        "cost": 911.21,
-        "impressions": 1347,
-        "clicks": 252,
-        "ctr": 18.71,
-        "cpc": 3.62,
-        "direct_conversions": 2.0,
-        "revenue": null,
-        "real_leads": null,
-        "fact_cpl": null,
-        "roas": null,
-        "direction": "Тест РСЯ банкет (Похожие сайты)",
-        "campaign_id": "702195391",
-        "campaign": "Тест РСЯ банкет (Похожие сайты)",
-        "group_id": "5622970380",
-        "group": "Банкеты",
-        "ad_id": "17201006658",
-        "ad_or_query": "17201006658"
       },
       {
         "cost": 905.79,
@@ -9591,9 +9591,9 @@
     "entities": {
       "campaigns": [
         {
-          "cost": 57085.52,
-          "impressions": 232411,
-          "clicks": 3150,
+          "cost": 57086.28,
+          "impressions": 232412,
+          "clicks": 3151,
           "ctr": 1.36,
           "cpc": 18.12,
           "direct_conversions": 150.0,
@@ -9605,10 +9605,10 @@
           "campaign": "Тест РСЯ банкет"
         },
         {
-          "cost": 42260.25,
+          "cost": 42262.32,
           "impressions": 341147,
-          "clicks": 5987,
-          "ctr": 1.75,
+          "clicks": 5988,
+          "ctr": 1.76,
           "cpc": 7.06,
           "direct_conversions": 32.0,
           "revenue": null,
@@ -9703,9 +9703,9 @@
           "campaign": "Поиск Банкеты квиз( конверсии)"
         },
         {
-          "cost": 7527.0,
-          "impressions": 42322,
-          "clicks": 1027,
+          "cost": 7546.6,
+          "impressions": 42325,
+          "clicks": 1029,
           "ctr": 2.43,
           "cpc": 7.33,
           "direct_conversions": 12.0,
@@ -9761,11 +9761,11 @@
       ],
       "groups": [
         {
-          "cost": 56871.73,
-          "impressions": 230591,
-          "clicks": 3149,
+          "cost": 56872.49,
+          "impressions": 230592,
+          "clicks": 3150,
           "ctr": 1.37,
-          "cpc": 18.06,
+          "cpc": 18.05,
           "direct_conversions": 150.0,
           "revenue": null,
           "real_leads": 0,
@@ -9777,9 +9777,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 25908.37,
+          "cost": 25910.44,
           "impressions": 143904,
-          "clicks": 4183,
+          "clicks": 4184,
           "ctr": 2.91,
           "cpc": 6.19,
           "direct_conversions": 25.0,
@@ -9857,10 +9857,10 @@
           "group": "площадки для свадьбы"
         },
         {
-          "cost": 5201.98,
-          "impressions": 15278,
-          "clicks": 907,
-          "ctr": 5.94,
+          "cost": 5221.58,
+          "impressions": 15281,
+          "clicks": 909,
+          "ctr": 5.95,
           "cpc": 5.74,
           "direct_conversions": 8.0,
           "revenue": null,
@@ -14371,11 +14371,11 @@
       ],
       "ads": [
         {
-          "cost": 55649.48,
-          "impressions": 223350,
-          "clicks": 2805,
+          "cost": 55650.24,
+          "impressions": 223351,
+          "clicks": 2806,
           "ctr": 1.26,
-          "cpc": 19.84,
+          "cpc": 19.83,
           "direct_conversions": 148.0,
           "revenue": null,
           "real_leads": 0,
@@ -14388,9 +14388,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 25565.1,
+          "cost": 25567.17,
           "impressions": 140792,
-          "clicks": 4116,
+          "clicks": 4117,
           "ctr": 2.92,
           "cpc": 6.21,
           "direct_conversions": 25.0,
@@ -14558,11 +14558,11 @@
           "group": "ресторан для свадьбы"
         },
         {
-          "cost": 3453.92,
-          "impressions": 12146,
-          "clicks": 219,
-          "ctr": 1.8,
-          "cpc": 15.77,
+          "cost": 3464.84,
+          "impressions": 12148,
+          "clicks": 220,
+          "ctr": 1.81,
+          "cpc": 15.75,
           "direct_conversions": 5.0,
           "revenue": null,
           "real_leads": 0,
@@ -15442,6 +15442,23 @@
           "group": "корпоратив 40"
         },
         {
+          "cost": 919.89,
+          "impressions": 1348,
+          "clicks": 253,
+          "ctr": 18.77,
+          "cpc": 3.64,
+          "direct_conversions": 2.0,
+          "revenue": null,
+          "real_leads": 0,
+          "fact_cpl": null,
+          "roas": null,
+          "ad_id": "17201006658",
+          "campaign_id": "702195391",
+          "campaign": "Тест РСЯ банкет (Похожие сайты)",
+          "group_id": "5622970380",
+          "group": "Банкеты"
+        },
+        {
           "cost": 912.8,
           "impressions": 14,
           "clicks": 4,
@@ -15457,23 +15474,6 @@
           "campaign": "Поиск Банкеты квиз( конверсии)",
           "group_id": "5773918669",
           "group": "мероприятия банкеты"
-        },
-        {
-          "cost": 911.21,
-          "impressions": 1347,
-          "clicks": 252,
-          "ctr": 18.71,
-          "cpc": 3.62,
-          "direct_conversions": 2.0,
-          "revenue": null,
-          "real_leads": 0,
-          "fact_cpl": null,
-          "roas": null,
-          "ad_id": "17201006658",
-          "campaign_id": "702195391",
-          "campaign": "Тест РСЯ банкет (Похожие сайты)",
-          "group_id": "5622970380",
-          "group": "Банкеты"
         },
         {
           "cost": 905.79,
