@@ -20,9 +20,9 @@ METRIKA_ATTRIBUTION_URL = os.getenv(
 )
 LOCAL_METRIKA_EXPORT = Path(os.getenv("YANDEX_METRIKA_EXPORT", "data/metrika_52597240.json"))
 TARGET_METRIKA_COUNTER = int(os.getenv("YANDEX_METRIKA_TARGET_COUNTER", "52597240"))
+TARGET_METRIKA_ATTRIBUTION = os.getenv("YANDEX_METRIKA_TARGET_ATTRIBUTION", "AUTOMATIC").strip().upper()
 TRACKING_SUMMARY = Path(os.getenv("DIRECT_TRACKING_SUMMARY", "data/direct_tracking_summary.json"))
 MANUAL_UTM_CAMPAIGN_MAP = Path(os.getenv("UTM_CAMPAIGN_MAP", "data/utm_campaign_map.json"))
-ATTRIBUTION_LOOKBACK_DAYS = int(os.getenv("METRIKA_ATTRIBUTION_LOOKBACK_DAYS", "30"))
 BOUNCE_SESSION_GRACE_SECONDS = int(os.getenv("METRIKA_BOUNCE_SESSION_GRACE_SECONDS", "1800"))
 MOSCOW = timezone(timedelta(hours=3))
 
@@ -103,6 +103,7 @@ def rows_from_map_payload(payload: dict[str, Any]) -> list[dict[str, Any]]:
 def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     rows = rows_from_map_payload(payload)
     counter_id = payload.get("counter_id")
+    attribution = str(payload.get("attribution") or "").strip().upper()
     status = str(payload.get("status") or "ok")
     status_payload: dict[str, Any] = {
         "status": status,
@@ -110,6 +111,8 @@ def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any
         "url": url,
         "counter_id": counter_id,
         "target_counter_id": TARGET_METRIKA_COUNTER,
+        "attribution": attribution or None,
+        "target_attribution": TARGET_METRIKA_ATTRIBUTION,
         "date1": payload.get("date1"),
         "date2": payload.get("date2"),
         "mapped_rows": len(rows),
@@ -126,6 +129,11 @@ def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any
     if counter_id is not None and not counter_matches:
         status_payload["status"] = "counter_mismatch"
         status_payload["message"] = f"Metrika export counter {counter_id} does not match target {TARGET_METRIKA_COUNTER}."
+        return status_payload, {"rows": []}
+
+    if attribution and attribution != TARGET_METRIKA_ATTRIBUTION:
+        status_payload["status"] = "attribution_mismatch"
+        status_payload["message"] = f"Metrika export attribution {attribution} does not match target {TARGET_METRIKA_ATTRIBUTION}."
         return status_payload, {"rows": []}
 
     if status != "ok":
@@ -165,7 +173,6 @@ def enrich_leads(
         client_hash = str(lead.get("metrika_client_id_sha256") or "").strip()
         lead_time = parse_lead_time(lead.get("created_at"))
         exact_candidates: list[dict[str, Any]] = []
-        prior_candidates: list[tuple[datetime, dict[str, Any]]] = []
         if client_hash and lead_time:
             for row in by_client.get(client_hash, []):
                 start = parse_visit_time(row.get("visit_datetime"))
@@ -175,16 +182,11 @@ def enrich_leads(
                 end = start + timedelta(seconds=max(BOUNCE_SESSION_GRACE_SECONDS, duration))
                 if start <= lead_time <= end:
                     exact_candidates.append(row)
-                elif start <= lead_time <= start + timedelta(days=ATTRIBUTION_LOOKBACK_DAYS):
-                    prior_candidates.append((start, row))
 
         if len(exact_candidates) == 1:
             matched += apply_visit_attribution(lead, exact_candidates[0], campaign_map, "metrika_client_session_exact")
         elif len(exact_candidates) > 1:
             lead["attribution_method"] = "ambiguous_client_sessions"
-        elif prior_candidates:
-            prior_candidates.sort(key=lambda item: item[0], reverse=True)
-            matched += apply_visit_attribution(lead, prior_candidates[0][1], campaign_map, "metrika_client_latest_prior_visit")
         elif client_hash:
             lead["attribution_method"] = "client_id_no_session_match"
         else:
@@ -200,7 +202,6 @@ def enrich_leads(
         "matched": matched,
         "unmatched": len(leads) - matched,
         "method_counts": dict(sorted(methods.items())),
-        "lookback_days": ATTRIBUTION_LOOKBACK_DAYS,
         "bounce_session_grace_seconds": BOUNCE_SESSION_GRACE_SECONDS,
     }
     if include_diagnostics:

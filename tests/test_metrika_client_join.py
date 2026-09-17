@@ -76,7 +76,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(result[0]["attribution_method"], "ambiguous_client_sessions")
         self.assertFalse(result[0].get("ad_id"))
 
-    def test_latest_prior_visit_is_used_when_session_duration_is_too_short(self) -> None:
+    def test_prior_visit_outside_session_is_not_guessed(self) -> None:
         leads = [{
             "lead_id": "lead3",
             "created_at": "2026-09-14T13:19:27+03:00",
@@ -84,12 +84,12 @@ class MetrikaClientJoinTests(unittest.TestCase):
         }]
         rows = [
             {"client_id_sha256": "abc", "visit_datetime": "2026-09-12 10:20:00", "visit_duration_seconds": 0, "campaign_id": "old"},
-            {"client_id_sha256": "abc", "visit_datetime": "2026-09-14 12:58:00", "visit_duration_seconds": 0, "campaign_id": "new"},
+            {"client_id_sha256": "abc", "visit_datetime": "2026-09-14 12:40:00", "visit_duration_seconds": 0, "campaign_id": "new"},
         ]
         result, matched = enrich_leads(leads, rows)
-        self.assertEqual(matched, 1)
-        self.assertEqual(result[0]["campaign_id"], "new")
-        self.assertEqual(result[0]["attribution_method"], "metrika_client_session_exact")
+        self.assertEqual(matched, 0)
+        self.assertFalse(result[0].get("campaign_id"))
+        self.assertEqual(result[0]["attribution_method"], "client_id_no_session_match")
 
     def test_counter_mismatch_map_is_rejected(self) -> None:
         status, payload = map_status_from_payload("remote_legacy", "url", {
@@ -97,6 +97,15 @@ class MetrikaClientJoinTests(unittest.TestCase):
             "rows": [{"client_id_sha256": "abc", "campaign_id": "123"}],
         })
         self.assertEqual(status["status"], "counter_mismatch")
+        self.assertEqual(payload["rows"], [])
+
+    def test_attribution_mismatch_map_is_rejected(self) -> None:
+        status, payload = map_status_from_payload("remote_legacy", "url", {
+            "counter_id": 52597240,
+            "attribution": "LAST_YANDEX_DIRECT_CLICK",
+            "rows": [{"client_id_sha256": "abc", "campaign_id": "123"}],
+        })
+        self.assertEqual(status["status"], "attribution_mismatch")
         self.assertEqual(payload["rows"], [])
 
     def test_local_missing_secret_falls_back_to_remote_map(self) -> None:
@@ -111,6 +120,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
                 return json.dumps({
                     "status": "ok",
                     "counter_id": 52597240,
+                    "attribution": "AUTOMATIC",
                     "rows": [{"client_id_sha256": "abc", "campaign_id": "123"}],
                 }).encode("utf-8")
 
