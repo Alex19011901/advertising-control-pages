@@ -211,6 +211,14 @@ h2 {
   gap: 8px;
 }
 
+.summary-row.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.attribution-summary {
+  margin-bottom: 10px;
+}
+
 .mini {
   min-height: 78px;
   border: 1px solid var(--border);
@@ -228,6 +236,35 @@ h2 {
 .bars {
   display: grid;
   gap: 8px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  border-radius: 8px;
+  min-height: 40px;
+  padding: 8px 10px;
+}
+
+.method-item span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.method-item b {
+  color: var(--ink);
 }
 
 .bar-row {
@@ -325,6 +362,10 @@ th {
 
   .summary-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .method-grid {
+    grid-template-columns: 1fr;
   }
 }
 

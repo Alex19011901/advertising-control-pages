@@ -16,6 +16,7 @@
         <div class="status-stack" aria-live="polite">
           <span id="directStatus" class="pill pending">Яндекс Директ: API access pending</span>
           <span id="leadStatus" class="pill pending">Lead Control: Нет данных</span>
+          <span id="attrStatus" class="pill pending">Метрика: Нет данных</span>
         </div>
       </header>
 
@@ -105,6 +106,49 @@
           <h2>Статус данных</h2>
           <p class="footnote">Рекламные KPI строятся только из API Яндекс Директа. Заявки берутся из опубликованного JSON Lead Control. Демонстрационные рекламные данные не используются.</p>
         </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card panel">
+          <h2>Атрибуция Метрики 52597240</h2>
+          <div class="summary-row attribution-summary">
+            <div class="mini"><div class="label">Лидов в LC export</div><b id="attrLeadsTotal">Нет данных</b></div>
+            <div class="mini"><div class="label">Лидов с ClientID</div><b id="attrLeadsClient">Нет данных</b></div>
+            <div class="mini"><div class="label">Визитов в карте</div><b id="attrMapRows">Нет данных</b></div>
+            <div class="mini"><div class="label">Связано с рекламой</div><b id="attrMatches">Нет данных</b></div>
+          </div>
+          <p id="attrMessage" class="footnote">Нет данных</p>
+          <div id="attrMethods" class="method-grid"></div>
+        </article>
+
+        <aside class="card panel">
+          <h2>Карта Метрики</h2>
+          <div class="summary-row compact">
+            <div class="mini"><div class="label">Счетчик</div><b id="attrCounter">Нет данных</b></div>
+            <div class="mini"><div class="label">Период</div><b id="attrPeriod">Нет данных</b></div>
+          </div>
+          <p class="footnote">Дашборд связывает лид с визитом по хешу ClientID. Сырые ClientID, yclid и персональные данные не публикуются.</p>
+        </aside>
+      </section>
+
+      <section class="card panel">
+        <h2>Последние заявки с рекламной атрибуцией</h2>
+        <div class="table-wrap">
+          <table aria-label="Последние заявки с рекламной атрибуцией">
+            <thead>
+              <tr>
+                <th>Время</th>
+                <th>Тип</th>
+                <th>Источник</th>
+                <th>Кампания / группа / объявление</th>
+                <th>Фраза / UTM</th>
+                <th>Метод</th>
+              </tr>
+            </thead>
+            <tbody id="leadsBody"></tbody>
+          </table>
+        </div>
+        <div id="leadsEmpty" class="empty-state">Нет данных</div>
       </section>
     </main>
     <script src="assets/app.js"></script>

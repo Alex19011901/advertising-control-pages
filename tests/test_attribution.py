@@ -40,6 +40,19 @@ class AttributionTests(unittest.TestCase):
         self.assertEqual(result["ads"][0]["real_leads"], 1)
         self.assertEqual(result["ads"][0]["fact_cpl"], 150.0)
 
+    def test_direct_summary_puts_leads_on_matching_ad_rows(self) -> None:
+        rows = [
+            {"CampaignId": "10", "CampaignName": "Campaign", "AdGroupId": "20", "AdGroupName": "Group", "AdId": "30", "Cost": "100", "Clicks": "2", "Impressions": "20"},
+            {"CampaignId": "10", "CampaignName": "Campaign", "AdGroupId": "20", "AdGroupName": "Group", "AdId": "31", "Cost": "50", "Clicks": "1", "Impressions": "10"},
+        ]
+        counts = {"exact_id_matches_available": 1, "by_campaign": {}, "by_group": {}, "by_ad": {"30": 1}}
+        totals, breakdown = module.direct_summary(rows, counts)
+        self.assertEqual(totals["real_leads"], 1)
+        by_ad = {row["ad_id"]: row for row in breakdown}
+        self.assertEqual(by_ad["30"]["real_leads"], 1)
+        self.assertEqual(by_ad["30"]["fact_cpl"], 100.0)
+        self.assertIsNone(by_ad["31"]["real_leads"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "status": "missing_secret",
+  "message": "GitHub Actions secret YANDEX_METRIKA_READ_TOKEN is not configured.",
+  "counter_id": 52597240,
+  "attribution": "AUTOMATIC",
+  "date1": "2026-09-05",
+  "date2": "2026-09-15",
+  "visits_total": 0,
+  "hits_total": 0,
+  "visits": [],
+  "rows": [],
+  "submit_events": [],
+  "rows_with_client_id": 0,
+  "mapped_rows": 0
+}

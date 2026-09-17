@@ -1,0 +1,102 @@
+<!--
+Paste this code into Tilda site/page custom HTML before </body>.
+It fills hidden fields in every form so Lead Control can connect a lead
+to Yandex Metrika counter 52597240 and advertising attribution.
+-->
+<script>
+(function () {
+  var COUNTER_ID = 52597240;
+  var PARAM_FIELDS = [
+    "yclid",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term"
+  ];
+  var MAX_REFRESHES = 20;
+  var refreshCount = 0;
+
+  function getCookie(name) {
+    var prefix = name + "=";
+    var parts = document.cookie ? document.cookie.split(";") : [];
+    for (var i = 0; i < parts.length; i += 1) {
+      var part = parts[i].trim();
+      if (part.indexOf(prefix) === 0) {
+        return decodeURIComponent(part.slice(prefix.length));
+      }
+    }
+    return "";
+  }
+
+  function setHidden(form, name, value) {
+    if (!form || !name || value === undefined || value === null || value === "") {
+      return;
+    }
+    var input = form.querySelector('input[name="' + name + '"]');
+    if (!input) {
+      input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      form.appendChild(input);
+    }
+    input.value = String(value);
+  }
+
+  function fillStaticFields(form) {
+    var params = new URLSearchParams(window.location.search);
+    PARAM_FIELDS.forEach(function (name) {
+      setHidden(form, name, params.get(name));
+    });
+    setHidden(form, "page_url", window.location.href);
+    setHidden(form, "page_referrer", document.referrer || "");
+    setHidden(form, "form_submit_timestamp", Math.floor(Date.now() / 1000));
+  }
+
+  function fillClientId(form, clientId) {
+    setHidden(form, "metrika_client_id", clientId);
+  }
+
+  function fillForm(form) {
+    fillStaticFields(form);
+
+    if (typeof window.ym === "function") {
+      window.ym(COUNTER_ID, "getClientID", function (clientId) {
+        fillClientId(form, clientId);
+      });
+      return;
+    }
+
+    fillClientId(form, getCookie("_ym_uid"));
+  }
+
+  function fillAllForms() {
+    refreshCount += 1;
+    Array.prototype.forEach.call(document.querySelectorAll("form"), fillForm);
+  }
+
+  document.addEventListener("DOMContentLoaded", fillAllForms);
+  window.addEventListener("load", fillAllForms);
+  document.addEventListener("focusin", fillAllForms, true);
+  document.addEventListener("click", function (event) {
+    if (event.target && event.target.closest && event.target.closest("form")) {
+      fillAllForms();
+    }
+  }, true);
+  document.addEventListener("submit", function (event) {
+    fillForm(event.target);
+  }, true);
+
+  var observer = new MutationObserver(function () {
+    fillAllForms();
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+
+  var timer = window.setInterval(function () {
+    fillAllForms();
+    if (refreshCount >= MAX_REFRESHES) {
+      window.clearInterval(timer);
+    }
+  }, 500);
+}());
+</script>

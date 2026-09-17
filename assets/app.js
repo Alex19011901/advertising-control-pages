@@ -61,7 +61,7 @@ function escapeHtml(value) {
 function statusClass(status) {
   if (status === "ok") return "ok";
   if (status === "missing_secret") return "missing";
-  if (status === "api_access_pending" || status === "not_checked") return "pending";
+  if (status === "api_access_pending" || status === "not_checked" || status === "counter_mismatch") return "pending";
   return "error";
 }
 
@@ -75,6 +75,9 @@ function statusLabel(source) {
     request_error: "Ошибка запроса",
     direct_unavailable: "API недоступен",
     lead_unavailable: "JSON недоступен",
+    lead_attribution_unavailable: "Атрибуция недоступна",
+    counter_mismatch: "Не тот счетчик",
+    metrika_unavailable: "Метрика недоступна",
     no_data: "Нет данных"
   };
   return labels[source.status] || source.status || "Нет данных";
@@ -83,10 +86,14 @@ function statusLabel(source) {
 function setStatus() {
   const direct = dashboard?.data_sources?.direct || {};
   const leads = dashboard?.data_sources?.lead_control || {};
+  const attribution = dashboard?.data_sources?.lead_attribution || {};
+  const map = attribution?.metrika_attribution_map || {};
   byId("directStatus").className = `pill ${statusClass(direct.status)}`;
   byId("directStatus").textContent = `Яндекс Директ: ${statusLabel(direct)}`;
   byId("leadStatus").className = `pill ${statusClass(leads.status)}`;
   byId("leadStatus").textContent = `Lead Control: ${statusLabel(leads)}`;
+  byId("attrStatus").className = `pill ${statusClass(map.status || attribution.status)}`;
+  byId("attrStatus").textContent = `Метрика: ${statusLabel(map.status ? map : attribution)}`;
   byId("updatedAt").textContent = `Обновлено: ${fmtDate(dashboard?.generated_at)}`;
   byId("directMessage").textContent = direct.message || "Нет данных";
 }
@@ -197,6 +204,79 @@ function renderDirectSummary() {
   byId("directConversions").textContent = fmtDecimal(totals.direct_conversions ?? null);
 }
 
+function methodLabel(value) {
+  const labels = {
+    direct_url_ids: "ID уже в лиде",
+    metrika_client_session_exact: "ClientID + сессия",
+    metrika_client_session_utm_campaign_exact: "ClientID + UTM кампания",
+    metrika_client_session_exact_utm_campaign_exact: "ClientID + UTM кампания",
+    metrika_client_latest_prior_visit: "Последний визит ClientID",
+    metrika_client_latest_prior_visit_utm_campaign_exact: "Последний визит + UTM",
+    client_session_unmapped_utm_campaign: "Есть визит, нет ID кампании",
+    client_session_without_direct_ids: "Есть визит, нет рекламы",
+    ambiguous_client_sessions: "Неоднозначно",
+    client_id_no_session_match: "ClientID без визита",
+    no_client_id: "Нет ClientID"
+  };
+  return labels[value] || value || "Нет данных";
+}
+
+function renderAttributionSummary() {
+  const source = dashboard?.data_sources?.lead_attribution || {};
+  const map = source?.metrika_attribution_map || {};
+  const diagnostics = source?.metrika_attribution_diagnostics || {};
+  const methods = diagnostics.method_counts || {};
+  const period = map.date1 && map.date2 ? `${map.date1} - ${map.date2}` : "Нет данных";
+  const counter = map.counter_id ? `${map.counter_id}` : "Нет данных";
+  const target = map.target_counter_id ? ` / цель ${map.target_counter_id}` : "";
+
+  byId("attrLeadsTotal").textContent = fmtNumber(diagnostics.leads_total ?? source.lead_count ?? null);
+  byId("attrLeadsClient").textContent = fmtNumber(diagnostics.leads_with_metrika_client_id ?? null);
+  byId("attrMapRows").textContent = fmtNumber(diagnostics.metrika_rows ?? map.mapped_rows ?? null);
+  byId("attrMatches").textContent = fmtNumber(diagnostics.matched ?? source.metrika_client_session_matches ?? null);
+  byId("attrCounter").textContent = `${counter}${target}`;
+  byId("attrPeriod").textContent = period;
+  byId("attrMessage").textContent = map.message || source.message || "Атрибуция строится по ClientID из Lead Control и визитам Метрики.";
+
+  const entries = Object.entries(methods).sort((a, b) => b[1] - a[1]);
+  byId("attrMethods").innerHTML = entries.length ? entries.map(([name, value]) => `
+    <div class="method-item">
+      <span>${escapeHtml(methodLabel(name))}</span>
+      <b>${fmtNumber(value)}</b>
+    </div>
+  `).join("") : `<div class="empty-state">Нет данных</div>`;
+}
+
+function renderAttributedLeads() {
+  const rows = dashboard?.lead_attribution?.leads || [];
+  const body = byId("leadsBody");
+  const empty = byId("leadsEmpty");
+  if (!rows.length) {
+    body.innerHTML = "";
+    empty.style.display = "grid";
+    return;
+  }
+  empty.style.display = "none";
+  body.innerHTML = rows.slice().reverse().slice(0, 60).map((lead) => {
+    const ids = [
+      lead.campaign_id ? `К: ${lead.campaign_id}` : "",
+      lead.group_id ? `Г: ${lead.group_id}` : "",
+      lead.ad_id ? `О: ${lead.ad_id}` : ""
+    ].filter(Boolean).join(" · ");
+    const phrase = lead.metrika_phrase_or_condition || lead.utm_term || lead.metrika_utm_campaign || lead.utm_campaign || "";
+    return `
+      <tr>
+        <td>${fmtDate(lead.created_at)}</td>
+        <td>${escapeHtml(lead.event_type || "Нет данных")}</td>
+        <td>${escapeHtml(lead.source || lead.channel || "Нет данных")}</td>
+        <td>${escapeHtml(ids || lead.metrika_campaign_name || "Не связано")}</td>
+        <td>${escapeHtml(phrase || "Нет данных")}</td>
+        <td>${escapeHtml(methodLabel(lead.attribution_method))}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
 function bindRanges() {
   document.querySelectorAll("[data-range]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -215,6 +295,8 @@ function render() {
   renderLeadSummary();
   renderDirectSummary();
   renderBreakdown();
+  renderAttributionSummary();
+  renderAttributedLeads();
 }
 
 async function boot() {
@@ -229,10 +311,12 @@ async function boot() {
       generated_at: null,
       data_sources: {
         direct: { status: "no_data", message: "Нет данных" },
-        lead_control: { status: "no_data", message: "Нет данных" }
+        lead_control: { status: "no_data", message: "Нет данных" },
+        lead_attribution: { status: "no_data", message: "Нет данных" }
       },
       kpi: {},
       direct: { breakdown: [] },
+      lead_attribution: { leads: [] },
       lead_control: { ranges: {} }
     };
     render();

@@ -195,7 +195,20 @@ def finalize_metrics(metrics: dict[str, float], real_leads: int | None = None) -
     }
 
 
-def direct_summary(rows: list[dict[str, str]], real_leads: int | None) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def lead_count_for_direct_key(counts: dict[str, Any], campaign_id: str, group_id: str, ad_id: str) -> int:
+    by_ad = counts.get("by_ad") or {}
+    by_group = counts.get("by_group") or {}
+    by_campaign = counts.get("by_campaign") or {}
+    if ad_id and ad_id in by_ad:
+        return int(by_ad.get(ad_id) or 0)
+    if group_id and group_id in by_group:
+        return int(by_group.get(group_id) or 0)
+    if campaign_id and campaign_id in by_campaign:
+        return int(by_campaign.get(campaign_id) or 0)
+    return 0
+
+
+def direct_summary(rows: list[dict[str, str]], counts: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     totals: dict[str, float] = defaultdict(float)
     grouped: dict[tuple[str, ...], dict[str, float]] = defaultdict(lambda: defaultdict(float))
     for row in rows:
@@ -214,11 +227,13 @@ def direct_summary(rows: list[dict[str, str]], real_leads: int | None) -> tuple[
             ad_or_query,
         )
         add_metrics(grouped[key], row)
+    real_leads = int(counts.get("exact_id_matches_available") or 0)
     total_payload = finalize_metrics(totals, real_leads)
     breakdown = []
     for key, metrics in grouped.items():
         direction, campaign_id, campaign, group_id, group, ad_id, ad_or_query = key
-        payload = finalize_metrics(metrics)
+        row_leads = lead_count_for_direct_key(counts, campaign_id, group_id, ad_id)
+        payload = finalize_metrics(metrics, row_leads if row_leads else None)
         payload.update({
             "direction": direction,
             "campaign_id": campaign_id,
@@ -336,7 +351,7 @@ def main() -> int:
     advertising_leads = attribution_payload.get("leads") or []
     counts = lead_match_counts(advertising_leads)
     exact_leads = int(counts.get("exact_id_matches_available") or 0)
-    totals, breakdown = direct_summary(rows, exact_leads)
+    totals, breakdown = direct_summary(rows, counts)
     entity = entity_breakdown(rows, counts)
     quality_cpl = safe_div(totals.get("cost"), quality_leads)
 

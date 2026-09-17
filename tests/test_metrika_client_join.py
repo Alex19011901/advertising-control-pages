@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_dashboard_with_metrika import enrich_leads
+from build_dashboard_with_metrika import map_status_from_payload
 
 
 class MetrikaClientJoinTests(unittest.TestCase):
@@ -71,6 +72,29 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(matched, 0)
         self.assertEqual(result[0]["attribution_method"], "ambiguous_client_sessions")
         self.assertFalse(result[0].get("ad_id"))
+
+    def test_latest_prior_visit_is_used_when_session_duration_is_too_short(self) -> None:
+        leads = [{
+            "lead_id": "lead3",
+            "created_at": "2026-09-14T13:19:27+03:00",
+            "metrika_client_id_sha256": "abc",
+        }]
+        rows = [
+            {"client_id_sha256": "abc", "visit_datetime": "2026-09-12 10:20:00", "visit_duration_seconds": 0, "campaign_id": "old"},
+            {"client_id_sha256": "abc", "visit_datetime": "2026-09-14 12:58:00", "visit_duration_seconds": 0, "campaign_id": "new"},
+        ]
+        result, matched = enrich_leads(leads, rows)
+        self.assertEqual(matched, 1)
+        self.assertEqual(result[0]["campaign_id"], "new")
+        self.assertEqual(result[0]["attribution_method"], "metrika_client_session_exact")
+
+    def test_counter_mismatch_map_is_rejected(self) -> None:
+        status, payload = map_status_from_payload("remote_legacy", "url", {
+            "counter_id": 112267492,
+            "rows": [{"client_id_sha256": "abc", "campaign_id": "123"}],
+        })
+        self.assertEqual(status["status"], "counter_mismatch")
+        self.assertEqual(payload["rows"], [])
 
 
 if __name__ == "__main__":

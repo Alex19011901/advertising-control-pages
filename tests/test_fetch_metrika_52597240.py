@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -71,6 +73,32 @@ class FetchMetrika52597240Tests(unittest.TestCase):
         )
         self.assertEqual(query["attribution"], "AUTOMATIC")
         self.assertEqual(query["source"], "visits")
+
+    def test_main_without_secret_writes_missing_secret_payload(self) -> None:
+        old_token = os.environ.pop("YANDEX_METRIKA_READ_TOKEN", None)
+        old_argv = sys.argv[:]
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                output = Path(tmp) / "metrika.json"
+                status = Path(tmp) / "status.json"
+                sys.argv = [
+                    "fetch_metrika_52597240.py",
+                    "--date1",
+                    "2026-09-15",
+                    "--date2",
+                    "2026-09-15",
+                    "--output",
+                    str(output),
+                    "--status-output",
+                    str(status),
+                ]
+                self.assertEqual(mod.main(), 0)
+                self.assertIn("missing_secret", output.read_text(encoding="utf-8"))
+                self.assertIn("missing_secret", status.read_text(encoding="utf-8"))
+        finally:
+            sys.argv = old_argv
+            if old_token is not None:
+                os.environ["YANDEX_METRIKA_READ_TOKEN"] = old_token
 
 
 if __name__ == "__main__":

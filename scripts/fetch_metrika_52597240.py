@@ -20,6 +20,8 @@ API_BASE = "https://api-metrika.yandex.net/management/v1"
 COUNTER_ID = 52597240
 ATTRIBUTION = "AUTOMATIC"
 MOSCOW = timezone(timedelta(hours=3))
+DEFAULT_OUTPUT = Path("data/metrika_52597240.json")
+DEFAULT_STATUS = Path("data/metrika_status.json")
 
 VISIT_FIELDS = (
     "ym:s:visitID",
@@ -250,6 +252,9 @@ class MetrikaLogsClient:
             f"/counter/{self.counter_id}/logrequest/{int(request_id)}/part/{int(part_number)}/download",
         )
 
+    def clean(self, request_id: int) -> None:
+        self._request("POST", f"/counter/{self.counter_id}/logrequest/{int(request_id)}/clean")
+
     def export(
         self,
         *,
@@ -309,7 +314,8 @@ def build_payload(
     visits = safe_visit_rows(visit_rows)
     submit_events = safe_submit_events(hit_rows)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
+        "status": "ok",
         "counter_id": client.counter_id,
         "attribution": ATTRIBUTION,
         "date1": date1,
@@ -317,7 +323,46 @@ def build_payload(
         "visits_total": len(visit_rows),
         "hits_total": len(hit_rows),
         "visits": visits,
+        "rows": visits,
         "submit_events": submit_events,
+        "rows_with_client_id": len({row["client_id_sha256"] for row in visits if row.get("client_id_sha256")}),
+        "mapped_rows": sum(1 for row in visits if row.get("campaign_id") or row.get("group_id") or row.get("ad_id") or row.get("utm_campaign")),
+    }
+
+
+def write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def write_status(path: Path, status: str, message: str, *, output: Path, date1: str, date2: str, counter_id: int) -> None:
+    write_json(path, {
+        "status": status,
+        "message": message,
+        "counter_id": counter_id,
+        "date1": date1,
+        "date2": date2,
+        "output": str(output),
+        "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    })
+
+
+def empty_payload(counter_id: int, date1: str, date2: str, status: str, message: str) -> dict[str, Any]:
+    return {
+        "schema_version": 2,
+        "status": status,
+        "message": message,
+        "counter_id": counter_id,
+        "attribution": ATTRIBUTION,
+        "date1": date1,
+        "date2": date2,
+        "visits_total": 0,
+        "hits_total": 0,
+        "visits": [],
+        "rows": [],
+        "submit_events": [],
+        "rows_with_client_id": 0,
+        "mapped_rows": 0,
     }
 
 
@@ -326,27 +371,41 @@ def main() -> int:
     parser.add_argument("--counter-id", type=int, default=COUNTER_ID)
     parser.add_argument("--date1", default=previous_day())
     parser.add_argument("--date2", default="")
-    parser.add_argument("--output", default="data/metrika_52597240.json")
+    parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
+    parser.add_argument("--status-output", default=str(DEFAULT_STATUS))
     parser.add_argument("--poll-seconds", type=float, default=2.0)
     parser.add_argument("--max-polls", type=int, default=60)
     args = parser.parse_args()
 
+    output = Path(args.output)
+    status_output = Path(args.status_output)
+    date2 = args.date2 or args.date1
     token = os.environ.get("YANDEX_METRIKA_READ_TOKEN", "").strip()
     if not token:
-        raise SystemExit("YANDEX_METRIKA_READ_TOKEN is required")
+        message = "GitHub Actions secret YANDEX_METRIKA_READ_TOKEN is not configured."
+        write_json(output, empty_payload(args.counter_id, args.date1, date2, "missing_secret", message))
+        write_status(status_output, "missing_secret", message, output=output, date1=args.date1, date2=date2, counter_id=args.counter_id)
+        print(f"Yandex Metrika status: missing_secret. {message}")
+        return 0
 
     client = MetrikaLogsClient(token, counter_id=args.counter_id)
-    payload = build_payload(
-        client,
-        date1=args.date1,
-        date2=args.date2 or args.date1,
-        poll_seconds=args.poll_seconds,
-        max_polls=args.max_polls,
-    )
+    try:
+        payload = build_payload(
+            client,
+            date1=args.date1,
+            date2=date2,
+            poll_seconds=args.poll_seconds,
+            max_polls=args.max_polls,
+        )
+    except MetrikaLogsError as exc:
+        message = f"Yandex Metrika Logs API error: {exc}"
+        write_json(output, empty_payload(args.counter_id, args.date1, date2, "metrika_unavailable", message))
+        write_status(status_output, "metrika_unavailable", message, output=output, date1=args.date1, date2=date2, counter_id=args.counter_id)
+        print(f"Yandex Metrika status: metrika_unavailable. {message}")
+        return 0
 
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_json(output, payload)
+    write_status(status_output, "ok", "Yandex Metrika Logs export downloaded.", output=output, date1=args.date1, date2=date2, counter_id=args.counter_id)
     print(f"Metrika export written: {output}")
     print(f"Visits: {len(payload['visits'])}; submit events: {len(payload['submit_events'])}")
     return 0

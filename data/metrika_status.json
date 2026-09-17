@@ -1,0 +1,9 @@
+{
+  "status": "missing_secret",
+  "message": "GitHub Actions secret YANDEX_METRIKA_READ_TOKEN is not configured.",
+  "counter_id": 52597240,
+  "date1": "2026-09-05",
+  "date2": "2026-09-15",
+  "output": "data/metrika_52597240.json",
+  "updated_at": "2026-09-16T13:19:25+00:00"
+}
