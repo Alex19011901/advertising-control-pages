@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_dashboard_with_metrika as mod
 from build_dashboard_with_metrika import enrich_leads
 from build_dashboard_with_metrika import map_status_from_payload
+from build_dashboard_with_metrika import tilda_client_id_summary
 
 
 class MetrikaClientJoinTests(unittest.TestCase):
@@ -107,6 +108,36 @@ class MetrikaClientJoinTests(unittest.TestCase):
         })
         self.assertEqual(status["status"], "attribution_mismatch")
         self.assertEqual(payload["rows"], [])
+
+    def test_tilda_client_id_summary_counts_tilda_sources(self) -> None:
+        summary = tilda_client_id_summary([
+            {
+                "lead_id": "site-old",
+                "created_at": "2026-09-17T10:00:00+03:00",
+                "source": "САЙТ ТИЛЬДА",
+                "metrika_client_id_sha256": "",
+                "attribution_method": "no_client_id",
+            },
+            {
+                "lead_id": "host",
+                "created_at": "2026-09-17T11:00:00+03:00",
+                "source": "Заявки хост",
+                "metrika_client_id_sha256": "",
+                "attribution_method": "no_client_id",
+            },
+            {
+                "lead_id": "site-new",
+                "created_at": "2026-09-17T12:00:00+03:00",
+                "source": "Tilda Veranda",
+                "metrika_client_id_sha256": "hash",
+                "attribution_method": "client_id_no_session_match",
+            },
+        ])
+        self.assertEqual(summary["total"], 2)
+        self.assertEqual(summary["with_client_id"], 1)
+        self.assertEqual(summary["without_client_id"], 1)
+        self.assertEqual(summary["latest"][0]["lead_id"], "site-new")
+        self.assertTrue(summary["latest"][0]["has_metrika_client_id"])
 
     def test_local_missing_secret_falls_back_to_remote_map(self) -> None:
         class FakeResponse:

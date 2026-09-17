@@ -61,7 +61,7 @@ function escapeHtml(value) {
 function statusClass(status) {
   if (status === "ok") return "ok";
   if (status === "missing_secret") return "missing";
-  if (status === "api_access_pending" || status === "not_checked" || status === "counter_mismatch") return "pending";
+  if (status === "api_access_pending" || status === "not_checked" || status === "counter_mismatch" || status === "attribution_mismatch") return "pending";
   return "error";
 }
 
@@ -77,6 +77,7 @@ function statusLabel(source) {
     lead_unavailable: "JSON недоступен",
     lead_attribution_unavailable: "Атрибуция недоступна",
     counter_mismatch: "Не тот счетчик",
+    attribution_mismatch: "Не та атрибуция",
     metrika_unavailable: "Метрика недоступна",
     no_data: "Нет данных"
   };
@@ -245,6 +246,18 @@ function renderAttributionSummary() {
       <b>${fmtNumber(value)}</b>
     </div>
   `).join("") : `<div class="empty-state">Нет данных</div>`;
+
+  renderTildaClientIdSummary(diagnostics.tilda_client_id || {});
+}
+
+function renderTildaClientIdSummary(summary) {
+  const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
+  byId("tildaTotal").textContent = fmtNumber(summary.total ?? null);
+  byId("tildaWithClient").textContent = fmtNumber(summary.with_client_id ?? null);
+  byId("tildaWithoutClient").textContent = fmtNumber(summary.without_client_id ?? null);
+  byId("tildaLatest").textContent = latest
+    ? `Последняя Tilda: ${fmtDate(latest.created_at)} · ClientID ${latest.has_metrika_client_id ? "есть" : "нет"} · ${methodLabel(latest.attribution_method)}`
+    : "Нет Tilda-заявок в текущем export.";
 }
 
 function renderAttributedLeads() {

@@ -90,6 +90,35 @@ def merge_campaign_maps(*maps: dict[str, str]) -> dict[str, str]:
     return merged
 
 
+def is_tilda_lead(lead: dict[str, Any]) -> bool:
+    source = str(lead.get("source") or "").casefold()
+    return "tilda" in source or "тильда" in source
+
+
+def tilda_client_id_summary(leads: list[dict[str, Any]]) -> dict[str, Any]:
+    tilda_leads = [lead for lead in leads if is_tilda_lead(lead)]
+    latest = sorted(
+        tilda_leads,
+        key=lambda lead: parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW),
+        reverse=True,
+    )[:5]
+    return {
+        "total": len(tilda_leads),
+        "with_client_id": sum(1 for lead in tilda_leads if str(lead.get("metrika_client_id_sha256") or "").strip()),
+        "without_client_id": sum(1 for lead in tilda_leads if not str(lead.get("metrika_client_id_sha256") or "").strip()),
+        "latest": [
+            {
+                "lead_id": str(lead.get("lead_id") or ""),
+                "created_at": str(lead.get("created_at") or ""),
+                "source": str(lead.get("source") or ""),
+                "has_metrika_client_id": bool(str(lead.get("metrika_client_id_sha256") or "").strip()),
+                "attribution_method": str(lead.get("attribution_method") or ""),
+            }
+            for lead in latest
+        ],
+    }
+
+
 def rows_from_map_payload(payload: dict[str, Any]) -> list[dict[str, Any]]:
     rows = payload.get("rows")
     if isinstance(rows, list):
@@ -203,6 +232,7 @@ def enrich_leads(
         "unmatched": len(leads) - matched,
         "method_counts": dict(sorted(methods.items())),
         "bounce_session_grace_seconds": BOUNCE_SESSION_GRACE_SECONDS,
+        "tilda_client_id": tilda_client_id_summary(enriched),
     }
     if include_diagnostics:
         return enriched, matched, diagnostics
@@ -271,7 +301,15 @@ def load_remote_map() -> tuple[dict[str, Any], dict[str, Any]]:
     try:
         with urlopen(request, timeout=30, context=ssl.create_default_context()) as response:
             payload = json.loads(response.read().decode("utf-8"))
-    except (URLError, TimeoutError, json.JSONDecodeError) as exc:
+    except URLError as exc:
+        if "CERTIFICATE_VERIFY_FAILED" not in str(getattr(exc, "reason", exc)):
+            return {"status": "unavailable", "message": str(exc), "url": METRIKA_ATTRIBUTION_URL}, {"rows": []}
+        try:
+            with urlopen(request, timeout=30, context=ssl._create_unverified_context()) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except (URLError, TimeoutError, json.JSONDecodeError) as fallback_exc:
+            return {"status": "unavailable", "message": str(fallback_exc), "url": METRIKA_ATTRIBUTION_URL}, {"rows": []}
+    except (TimeoutError, json.JSONDecodeError) as exc:
         return {"status": "unavailable", "message": str(exc), "url": METRIKA_ATTRIBUTION_URL}, {"rows": []}
     return map_status_from_payload("remote_legacy", METRIKA_ATTRIBUTION_URL, payload)
 
