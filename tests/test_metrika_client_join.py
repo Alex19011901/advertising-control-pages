@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_dashboard_with_metrika as mod
 from build_dashboard_with_metrika import enrich_leads
+from build_dashboard_with_metrika import hostess_call_summary
 from build_dashboard_with_metrika import map_status_from_payload
 from build_dashboard_with_metrika import tilda_client_id_summary
 
@@ -144,6 +145,50 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(summary["last_7_days"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
         self.assertEqual(summary["latest"][0]["lead_id"], "site-new")
         self.assertTrue(summary["latest"][0]["has_metrika_client_id"])
+
+    def test_callibri_ids_are_labeled_without_metrika_match(self) -> None:
+        leads = [{
+            "lead_id": "marquiz-callibri",
+            "created_at": "2026-09-17T12:00:00+03:00",
+            "source": "MARQUIZ",
+            "campaign_id": "712849433",
+            "group_id": "5773918659",
+            "ad_id": "1915822986185365500",
+            "advertising_id_source": "callibri",
+        }]
+        result, matched = enrich_leads(leads, [])
+        self.assertEqual(matched, 0)
+        self.assertEqual(result[0]["attribution_method"], "callibri_url_ids")
+
+    def test_hostess_call_summary_counts_host_source(self) -> None:
+        moscow = timezone(timedelta(hours=3))
+        summary = hostess_call_summary([
+            {
+                "lead_id": "host-no-ads",
+                "created_at": "2026-09-17T10:00:00+03:00",
+                "source": "Заявки хост",
+                "attribution_method": "no_client_id",
+            },
+            {
+                "lead_id": "host-callibri",
+                "created_at": "2026-09-17T12:00:00+03:00",
+                "source": "Заявки хост",
+                "campaign_id": "712849433",
+                "advertising_id_source": "callibri",
+                "attribution_method": "callibri_url_ids",
+            },
+            {
+                "lead_id": "site",
+                "created_at": "2026-09-17T13:00:00+03:00",
+                "source": "САЙТ ТИЛЬДА",
+            },
+        ], now=datetime(2026, 9, 17, 14, 0, tzinfo=moscow))
+        self.assertEqual(summary["total"], 2)
+        self.assertEqual(summary["with_ad_ids"], 1)
+        self.assertEqual(summary["with_callibri"], 1)
+        self.assertEqual(summary["today"]["total"], 2)
+        self.assertEqual(summary["last_7_days"]["with_ad_ids"], 1)
+        self.assertEqual(summary["latest"][0]["lead_id"], "host-callibri")
 
     def test_local_missing_secret_falls_back_to_remote_map(self) -> None:
         class FakeResponse:

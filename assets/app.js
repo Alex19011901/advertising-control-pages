@@ -215,6 +215,7 @@ function methodLabel(value) {
     metrika_client_latest_prior_visit_utm_campaign_exact: "Последний визит + UTM",
     client_session_unmapped_utm_campaign: "Есть визит, нет ID кампании",
     client_session_without_direct_ids: "Есть визит, нет рекламы",
+    callibri_url_ids: "Callibri ID в заявке",
     ambiguous_client_sessions: "Неоднозначно",
     client_id_no_session_match: "ClientID без визита",
     no_client_id: "Нет ClientID"
@@ -248,6 +249,7 @@ function renderAttributionSummary() {
   `).join("") : `<div class="empty-state">Нет данных</div>`;
 
   renderTildaClientIdSummary(diagnostics.tilda_client_id || {});
+  renderHostessCallSummary(diagnostics.hostess_calls || {});
 }
 
 function renderTildaClientIdSummary(summary) {
@@ -265,6 +267,18 @@ function renderTildaClientIdSummary(summary) {
 function fmtClientIdRatio(windowSummary) {
   if (!windowSummary) return "Нет данных";
   return `${fmtNumber(windowSummary.with_client_id ?? 0)} / ${fmtNumber(windowSummary.total ?? 0)}`;
+}
+
+function renderHostessCallSummary(summary) {
+  const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
+  byId("hostessTotal").textContent = fmtNumber(summary.total ?? null);
+  byId("hostessToday").textContent = fmtNumber(summary.today?.total ?? null);
+  byId("hostess7Days").textContent = fmtNumber(summary.last_7_days?.total ?? null);
+  byId("hostessWithAds").textContent = fmtNumber(summary.with_ad_ids ?? null);
+  byId("hostessCallibri").textContent = fmtNumber(summary.with_callibri ?? null);
+  byId("hostessLatest").textContent = latest
+    ? `Последняя хостес: ${fmtDate(latest.created_at)} · ${latest.has_ad_ids ? methodLabel(latest.attribution_method) : "без рекламной привязки"}`
+    : "Нет заявок хостес в текущем export.";
 }
 
 function renderAttributedLeads() {

@@ -95,8 +95,17 @@ def is_tilda_lead(lead: dict[str, Any]) -> bool:
     return "tilda" in source or "тильда" in source
 
 
+def is_hostess_lead(lead: dict[str, Any]) -> bool:
+    source = str(lead.get("source") or "").casefold()
+    return "заявки хост" in source
+
+
 def has_metrika_client_id(lead: dict[str, Any]) -> bool:
     return bool(str(lead.get("metrika_client_id_sha256") or "").strip())
+
+
+def has_ad_ids(lead: dict[str, Any]) -> bool:
+    return bool(str(lead.get("ad_id") or lead.get("group_id") or lead.get("campaign_id") or "").strip())
 
 
 def tilda_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[str, int]:
@@ -136,6 +145,55 @@ def tilda_client_id_summary(leads: list[dict[str, Any]], now: datetime | None = 
                 "created_at": str(lead.get("created_at") or ""),
                 "source": str(lead.get("source") or ""),
                 "has_metrika_client_id": has_metrika_client_id(lead),
+                "attribution_method": str(lead.get("attribution_method") or ""),
+            }
+            for lead in latest
+        ],
+    }
+
+
+def hostess_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[str, int]:
+    window = [
+        lead
+        for lead in leads
+        if (parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW)) >= start
+    ]
+    with_ad_ids = sum(1 for lead in window if has_ad_ids(lead))
+    with_callibri = sum(1 for lead in window if str(lead.get("advertising_id_source") or "") == "callibri")
+    return {
+        "total": len(window),
+        "with_ad_ids": with_ad_ids,
+        "without_ad_ids": len(window) - with_ad_ids,
+        "with_callibri": with_callibri,
+    }
+
+
+def hostess_call_summary(leads: list[dict[str, Any]], now: datetime | None = None) -> dict[str, Any]:
+    now_moscow = (now or datetime.now(MOSCOW)).astimezone(MOSCOW)
+    today_start = now_moscow.replace(hour=0, minute=0, second=0, microsecond=0)
+    last_7_days_start = now_moscow - timedelta(days=7)
+    hostess_leads = [lead for lead in leads if is_hostess_lead(lead)]
+    latest = sorted(
+        hostess_leads,
+        key=lambda lead: parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW),
+        reverse=True,
+    )[:5]
+    with_ad_ids = sum(1 for lead in hostess_leads if has_ad_ids(lead))
+    with_callibri = sum(1 for lead in hostess_leads if str(lead.get("advertising_id_source") or "") == "callibri")
+    return {
+        "total": len(hostess_leads),
+        "with_ad_ids": with_ad_ids,
+        "without_ad_ids": len(hostess_leads) - with_ad_ids,
+        "with_callibri": with_callibri,
+        "today": hostess_window_summary(hostess_leads, today_start),
+        "last_7_days": hostess_window_summary(hostess_leads, last_7_days_start),
+        "latest": [
+            {
+                "lead_id": str(lead.get("lead_id") or ""),
+                "created_at": str(lead.get("created_at") or ""),
+                "source": str(lead.get("source") or ""),
+                "has_ad_ids": has_ad_ids(lead),
+                "advertising_id_source": str(lead.get("advertising_id_source") or ""),
                 "attribution_method": str(lead.get("attribution_method") or ""),
             }
             for lead in latest
@@ -217,9 +275,10 @@ def enrich_leads(
     methods: Counter[str] = Counter()
     for original in leads:
         lead = copy.deepcopy(original)
-        if str(lead.get("ad_id") or lead.get("group_id") or lead.get("campaign_id") or "").strip():
-            lead["attribution_method"] = "direct_url_ids"
-            methods["direct_url_ids"] += 1
+        if has_ad_ids(lead):
+            method = "callibri_url_ids" if str(lead.get("advertising_id_source") or "") == "callibri" else "direct_url_ids"
+            lead["attribution_method"] = method
+            methods[method] += 1
             enriched.append(lead)
             continue
 
@@ -257,6 +316,7 @@ def enrich_leads(
         "method_counts": dict(sorted(methods.items())),
         "bounce_session_grace_seconds": BOUNCE_SESSION_GRACE_SECONDS,
         "tilda_client_id": tilda_client_id_summary(enriched),
+        "hostess_calls": hostess_call_summary(enriched),
     }
     if include_diagnostics:
         return enriched, matched, diagnostics
