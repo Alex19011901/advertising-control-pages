@@ -66,6 +66,7 @@ jobs:
         env:
           YANDEX_METRIKA_READ_TOKEN: ${{ secrets.YANDEX_METRIKA_READ_TOKEN }}
           YANDEX_METRIKA_TARGET_COUNTER: "52597240"
+          YANDEX_METRIKA_REMOTE_FALLBACK_URL: https://raw.githubusercontent.com/Alex19011901/lead-control-pages/main/runtime-data/metrika_attribution_map_52597240.json
         run: |
           yesterday="$(TZ=Europe/Moscow date -d 'yesterday' +%F)"
           python scripts/fetch_metrika_52597240.py --counter-id 52597240 --date1 2026-09-05 --date2 "$yesterday" --poll-seconds 5 --max-polls 90

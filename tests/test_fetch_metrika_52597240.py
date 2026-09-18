@@ -76,6 +76,7 @@ class FetchMetrika52597240Tests(unittest.TestCase):
 
     def test_main_without_secret_writes_missing_secret_payload(self) -> None:
         old_token = os.environ.pop("YANDEX_METRIKA_READ_TOKEN", None)
+        old_fallback = os.environ.pop("YANDEX_METRIKA_REMOTE_FALLBACK_URL", None)
         old_argv = sys.argv[:]
         try:
             with tempfile.TemporaryDirectory() as tmp:
@@ -99,6 +100,41 @@ class FetchMetrika52597240Tests(unittest.TestCase):
             sys.argv = old_argv
             if old_token is not None:
                 os.environ["YANDEX_METRIKA_READ_TOKEN"] = old_token
+            if old_fallback is not None:
+                os.environ["YANDEX_METRIKA_REMOTE_FALLBACK_URL"] = old_fallback
+
+    def test_main_without_secret_can_write_remote_map_fallback_payload(self) -> None:
+        old_token = os.environ.pop("YANDEX_METRIKA_READ_TOKEN", None)
+        old_fallback = os.environ.get("YANDEX_METRIKA_REMOTE_FALLBACK_URL")
+        old_argv = sys.argv[:]
+        try:
+            os.environ["YANDEX_METRIKA_REMOTE_FALLBACK_URL"] = "https://example.test/metrika_attribution_map_52597240.json"
+            with tempfile.TemporaryDirectory() as tmp:
+                output = Path(tmp) / "metrika.json"
+                status = Path(tmp) / "status.json"
+                sys.argv = [
+                    "fetch_metrika_52597240.py",
+                    "--date1",
+                    "2026-09-15",
+                    "--date2",
+                    "2026-09-15",
+                    "--output",
+                    str(output),
+                    "--status-output",
+                    str(status),
+                ]
+                self.assertEqual(mod.main(), 0)
+                self.assertIn("remote_map_fallback", output.read_text(encoding="utf-8"))
+                self.assertIn("remote_map_fallback", status.read_text(encoding="utf-8"))
+                self.assertIn("https://example.test/metrika_attribution_map_52597240.json", status.read_text(encoding="utf-8"))
+        finally:
+            sys.argv = old_argv
+            if old_token is not None:
+                os.environ["YANDEX_METRIKA_READ_TOKEN"] = old_token
+            if old_fallback is not None:
+                os.environ["YANDEX_METRIKA_REMOTE_FALLBACK_URL"] = old_fallback
+            else:
+                os.environ.pop("YANDEX_METRIKA_REMOTE_FALLBACK_URL", None)
 
 
 if __name__ == "__main__":

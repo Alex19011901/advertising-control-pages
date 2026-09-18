@@ -335,8 +335,18 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def write_status(path: Path, status: str, message: str, *, output: Path, date1: str, date2: str, counter_id: int) -> None:
-    write_json(path, {
+def write_status(
+    path: Path,
+    status: str,
+    message: str,
+    *,
+    output: Path,
+    date1: str,
+    date2: str,
+    counter_id: int,
+    remote_fallback_url: str = "",
+) -> None:
+    payload = {
         "status": status,
         "message": message,
         "counter_id": counter_id,
@@ -344,7 +354,10 @@ def write_status(path: Path, status: str, message: str, *, output: Path, date1: 
         "date2": date2,
         "output": str(output),
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-    })
+    }
+    if remote_fallback_url:
+        payload["remote_fallback_url"] = remote_fallback_url
+    write_json(path, payload)
 
 
 def empty_payload(counter_id: int, date1: str, date2: str, status: str, message: str) -> dict[str, Any]:
@@ -382,6 +395,25 @@ def main() -> int:
     date2 = args.date2 or args.date1
     token = os.environ.get("YANDEX_METRIKA_READ_TOKEN", "").strip()
     if not token:
+        remote_fallback_url = os.environ.get("YANDEX_METRIKA_REMOTE_FALLBACK_URL", "").strip()
+        if remote_fallback_url:
+            status = "remote_map_fallback"
+            message = "YANDEX_METRIKA_READ_TOKEN is not configured; using Lead Control published Metrika attribution map."
+            payload = empty_payload(args.counter_id, args.date1, date2, status, message)
+            payload["remote_fallback_url"] = remote_fallback_url
+            write_json(output, payload)
+            write_status(
+                status_output,
+                status,
+                message,
+                output=output,
+                date1=args.date1,
+                date2=date2,
+                counter_id=args.counter_id,
+                remote_fallback_url=remote_fallback_url,
+            )
+            print(f"Yandex Metrika status: {status}. {message}")
+            return 0
         message = "GitHub Actions secret YANDEX_METRIKA_READ_TOKEN is not configured."
         write_json(output, empty_payload(args.counter_id, args.date1, date2, "missing_secret", message))
         write_status(status_output, "missing_secret", message, output=output, date1=args.date1, date2=date2, counter_id=args.counter_id)

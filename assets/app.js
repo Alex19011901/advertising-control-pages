@@ -61,6 +61,7 @@ function escapeHtml(value) {
 function statusClass(status) {
   if (status === "ok") return "ok";
   if (status === "missing_secret") return "missing";
+  if (status === "remote_map_fallback") return "ok";
   if (status === "api_access_pending" || status === "not_checked" || status === "counter_mismatch" || status === "attribution_mismatch") return "pending";
   return "error";
 }
@@ -72,6 +73,7 @@ function statusLabel(source) {
     not_checked: "API access pending",
     api_access_pending: "API access pending",
     missing_secret: "Нет секрета",
+    remote_map_fallback: "Карта Lead Control",
     request_error: "Ошибка запроса",
     direct_unavailable: "API недоступен",
     lead_unavailable: "JSON недоступен",
