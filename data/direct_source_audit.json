@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_report_type": "AD_PERFORMANCE_REPORT",
-  "rows": 3191,
+  "rows": 3193,
   "date_min": "2026-09-05",
   "date_max": "2026-09-18",
   "required_fields_missing": [],
@@ -10,7 +10,7 @@
   "unique_ads_with_activity": 544,
   "duplicate_date_ad_keys": [],
   "totals": {
-    "impressions": 1090838,
+    "impressions": 1090848,
     "clicks": 18844,
     "cost": 328511.56,
     "conversions": 4587.0
