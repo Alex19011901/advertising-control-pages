@@ -101,6 +101,29 @@
             <div class="mini"><div class="label">Клики</div><b id="directClicks">Нет данных</b></div>
             <div class="mini"><div class="label">Конверсии</div><b id="directConversions">Нет данных</b></div>
           </div>
+          <h2>Расход по связанным лидам</h2>
+          <div class="summary-row linked-spend-summary">
+            <div class="mini"><div class="label">Строк с лидами</div><b id="linkedRows">Нет данных</b></div>
+            <div class="mini"><div class="label">Связанных лидов</div><b id="linkedLeads">Нет данных</b></div>
+            <div class="mini"><div class="label">Расход</div><b id="linkedCost">Нет данных</b></div>
+            <div class="mini"><div class="label">CPL</div><b id="linkedCpl">Нет данных</b></div>
+          </div>
+          <div class="table-wrap">
+            <table aria-label="Расход и CPL по связанным лидам">
+              <thead>
+                <tr>
+                  <th>Кампания</th>
+                  <th>Группа</th>
+                  <th>Объявление</th>
+                  <th>Лиды</th>
+                  <th>Расход</th>
+                  <th>CPL</th>
+                </tr>
+              </thead>
+              <tbody id="linkedSpendBody"></tbody>
+            </table>
+          </div>
+          <div id="linkedSpendEmpty" class="empty-state compact-empty">Нет связанных строк</div>
         </article>
         <article class="card panel">
           <h2>Статус данных</h2>
@@ -151,6 +174,7 @@
             <div class="mini"><div class="label">Источник</div><b>Заявки хост</b></div>
           </div>
           <p id="hostessLatest" class="footnote">Нет данных</p>
+          <div id="hostessStatus" class="method-grid"></div>
         </aside>
       </section>
 

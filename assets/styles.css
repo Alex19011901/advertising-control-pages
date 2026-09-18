@@ -234,6 +234,10 @@ h2 {
   margin-bottom: 10px;
 }
 
+.summary-row.linked-spend-summary {
+  margin: 10px 0;
+}
+
 .attribution-summary {
   margin-bottom: 10px;
 }
@@ -347,6 +351,11 @@ th {
   border-radius: 8px;
   padding: 18px;
   background: #fff;
+}
+
+.empty-state.compact-empty {
+  min-height: 72px;
+  margin-top: 10px;
 }
 
 .footnote {

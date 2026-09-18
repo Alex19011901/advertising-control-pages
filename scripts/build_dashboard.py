@@ -248,6 +248,19 @@ def direct_summary(rows: list[dict[str, str]], counts: dict[str, Any]) -> tuple[
     return total_payload, breakdown[:500]
 
 
+def linked_spend_summary(breakdown: list[dict[str, Any]]) -> dict[str, Any]:
+    linked_rows = [row for row in breakdown if row.get("real_leads")]
+    cost = sum(float(row.get("cost") or 0) for row in linked_rows)
+    leads = sum(int(row.get("real_leads") or 0) for row in linked_rows)
+    return {
+        "row_count": len(linked_rows),
+        "cost": round(cost, 2) if cost else None,
+        "leads": leads,
+        "cpl": round(cost / leads, 2) if cost and leads else None,
+        "rows": sorted(linked_rows, key=lambda item: (item.get("cost") or 0), reverse=True)[:30],
+    }
+
+
 def lead_match_counts(leads: list[dict[str, Any]]) -> dict[str, Any]:
     by_campaign: dict[str, int] = defaultdict(int)
     by_group: dict[str, int] = defaultdict(int)
@@ -352,6 +365,7 @@ def main() -> int:
     counts = lead_match_counts(advertising_leads)
     exact_leads = int(counts.get("exact_id_matches_available") or 0)
     totals, breakdown = direct_summary(rows, counts)
+    linked_spend = linked_spend_summary(breakdown)
     entity = entity_breakdown(rows, counts)
     quality_cpl = safe_div(totals.get("cost"), quality_leads)
 
@@ -389,7 +403,7 @@ def main() -> int:
             "lead_attribution": attribution_status,
         },
         "kpi": kpi,
-        "direct": {"row_count": len(rows), "totals": totals, "breakdown": breakdown, "entities": entity},
+        "direct": {"row_count": len(rows), "totals": totals, "breakdown": breakdown, "linked_spend": linked_spend, "entities": entity},
         "lead_attribution": {
             "mode": "exact_ids_only",
             "historical_backfill": False,

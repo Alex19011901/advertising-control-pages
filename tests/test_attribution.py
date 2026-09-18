@@ -53,6 +53,19 @@ class AttributionTests(unittest.TestCase):
         self.assertEqual(by_ad["30"]["fact_cpl"], 100.0)
         self.assertIsNone(by_ad["31"]["real_leads"])
 
+    def test_linked_spend_summary_keeps_only_rows_with_leads(self) -> None:
+        breakdown = [
+            {"campaign": "A", "cost": 100.0, "real_leads": 2, "fact_cpl": 50.0},
+            {"campaign": "B", "cost": 900.0, "real_leads": None, "fact_cpl": None},
+            {"campaign": "C", "cost": 50.0, "real_leads": 1, "fact_cpl": 50.0},
+        ]
+        result = module.linked_spend_summary(breakdown)
+        self.assertEqual(result["row_count"], 2)
+        self.assertEqual(result["cost"], 150.0)
+        self.assertEqual(result["leads"], 3)
+        self.assertEqual(result["cpl"], 50.0)
+        self.assertEqual([row["campaign"] for row in result["rows"]], ["A", "C"])
+
 
 if __name__ == "__main__":
     unittest.main()

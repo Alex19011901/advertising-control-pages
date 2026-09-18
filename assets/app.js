@@ -203,6 +203,32 @@ function renderDirectSummary() {
   byId("directCost").textContent = fmtMoney(totals.cost ?? null);
   byId("directClicks").textContent = fmtNumber(totals.clicks ?? null);
   byId("directConversions").textContent = fmtDecimal(totals.direct_conversions ?? null);
+  renderLinkedSpend();
+}
+
+function renderLinkedSpend() {
+  const summary = dashboard?.direct?.linked_spend || {};
+  const rows = Array.isArray(summary.rows) ? summary.rows : [];
+  byId("linkedRows").textContent = fmtNumber(summary.row_count ?? null);
+  byId("linkedLeads").textContent = fmtNumber(summary.leads ?? null);
+  byId("linkedCost").textContent = fmtMoney(summary.cost ?? null);
+  byId("linkedCpl").textContent = fmtMoney(summary.cpl ?? null);
+  if (!rows.length) {
+    byId("linkedSpendBody").innerHTML = "";
+    byId("linkedSpendEmpty").style.display = "grid";
+    return;
+  }
+  byId("linkedSpendEmpty").style.display = "none";
+  byId("linkedSpendBody").innerHTML = rows.slice(0, 12).map((row) => `
+    <tr>
+      <td>${escapeHtml(row.campaign || "Нет данных")}</td>
+      <td>${escapeHtml(row.group || "Нет данных")}</td>
+      <td>${escapeHtml(row.ad_id || row.ad_or_query || "Нет данных")}</td>
+      <td>${fmtNumber(row.real_leads)}</td>
+      <td>${fmtMoney(row.cost)}</td>
+      <td>${fmtMoney(row.fact_cpl)}</td>
+    </tr>
+  `).join("");
 }
 
 function methodLabel(value) {
@@ -220,6 +246,21 @@ function methodLabel(value) {
     ambiguous_client_sessions: "Неоднозначно",
     client_id_no_session_match: "ClientID без визита",
     no_client_id: "Нет ClientID"
+  };
+  return labels[value] || value || "Нет данных";
+}
+
+function callibriStatusLabel(value) {
+  const labels = {
+    matched: "Звонок найден",
+    matched_without_ad_ids: "Звонок без рекламы",
+    matched_unconfirmed_tracking: "Трекинг не подтверждён",
+    no_callibri_phone_match: "Телефона нет в Callibri",
+    nearest_call_outside_window: "Звонок вне окна",
+    ambiguous_callibri_calls: "Неоднозначно",
+    no_phone_or_time: "Нет телефона/времени",
+    no_callibri_call: "Звонок не найден",
+    not_matched: "Не связано"
   };
   return labels[value] || value || "Нет данных";
 }
@@ -272,14 +313,22 @@ function fmtClientIdRatio(windowSummary) {
 
 function renderHostessCallSummary(summary) {
   const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
+  const statuses = summary.match_status_counts || {};
   byId("hostessTotal").textContent = fmtNumber(summary.total ?? null);
   byId("hostessToday").textContent = fmtNumber(summary.today?.total ?? null);
   byId("hostess7Days").textContent = fmtNumber(summary.last_7_days?.total ?? null);
   byId("hostessWithAds").textContent = fmtNumber(summary.with_ad_ids ?? null);
   byId("hostessCallibri").textContent = fmtNumber(summary.with_callibri ?? null);
   byId("hostessLatest").textContent = latest
-    ? `Последняя хостес: ${fmtDate(latest.created_at)} · ${latest.has_ad_ids ? methodLabel(latest.attribution_method) : "без рекламной привязки"}`
+    ? `Последняя хостес: ${fmtDate(latest.created_at)} · ${latest.has_ad_ids ? methodLabel(latest.attribution_method) : callibriStatusLabel(latest.callibri_match_status)}`
     : "Нет заявок хостес в текущем export.";
+  const entries = Object.entries(statuses).sort((a, b) => b[1] - a[1]);
+  byId("hostessStatus").innerHTML = entries.length ? entries.map(([name, value]) => `
+    <div class="method-item">
+      <span>${escapeHtml(callibriStatusLabel(name))}</span>
+      <b>${fmtNumber(value)}</b>
+    </div>
+  `).join("") : `<div class="empty-state">Нет данных</div>`;
 }
 
 function renderAttributedLeads() {

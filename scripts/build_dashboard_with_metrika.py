@@ -184,11 +184,13 @@ def hostess_call_summary(leads: list[dict[str, Any]], now: datetime | None = Non
     )[:5]
     with_ad_ids = sum(1 for lead in hostess_leads if has_ad_ids(lead))
     with_callibri = sum(1 for lead in hostess_leads if is_callibri_attribution(lead))
+    match_status_counts = Counter(str(lead.get("callibri_match_status") or "not_matched") for lead in hostess_leads)
     return {
         "total": len(hostess_leads),
         "with_ad_ids": with_ad_ids,
         "without_ad_ids": len(hostess_leads) - with_ad_ids,
         "with_callibri": with_callibri,
+        "match_status_counts": dict(sorted(match_status_counts.items())),
         "today": hostess_window_summary(hostess_leads, today_start),
         "last_7_days": hostess_window_summary(hostess_leads, last_7_days_start),
         "latest": [
@@ -199,6 +201,8 @@ def hostess_call_summary(leads: list[dict[str, Any]], now: datetime | None = Non
                 "has_ad_ids": has_ad_ids(lead),
                 "advertising_id_source": str(lead.get("advertising_id_source") or ""),
                 "attribution_method": str(lead.get("attribution_method") or ""),
+                "callibri_match_status": str(lead.get("callibri_match_status") or ""),
+                "callibri_candidate_count": lead.get("callibri_candidate_count"),
             }
             for lead in latest
         ],

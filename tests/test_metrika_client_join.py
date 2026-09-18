@@ -181,6 +181,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
                 "lead_id": "host-no-ads",
                 "created_at": "2026-09-17T10:00:00+03:00",
                 "source": "Заявки хост",
+                "callibri_match_status": "no_callibri_phone_match",
                 "attribution_method": "no_client_id",
             },
             {
@@ -189,6 +190,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
                 "source": "Заявки хост",
                 "campaign_id": "712849433",
                 "advertising_id_source": "callibri_phone_time_match",
+                "callibri_match_status": "matched",
                 "attribution_method": "callibri_phone_time_match",
             },
             {
@@ -202,7 +204,9 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(summary["with_callibri"], 1)
         self.assertEqual(summary["today"]["total"], 2)
         self.assertEqual(summary["last_7_days"]["with_ad_ids"], 1)
+        self.assertEqual(summary["match_status_counts"], {"matched": 1, "no_callibri_phone_match": 1})
         self.assertEqual(summary["latest"][0]["lead_id"], "host-callibri")
+        self.assertEqual(summary["latest"][0]["callibri_match_status"], "matched")
 
     def test_local_missing_secret_falls_back_to_remote_map(self) -> None:
         class FakeResponse:
