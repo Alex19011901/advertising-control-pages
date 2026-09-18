@@ -155,11 +155,17 @@
           <div class="summary-row tilda-summary">
             <div class="mini"><div class="label">Tilda заявок</div><b id="tildaTotal">Нет данных</b></div>
             <div class="mini"><div class="label">С ClientID</div><b id="tildaWithClient">Нет данных</b></div>
+            <div class="mini"><div class="label">Связано с Метрикой</div><b id="tildaMetrikaMatched">Нет данных</b></div>
             <div class="mini"><div class="label">Без ClientID</div><b id="tildaWithoutClient">Нет данных</b></div>
           </div>
           <div class="summary-row tilda-fresh">
             <div class="mini"><div class="label">Сегодня с ClientID / всего</div><b id="tildaToday">Нет данных</b></div>
             <div class="mini"><div class="label">7 дней с ClientID / всего</div><b id="tilda7Days">Нет данных</b></div>
+          </div>
+          <div class="summary-row tilda-diagnostics">
+            <div class="mini"><div class="label">ClientID без связи</div><b id="tildaClientUnmatched">Нет данных</b></div>
+            <div class="mini"><div class="label">Нет в карте Метрики</div><b id="tildaNotInMap">Нет данных</b></div>
+            <div class="mini"><div class="label">Нет точной сессии</div><b id="tildaNoSession">Нет данных</b></div>
           </div>
           <p id="tildaLatest" class="footnote">Нет данных</p>
           <div id="tildaStatus" class="method-grid"></div>
@@ -170,9 +176,10 @@
             <div class="mini"><div class="label">7 дней</div><b id="hostess7Days">Нет данных</b></div>
             <div class="mini"><div class="label">С рекламной привязкой</div><b id="hostessWithAds">Нет данных</b></div>
           </div>
-          <div class="summary-row compact hostess-callibri">
-            <div class="mini"><div class="label">С Callibri ID</div><b id="hostessCallibri">Нет данных</b></div>
-            <div class="mini"><div class="label">Источник</div><b>Заявки хост</b></div>
+          <div class="summary-row hostess-callibri">
+            <div class="mini"><div class="label">Callibri найдено</div><b id="hostessCallibri">Нет данных</b></div>
+            <div class="mini"><div class="label">Телефон не найден</div><b id="hostessPhoneNotFound">Нет данных</b></div>
+            <div class="mini"><div class="label">Неоднозначно</div><b id="hostessAmbiguous">Нет данных</b></div>
           </div>
           <p id="hostessLatest" class="footnote">Нет данных</p>
           <div id="hostessStatus" class="method-grid"></div>

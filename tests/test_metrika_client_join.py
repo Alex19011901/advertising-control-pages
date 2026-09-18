@@ -158,9 +158,23 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(summary["total"], 2)
         self.assertEqual(summary["with_client_id"], 1)
         self.assertEqual(summary["without_client_id"], 1)
+        self.assertEqual(summary["metrika_matched"], 0)
+        self.assertEqual(summary["with_client_id_unmatched"], 1)
+        self.assertEqual(summary["client_id_no_session_match"], 1)
+        self.assertEqual(summary["client_id_not_in_metrika_map"], 0)
         self.assertEqual(summary["method_counts"], {"client_id_no_session_match": 1, "no_client_id": 1})
-        self.assertEqual(summary["today"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
-        self.assertEqual(summary["last_7_days"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
+        self.assertEqual(summary["today"], {
+            "total": 2,
+            "with_client_id": 1,
+            "without_client_id": 1,
+            "metrika_matched": 0,
+        })
+        self.assertEqual(summary["last_7_days"], {
+            "total": 2,
+            "with_client_id": 1,
+            "without_client_id": 1,
+            "metrika_matched": 0,
+        })
         self.assertEqual(summary["latest"][0]["lead_id"], "site-new")
         self.assertTrue(summary["latest"][0]["has_metrika_client_id"])
 
@@ -220,6 +234,8 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(summary["total"], 2)
         self.assertEqual(summary["with_ad_ids"], 1)
         self.assertEqual(summary["with_callibri"], 1)
+        self.assertEqual(summary["callibri_phone_not_found"], 1)
+        self.assertEqual(summary["callibri_ambiguous"], 0)
         self.assertEqual(summary["today"]["total"], 2)
         self.assertEqual(summary["last_7_days"]["with_ad_ids"], 1)
         self.assertEqual(summary["match_status_counts"], {"matched": 1, "no_callibri_phone_match": 1})

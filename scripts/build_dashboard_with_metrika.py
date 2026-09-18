@@ -25,6 +25,11 @@ TRACKING_SUMMARY = Path(os.getenv("DIRECT_TRACKING_SUMMARY", "data/direct_tracki
 MANUAL_UTM_CAMPAIGN_MAP = Path(os.getenv("UTM_CAMPAIGN_MAP", "data/utm_campaign_map.json"))
 BOUNCE_SESSION_GRACE_SECONDS = int(os.getenv("METRIKA_BOUNCE_SESSION_GRACE_SECONDS", "1800"))
 MOSCOW = timezone(timedelta(hours=3))
+METRIKA_EXACT_METHODS = {
+    "metrika_client_session_exact",
+    "metrika_client_session_utm_campaign_exact",
+    "metrika_client_session_exact_utm_campaign_exact",
+}
 
 
 def parse_lead_time(value: Any) -> datetime | None:
@@ -112,6 +117,10 @@ def is_callibri_attribution(lead: dict[str, Any]) -> bool:
     return str(lead.get("advertising_id_source") or "").startswith("callibri")
 
 
+def is_metrika_exact_match(lead: dict[str, Any]) -> bool:
+    return str(lead.get("attribution_method") or "") in METRIKA_EXACT_METHODS
+
+
 def tilda_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[str, int]:
     window = [
         lead
@@ -119,10 +128,12 @@ def tilda_window_summary(leads: list[dict[str, Any]], start: datetime) -> dict[s
         if (parse_lead_time(lead.get("created_at")) or datetime.min.replace(tzinfo=MOSCOW)) >= start
     ]
     with_client_id = sum(1 for lead in window if has_metrika_client_id(lead))
+    metrika_matched = sum(1 for lead in window if is_metrika_exact_match(lead))
     return {
         "total": len(window),
         "with_client_id": with_client_id,
         "without_client_id": len(window) - with_client_id,
+        "metrika_matched": metrika_matched,
     }
 
 
@@ -137,11 +148,17 @@ def tilda_client_id_summary(leads: list[dict[str, Any]], now: datetime | None = 
         reverse=True,
     )[:5]
     with_client_id = sum(1 for lead in tilda_leads if has_metrika_client_id(lead))
+    metrika_matched = sum(1 for lead in tilda_leads if is_metrika_exact_match(lead))
     method_counts = Counter(str(lead.get("attribution_method") or "unknown") for lead in tilda_leads)
     return {
         "total": len(tilda_leads),
         "with_client_id": with_client_id,
         "without_client_id": len(tilda_leads) - with_client_id,
+        "metrika_matched": metrika_matched,
+        "with_client_id_unmatched": max(0, with_client_id - metrika_matched),
+        "client_id_not_in_metrika_map": method_counts.get("client_id_not_in_metrika_map", 0),
+        "client_id_no_session_match": method_counts.get("client_id_no_session_match", 0),
+        "ambiguous_client_sessions": method_counts.get("ambiguous_client_sessions", 0),
         "method_counts": dict(sorted(method_counts.items())),
         "today": tilda_window_summary(tilda_leads, today_start),
         "last_7_days": tilda_window_summary(tilda_leads, last_7_days_start),
@@ -187,11 +204,15 @@ def hostess_call_summary(leads: list[dict[str, Any]], now: datetime | None = Non
     with_ad_ids = sum(1 for lead in hostess_leads if has_ad_ids(lead))
     with_callibri = sum(1 for lead in hostess_leads if is_callibri_attribution(lead))
     match_status_counts = Counter(str(lead.get("callibri_match_status") or "not_matched") for lead in hostess_leads)
+    callibri_phone_not_found = match_status_counts.get("no_callibri_phone_match", 0)
+    callibri_ambiguous = match_status_counts.get("ambiguous_callibri_calls", 0)
     return {
         "total": len(hostess_leads),
         "with_ad_ids": with_ad_ids,
         "without_ad_ids": len(hostess_leads) - with_ad_ids,
         "with_callibri": with_callibri,
+        "callibri_phone_not_found": callibri_phone_not_found,
+        "callibri_ambiguous": callibri_ambiguous,
         "match_status_counts": dict(sorted(match_status_counts.items())),
         "today": hostess_window_summary(hostess_leads, today_start),
         "last_7_days": hostess_window_summary(hostess_leads, last_7_days_start),

@@ -216,7 +216,7 @@ h2 {
 }
 
 .summary-row.tilda-summary {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 10px;
 }
 
@@ -225,12 +225,18 @@ h2 {
   margin-bottom: 10px;
 }
 
+.summary-row.tilda-diagnostics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 10px;
+}
+
 .summary-row.hostess-summary {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 10px;
 }
 
 .summary-row.hostess-callibri {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: 10px;
 }
 

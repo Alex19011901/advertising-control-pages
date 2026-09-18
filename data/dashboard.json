@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-18T18:24:00+00:00",
+  "generated_at": "2026-09-18T18:31:03+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -62,6 +62,11 @@
           "total": 37,
           "with_client_id": 5,
           "without_client_id": 32,
+          "metrika_matched": 1,
+          "with_client_id_unmatched": 4,
+          "client_id_not_in_metrika_map": 4,
+          "client_id_no_session_match": 0,
+          "ambiguous_client_sessions": 0,
           "method_counts": {
             "client_id_not_in_metrika_map": 4,
             "metrika_client_session_exact": 1,
@@ -70,12 +75,14 @@
           "today": {
             "total": 1,
             "with_client_id": 1,
-            "without_client_id": 0
+            "without_client_id": 0,
+            "metrika_matched": 0
           },
           "last_7_days": {
             "total": 20,
             "with_client_id": 5,
-            "without_client_id": 15
+            "without_client_id": 15,
+            "metrika_matched": 1
           },
           "latest": [
             {
@@ -120,6 +127,8 @@
           "with_ad_ids": 8,
           "without_ad_ids": 65,
           "with_callibri": 8,
+          "callibri_phone_not_found": 64,
+          "callibri_ambiguous": 1,
           "match_status_counts": {
             "ambiguous_callibri_calls": 1,
             "matched": 8,

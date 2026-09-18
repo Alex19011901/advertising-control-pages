@@ -239,8 +239,8 @@ function methodLabel(value) {
     metrika_client_session_exact: "ClientID + сессия",
     metrika_client_session_utm_campaign_exact: "ClientID + UTM кампания",
     metrika_client_session_exact_utm_campaign_exact: "ClientID + UTM кампания",
-    metrika_client_latest_prior_visit: "Последний визит ClientID",
-    metrika_client_latest_prior_visit_utm_campaign_exact: "Последний визит + UTM",
+    metrika_client_latest_prior_visit: "Нет точной сессии",
+    metrika_client_latest_prior_visit_utm_campaign_exact: "Нет точной сессии + UTM",
     client_session_unmapped_utm_campaign: "Есть визит, нет ID кампании",
     client_session_without_direct_ids: "Есть визит, нет рекламы",
     callibri_url_ids: "Callibri ID в заявке",
@@ -249,7 +249,8 @@ function methodLabel(value) {
     client_id_not_in_metrika_map: "ClientID нет в карте Метрики",
     client_id_no_lead_time: "ClientID без времени заявки",
     client_id_no_session_match: "ClientID вне сессии",
-    no_client_id: "Нет ClientID"
+    no_client_id: "Нет ClientID",
+    unknown: "Не определено"
   };
   return labels[value] || value || "Нет данных";
 }
@@ -301,11 +302,19 @@ function renderAttributionSummary() {
 function renderTildaClientIdSummary(summary) {
   const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
   const methods = summary.method_counts || {};
+  const metrikaMatched = summary.metrika_matched ?? methods.metrika_client_session_exact ?? null;
   byId("tildaTotal").textContent = fmtNumber(summary.total ?? null);
   byId("tildaWithClient").textContent = fmtNumber(summary.with_client_id ?? null);
+  byId("tildaMetrikaMatched").textContent = fmtNumber(metrikaMatched);
   byId("tildaWithoutClient").textContent = fmtNumber(summary.without_client_id ?? null);
   byId("tildaToday").textContent = fmtClientIdRatio(summary.today);
   byId("tilda7Days").textContent = fmtClientIdRatio(summary.last_7_days);
+  byId("tildaClientUnmatched").textContent = fmtNumber(summary.with_client_id_unmatched ?? null);
+  byId("tildaNotInMap").textContent = fmtNumber(summary.client_id_not_in_metrika_map ?? methods.client_id_not_in_metrika_map ?? null);
+  byId("tildaNoSession").textContent = fmtNumber(
+    (summary.client_id_no_session_match ?? methods.client_id_no_session_match ?? 0)
+      + (summary.ambiguous_client_sessions ?? methods.ambiguous_client_sessions ?? 0)
+  );
   byId("tildaLatest").textContent = latest
     ? `Последняя Tilda: ${fmtDate(latest.created_at)} · ClientID ${latest.has_metrika_client_id ? "есть" : "нет"} · ${methodLabel(latest.attribution_method)}`
     : "Нет Tilda-заявок в текущем export.";
@@ -331,6 +340,8 @@ function renderHostessCallSummary(summary) {
   byId("hostess7Days").textContent = fmtNumber(summary.last_7_days?.total ?? null);
   byId("hostessWithAds").textContent = fmtNumber(summary.with_ad_ids ?? null);
   byId("hostessCallibri").textContent = fmtNumber(summary.with_callibri ?? null);
+  byId("hostessPhoneNotFound").textContent = fmtNumber(summary.callibri_phone_not_found ?? statuses.no_callibri_phone_match ?? null);
+  byId("hostessAmbiguous").textContent = fmtNumber(summary.callibri_ambiguous ?? statuses.ambiguous_callibri_calls ?? null);
   byId("hostessLatest").textContent = latest
     ? `Последняя хостес: ${fmtDate(latest.created_at)} · ${latest.has_ad_ids ? methodLabel(latest.attribution_method) : callibriStatusLabel(latest.callibri_match_status)}`
     : "Нет заявок хостес в текущем export.";
