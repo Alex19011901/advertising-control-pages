@@ -137,10 +137,12 @@ def tilda_client_id_summary(leads: list[dict[str, Any]], now: datetime | None = 
         reverse=True,
     )[:5]
     with_client_id = sum(1 for lead in tilda_leads if has_metrika_client_id(lead))
+    method_counts = Counter(str(lead.get("attribution_method") or "unknown") for lead in tilda_leads)
     return {
         "total": len(tilda_leads),
         "with_client_id": with_client_id,
         "without_client_id": len(tilda_leads) - with_client_id,
+        "method_counts": dict(sorted(method_counts.items())),
         "today": tilda_window_summary(tilda_leads, today_start),
         "last_7_days": tilda_window_summary(tilda_leads, last_7_days_start),
         "latest": [
@@ -308,6 +310,10 @@ def enrich_leads(
             matched += apply_visit_attribution(lead, exact_candidates[0], campaign_map, "metrika_client_session_exact")
         elif len(exact_candidates) > 1:
             lead["attribution_method"] = "ambiguous_client_sessions"
+        elif client_hash and not by_client.get(client_hash):
+            lead["attribution_method"] = "client_id_not_in_metrika_map"
+        elif client_hash and not lead_time:
+            lead["attribution_method"] = "client_id_no_lead_time"
         elif client_hash:
             lead["attribution_method"] = "client_id_no_session_match"
         else:

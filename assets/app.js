@@ -244,7 +244,9 @@ function methodLabel(value) {
     callibri_url_ids: "Callibri ID в заявке",
     callibri_phone_time_match: "Callibri звонок + хостес",
     ambiguous_client_sessions: "Неоднозначно",
-    client_id_no_session_match: "ClientID без визита",
+    client_id_not_in_metrika_map: "ClientID нет в карте Метрики",
+    client_id_no_lead_time: "ClientID без времени заявки",
+    client_id_no_session_match: "ClientID вне сессии",
     no_client_id: "Нет ClientID"
   };
   return labels[value] || value || "Нет данных";
@@ -296,6 +298,7 @@ function renderAttributionSummary() {
 
 function renderTildaClientIdSummary(summary) {
   const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
+  const methods = summary.method_counts || {};
   byId("tildaTotal").textContent = fmtNumber(summary.total ?? null);
   byId("tildaWithClient").textContent = fmtNumber(summary.with_client_id ?? null);
   byId("tildaWithoutClient").textContent = fmtNumber(summary.without_client_id ?? null);
@@ -304,6 +307,13 @@ function renderTildaClientIdSummary(summary) {
   byId("tildaLatest").textContent = latest
     ? `Последняя Tilda: ${fmtDate(latest.created_at)} · ClientID ${latest.has_metrika_client_id ? "есть" : "нет"} · ${methodLabel(latest.attribution_method)}`
     : "Нет Tilda-заявок в текущем export.";
+  const entries = Object.entries(methods).sort((a, b) => b[1] - a[1]);
+  byId("tildaStatus").innerHTML = entries.length ? entries.map(([name, value]) => `
+    <div class="method-item">
+      <span>${escapeHtml(methodLabel(name))}</span>
+      <b>${fmtNumber(value)}</b>
+    </div>
+  `).join("") : `<div class="empty-state">Нет данных</div>`;
 }
 
 function fmtClientIdRatio(windowSummary) {

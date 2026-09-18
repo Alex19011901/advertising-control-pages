@@ -96,6 +96,23 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertFalse(result[0].get("campaign_id"))
         self.assertEqual(result[0]["attribution_method"], "client_id_no_session_match")
 
+    def test_client_id_absent_from_metrika_map_is_labeled(self) -> None:
+        leads = [{
+            "lead_id": "lead-with-new-client",
+            "created_at": "2026-09-17T20:19:41+03:00",
+            "source": "САЙТ ТИЛЬДА",
+            "metrika_client_id_sha256": "new-client",
+        }]
+        rows = [{
+            "client_id_sha256": "other-client",
+            "visit_datetime": "2026-09-17 20:18:00",
+            "visit_duration_seconds": 600,
+            "campaign_id": "123",
+        }]
+        result, matched = enrich_leads(leads, rows)
+        self.assertEqual(matched, 0)
+        self.assertEqual(result[0]["attribution_method"], "client_id_not_in_metrika_map")
+
     def test_counter_mismatch_map_is_rejected(self) -> None:
         status, payload = map_status_from_payload("remote_legacy", "url", {
             "counter_id": 112267492,
@@ -141,6 +158,7 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(summary["total"], 2)
         self.assertEqual(summary["with_client_id"], 1)
         self.assertEqual(summary["without_client_id"], 1)
+        self.assertEqual(summary["method_counts"], {"client_id_no_session_match": 1, "no_client_id": 1})
         self.assertEqual(summary["today"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
         self.assertEqual(summary["last_7_days"], {"total": 2, "with_client_id": 1, "without_client_id": 1})
         self.assertEqual(summary["latest"][0]["lead_id"], "site-new")
