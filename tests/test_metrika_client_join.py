@@ -70,6 +70,98 @@ class MetrikaClientJoinTests(unittest.TestCase):
         self.assertEqual(result[0]["ad_id"], "")
         self.assertEqual(result[0]["attribution_method"], "metrika_client_session_utm_campaign_exact")
 
+    def test_tilda_does_not_use_session_window_without_submit_event(self) -> None:
+        moscow = timezone(timedelta(hours=3))
+        submit_ts = int(datetime(2026, 9, 18, 12, 6, tzinfo=moscow).timestamp())
+        leads = [{
+            "lead_id": "tilda-no-submit",
+            "created_at": "2026-09-18T12:06:07+03:00",
+            "source": "САЙТ ТИЛЬДА",
+            "form_submit_timestamp": submit_ts,
+            "metrika_client_id_sha256": "abc",
+            "campaign_id": "",
+            "group_id": "",
+            "ad_id": "",
+        }]
+        rows = [{
+            "client_id_sha256": "abc",
+            "visit_id": "visit-1",
+            "visit_datetime": "2026-09-18 12:00:00",
+            "visit_duration_seconds": 900,
+            "campaign_id": "700792084",
+            "group_id": "5598457353",
+            "ad_id": "17085710534",
+        }]
+
+        result, matched = enrich_leads(leads, rows, submit_events=[])
+
+        self.assertEqual(matched, 0)
+        self.assertEqual(result[0]["attribution_method"], "tilda_no_matching_submit_event")
+        self.assertFalse(result[0].get("campaign_id"))
+
+    def test_tilda_submit_event_visit_id_is_exactly_attributed(self) -> None:
+        moscow = timezone(timedelta(hours=3))
+        submit_ts = int(datetime(2026, 9, 18, 12, 6, tzinfo=moscow).timestamp())
+        leads = [{
+            "lead_id": "tilda-submit",
+            "created_at": "2026-09-18T12:06:07+03:00",
+            "source": "САЙТ ТИЛЬДА",
+            "form_submit_timestamp": submit_ts,
+            "metrika_client_id_sha256": "abc",
+            "campaign_id": "",
+            "group_id": "",
+            "ad_id": "",
+        }]
+        rows = [{
+            "client_id_sha256": "abc",
+            "visit_id": "visit-1",
+            "visit_datetime": "2026-09-18 12:00:00",
+            "visit_duration_seconds": 900,
+            "campaign_id": "700792084",
+            "group_id": "5598457353",
+            "ad_id": "17085710534",
+        }]
+        submit_events = [{
+            "client_id_sha256": "abc",
+            "visit_id": "visit-1",
+            "event_datetime": "2026-09-18 12:06:05",
+            "event_path": "/tilda/form123/submitted",
+        }]
+
+        result, matched = enrich_leads(leads, rows, submit_events=submit_events)
+
+        self.assertEqual(matched, 1)
+        self.assertEqual(result[0]["campaign_id"], "700792084")
+        self.assertEqual(result[0]["group_id"], "5598457353")
+        self.assertEqual(result[0]["ad_id"], "17085710534")
+        self.assertEqual(result[0]["attribution_method"], "metrika_tilda_submit_visit_exact")
+        self.assertEqual(result[0]["metrika_submit_datetime"], "2026-09-18 12:06:05")
+
+    def test_tilda_multiple_submit_events_are_not_guessed(self) -> None:
+        moscow = timezone(timedelta(hours=3))
+        submit_ts = int(datetime(2026, 9, 18, 12, 6, tzinfo=moscow).timestamp())
+        leads = [{
+            "lead_id": "tilda-ambiguous",
+            "created_at": "2026-09-18T12:06:07+03:00",
+            "source": "САЙТ ТИЛЬДА",
+            "form_submit_timestamp": submit_ts,
+            "metrika_client_id_sha256": "abc",
+        }]
+        rows = [
+            {"client_id_sha256": "abc", "visit_id": "visit-1", "visit_datetime": "2026-09-18 12:00:00", "campaign_id": "1"},
+            {"client_id_sha256": "abc", "visit_id": "visit-2", "visit_datetime": "2026-09-18 12:02:00", "campaign_id": "2"},
+        ]
+        submit_events = [
+            {"client_id_sha256": "abc", "visit_id": "visit-1", "event_datetime": "2026-09-18 12:06:05"},
+            {"client_id_sha256": "abc", "visit_id": "visit-2", "event_datetime": "2026-09-18 12:06:06"},
+        ]
+
+        result, matched = enrich_leads(leads, rows, submit_events=submit_events)
+
+        self.assertEqual(matched, 0)
+        self.assertEqual(result[0]["attribution_method"], "tilda_ambiguous_submit_events")
+        self.assertFalse(result[0].get("campaign_id"))
+
     def test_multiple_overlapping_sessions_are_not_guessed(self) -> None:
         leads = [{"created_at": "2026-09-06T12:25:14+03:00", "metrika_client_id_sha256": "abc"}]
         rows = [

@@ -85,7 +85,8 @@ class AttributionTests(unittest.TestCase):
         self.assertEqual(result["direct"]["totals"]["cost"], 100.0)
         self.assertEqual(result["direct"]["summary"]["exact_id_matches_available"], 1)
         self.assertEqual(result["kpi"]["real_leads"], 3)
-        self.assertEqual(result["kpi"]["fact_cpl"], 33.33)
+        self.assertEqual(result["kpi"]["attributed_leads"], 1)
+        self.assertEqual(result["kpi"]["fact_cpl"], 100.0)
 
 
 if __name__ == "__main__":

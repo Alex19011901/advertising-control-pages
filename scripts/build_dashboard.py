@@ -343,10 +343,9 @@ def build_direct_payload(rows: list[dict[str, str]], leads: list[dict[str, Any]]
 def build_kpi_payload(direct_payload: dict[str, Any], lead_range: dict[str, Any]) -> dict[str, Any]:
     totals = direct_payload.get("totals") or {}
     real_leads = lead_range.get("real_leads")
-    if real_leads is None:
-        real_leads = (direct_payload.get("summary") or {}).get("exact_id_matches_available")
+    attributed_leads = (direct_payload.get("summary") or {}).get("exact_id_matches_available")
     quality_leads = derive_quality_leads(lead_range)
-    fact_cpl = safe_div(totals.get("cost"), real_leads)
+    fact_cpl = safe_div(totals.get("cost"), attributed_leads)
     quality_cpl = safe_div(totals.get("cost"), quality_leads)
     return {
         "cost": totals.get("cost"),
@@ -356,6 +355,7 @@ def build_kpi_payload(direct_payload: dict[str, Any], lead_range: dict[str, Any]
         "cpc": totals.get("cpc"),
         "direct_conversions": totals.get("direct_conversions"),
         "real_leads": real_leads,
+        "attributed_leads": attributed_leads,
         "fact_cpl": round(fact_cpl, 2) if fact_cpl is not None else None,
         "quality_leads": quality_leads,
         "quality_cpl": round(quality_cpl, 2) if quality_cpl is not None else None,

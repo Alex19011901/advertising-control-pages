@@ -24,11 +24,14 @@ TARGET_METRIKA_ATTRIBUTION = os.getenv("YANDEX_METRIKA_TARGET_ATTRIBUTION", "AUT
 TRACKING_SUMMARY = Path(os.getenv("DIRECT_TRACKING_SUMMARY", "data/direct_tracking_summary.json"))
 MANUAL_UTM_CAMPAIGN_MAP = Path(os.getenv("UTM_CAMPAIGN_MAP", "data/utm_campaign_map.json"))
 BOUNCE_SESSION_GRACE_SECONDS = int(os.getenv("METRIKA_BOUNCE_SESSION_GRACE_SECONDS", "1800"))
+TILDA_SUBMIT_MATCH_WINDOW_SECONDS = int(os.getenv("TILDA_SUBMIT_MATCH_WINDOW_SECONDS", "900"))
 MOSCOW = timezone(timedelta(hours=3))
 METRIKA_EXACT_METHODS = {
     "metrika_client_session_exact",
     "metrika_client_session_utm_campaign_exact",
     "metrika_client_session_exact_utm_campaign_exact",
+    "metrika_tilda_submit_visit_exact",
+    "metrika_tilda_submit_visit_utm_campaign_exact",
 }
 
 
@@ -52,6 +55,19 @@ def parse_visit_time(value: Any) -> datetime | None:
     except ValueError:
         return None
     return dt if dt.tzinfo else dt.replace(tzinfo=MOSCOW)
+
+
+def parse_unix_time(value: Any) -> datetime | None:
+    if value is None:
+        return None
+    try:
+        return datetime.fromtimestamp(int(float(str(value).strip())), tz=timezone.utc).astimezone(MOSCOW)
+    except (OSError, ValueError, OverflowError):
+        return None
+
+
+def tilda_submit_time(lead: dict[str, Any]) -> datetime | None:
+    return parse_unix_time(lead.get("form_submit_timestamp"))
 
 
 def load_exact_utm_campaign_map(path: Path = TRACKING_SUMMARY) -> dict[str, str]:
@@ -242,8 +258,17 @@ def rows_from_map_payload(payload: dict[str, Any]) -> list[dict[str, Any]]:
     return []
 
 
+def submit_events_from_map_payload(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = payload.get("submit_events")
+    if isinstance(rows, list):
+        return [row for row in rows if isinstance(row, dict)]
+    return []
+
+
 def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     rows = rows_from_map_payload(payload)
+    submit_events = submit_events_from_map_payload(payload)
+    submit_events_available = isinstance(payload.get("submit_events"), list)
     counter_id = payload.get("counter_id")
     attribution = str(payload.get("attribution") or "").strip().upper()
     status = str(payload.get("status") or "ok")
@@ -261,6 +286,8 @@ def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any
         "rows_with_client_id": payload.get("rows_with_client_id"),
         "visits_total": payload.get("visits_total"),
         "hits_total": payload.get("hits_total"),
+        "submit_events_total": payload.get("submit_events_total", len(submit_events)),
+        "submit_events_available": submit_events_available,
     }
 
     try:
@@ -271,18 +298,18 @@ def map_status_from_payload(source: str, url: str | None, payload: dict[str, Any
     if counter_id is not None and not counter_matches:
         status_payload["status"] = "counter_mismatch"
         status_payload["message"] = f"Metrika export counter {counter_id} does not match target {TARGET_METRIKA_COUNTER}."
-        return status_payload, {"rows": []}
+        return status_payload, {"rows": [], "submit_events": [], "submit_events_available": False}
 
     if attribution and attribution != TARGET_METRIKA_ATTRIBUTION:
         status_payload["status"] = "attribution_mismatch"
         status_payload["message"] = f"Metrika export attribution {attribution} does not match target {TARGET_METRIKA_ATTRIBUTION}."
-        return status_payload, {"rows": []}
+        return status_payload, {"rows": [], "submit_events": [], "submit_events_available": False}
 
     if status != "ok":
         status_payload["message"] = payload.get("message") or "Metrika export is not ready."
-        return status_payload, {"rows": []}
+        return status_payload, {"rows": [], "submit_events": [], "submit_events_available": submit_events_available}
 
-    return status_payload, {**payload, "rows": rows}
+    return status_payload, {**payload, "rows": rows, "submit_events": submit_events, "submit_events_available": submit_events_available}
 
 
 def enrich_leads(
@@ -290,16 +317,31 @@ def enrich_leads(
     map_rows: list[dict[str, Any]],
     utm_campaign_map: dict[str, str] | None = None,
     *,
+    submit_events: list[dict[str, Any]] | None = None,
     include_diagnostics: bool = False,
 ) -> tuple[list[dict[str, Any]], int] | tuple[list[dict[str, Any]], int, dict[str, Any]]:
     campaign_map = utm_campaign_map or {}
+    submit_events_available = submit_events is not None
     by_client: dict[str, list[dict[str, Any]]] = {}
+    by_visit: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for row in map_rows:
         client_hash = str(row.get("client_id_sha256") or "").strip()
         if client_hash:
             by_client.setdefault(client_hash, []).append(row)
+            visit_id = str(row.get("visit_id") or "").strip()
+            if visit_id:
+                by_visit.setdefault((client_hash, visit_id), []).append(row)
     for rows in by_client.values():
         rows.sort(key=lambda item: parse_visit_time(item.get("visit_datetime")) or datetime.min.replace(tzinfo=MOSCOW))
+    submit_events = submit_events or []
+    submit_by_client: dict[str, list[dict[str, Any]]] = {}
+    for event in submit_events:
+        client_hash = str(event.get("client_id_sha256") or "").strip()
+        visit_id = str(event.get("visit_id") or "").strip()
+        if client_hash and visit_id:
+            submit_by_client.setdefault(client_hash, []).append(event)
+    for events in submit_by_client.values():
+        events.sort(key=lambda item: parse_visit_time(item.get("event_datetime")) or datetime.min.replace(tzinfo=MOSCOW))
 
     enriched: list[dict[str, Any]] = []
     matched = 0
@@ -316,6 +358,7 @@ def enrich_leads(
 
         client_hash = str(lead.get("metrika_client_id_sha256") or "").strip()
         lead_time = parse_lead_time(lead.get("created_at"))
+        submit_time = tilda_submit_time(lead)
         exact_candidates: list[dict[str, Any]] = []
         if client_hash and lead_time:
             for row in by_client.get(client_hash, []):
@@ -327,7 +370,44 @@ def enrich_leads(
                 if start <= lead_time <= end:
                     exact_candidates.append(row)
 
-        if len(exact_candidates) == 1:
+        if client_hash and is_tilda_lead(lead):
+            submit_candidates = submit_by_client.get(client_hash, [])
+            if submit_time:
+                start = submit_time - timedelta(seconds=TILDA_SUBMIT_MATCH_WINDOW_SECONDS)
+                end = submit_time + timedelta(seconds=TILDA_SUBMIT_MATCH_WINDOW_SECONDS)
+                submit_candidates = [
+                    event
+                    for event in submit_candidates
+                    if (parse_visit_time(event.get("event_datetime")) or datetime.min.replace(tzinfo=MOSCOW)) >= start
+                    and (parse_visit_time(event.get("event_datetime")) or datetime.max.replace(tzinfo=MOSCOW)) <= end
+                ]
+            if not by_client.get(client_hash):
+                lead["attribution_method"] = "client_id_not_in_metrika_map"
+            elif not submit_events_available:
+                lead["attribution_method"] = "tilda_submit_events_unavailable"
+            elif not submit_time:
+                lead["attribution_method"] = "tilda_no_submit_time"
+            elif len(submit_candidates) == 0:
+                lead["attribution_method"] = "tilda_no_matching_submit_event"
+            elif len(submit_candidates) > 1:
+                lead["attribution_method"] = "tilda_ambiguous_submit_events"
+                lead["metrika_submit_candidate_count"] = len(submit_candidates)
+            else:
+                submit_event = submit_candidates[0]
+                visit_id = str(submit_event.get("visit_id") or "").strip()
+                visit_candidates = by_visit.get((client_hash, visit_id), [])
+                if len(visit_candidates) == 1:
+                    lead["metrika_submit_datetime"] = str(submit_event.get("event_datetime") or "")
+                    lead["metrika_submit_path"] = str(submit_event.get("event_path") or "")
+                    matched += apply_visit_attribution(lead, visit_candidates[0], campaign_map, "metrika_tilda_submit_visit_exact")
+                elif len(visit_candidates) > 1:
+                    lead["attribution_method"] = "tilda_ambiguous_submit_visits"
+                    lead["metrika_submit_visit_id"] = visit_id
+                    lead["metrika_submit_visit_candidate_count"] = len(visit_candidates)
+                else:
+                    lead["attribution_method"] = "tilda_submit_visit_not_in_metrika_map"
+                    lead["metrika_submit_visit_id"] = visit_id
+        elif len(exact_candidates) == 1:
             matched += apply_visit_attribution(lead, exact_candidates[0], campaign_map, "metrika_client_session_exact")
         elif len(exact_candidates) > 1:
             lead["attribution_method"] = "ambiguous_client_sessions"
@@ -347,10 +427,13 @@ def enrich_leads(
         "leads_with_metrika_client_id": sum(1 for lead in leads if str(lead.get("metrika_client_id_sha256") or "").strip()),
         "metrika_clients_in_map": len(by_client),
         "metrika_rows": len(map_rows),
+        "metrika_submit_events": len(submit_events),
+        "metrika_submit_events_available": submit_events_available,
         "matched": matched,
         "unmatched": len(leads) - matched,
         "method_counts": dict(sorted(methods.items())),
         "bounce_session_grace_seconds": BOUNCE_SESSION_GRACE_SECONDS,
+        "tilda_submit_match_window_seconds": TILDA_SUBMIT_MATCH_WINDOW_SECONDS,
         "tilda_client_id": tilda_client_id_summary(enriched),
         "hostess_calls": hostess_call_summary(enriched),
     }
@@ -373,11 +456,12 @@ def apply_visit_attribution(
     if not campaign_id and utm_campaign:
         campaign_id = campaign_map.get(utm_campaign, "")
         if campaign_id:
-            method = (
-                "metrika_client_session_utm_campaign_exact"
-                if base_method == "metrika_client_session_exact"
-                else f"{base_method}_utm_campaign_exact"
-            )
+            if base_method == "metrika_client_session_exact":
+                method = "metrika_client_session_utm_campaign_exact"
+            elif base_method == "metrika_tilda_submit_visit_exact":
+                method = "metrika_tilda_submit_visit_utm_campaign_exact"
+            else:
+                method = f"{base_method}_utm_campaign_exact"
 
     lead["metrika_visit_datetime"] = str(row.get("visit_datetime") or "")
     lead["metrika_utm_source"] = str(row.get("utm_source") or "")
@@ -443,6 +527,7 @@ def patched_load_advertising_leads() -> tuple[dict[str, Any], dict[str, Any]]:
         leads,
         list(map_payload.get("rows") or []),
         exact_campaign_map,
+        submit_events=list(map_payload.get("submit_events") or []) if map_payload.get("submit_events_available") else None,
         include_diagnostics=True,
     )
     payload = dict(payload)

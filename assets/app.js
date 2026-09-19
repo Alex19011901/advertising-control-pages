@@ -12,7 +12,9 @@ let activeRange = "30";
 const EXACT_METRIKA_METHODS = new Set([
   "metrika_client_session_exact",
   "metrika_client_session_utm_campaign_exact",
-  "metrika_client_session_exact_utm_campaign_exact"
+  "metrika_client_session_exact_utm_campaign_exact",
+  "metrika_tilda_submit_visit_exact",
+  "metrika_tilda_submit_visit_utm_campaign_exact"
 ]);
 
 const rub = new Intl.NumberFormat("ru-RU", {
@@ -158,8 +160,10 @@ function mergedKpi() {
   const base = { ...(currentDashboardRange().kpi || dashboard?.kpi || {}) };
   const leads = currentLeadRange();
   base.real_leads = leads.real_leads ?? base.real_leads ?? null;
-  if (base.cost !== null && base.cost !== undefined && base.real_leads) {
-    base.fact_cpl = base.cost / base.real_leads;
+  const summary = currentDirectRange().summary || {};
+  base.attributed_leads = base.attributed_leads ?? summary.exact_id_matches_available ?? null;
+  if (base.cost !== null && base.cost !== undefined && base.attributed_leads) {
+    base.fact_cpl = base.cost / base.attributed_leads;
   } else {
     base.fact_cpl = null;
   }
@@ -180,6 +184,7 @@ function renderKpis() {
   setKpiValue("kpiCpc", kpi.cpc, fmtMoney);
   setKpiValue("kpiDirectConversions", kpi.direct_conversions, fmtDecimal);
   setKpiValue("kpiRealLeads", kpi.real_leads, fmtNumber, "good");
+  setKpiValue("kpiAttributedLeads", kpi.attributed_leads, fmtNumber, "good");
   setKpiValue("kpiFactCpl", kpi.fact_cpl, fmtMoney);
   setKpiValue("kpiQualityLeads", kpi.quality_leads, fmtNumber);
   setKpiValue("kpiQualityCpl", kpi.quality_cpl, fmtMoney);
@@ -283,10 +288,18 @@ function methodLabel(value) {
     metrika_client_session_exact: "ClientID + сессия",
     metrika_client_session_utm_campaign_exact: "ClientID + UTM кампания",
     metrika_client_session_exact_utm_campaign_exact: "ClientID + UTM кампания",
+    metrika_tilda_submit_visit_exact: "Tilda submit + visitID",
+    metrika_tilda_submit_visit_utm_campaign_exact: "Tilda submit + UTM кампания",
     metrika_client_latest_prior_visit: "Нет точной сессии",
     metrika_client_latest_prior_visit_utm_campaign_exact: "Нет точной сессии + UTM",
     client_session_unmapped_utm_campaign: "Есть визит, нет ID кампании",
     client_session_without_direct_ids: "Есть визит, нет рекламы",
+    tilda_submit_events_unavailable: "Нет событий submit в карте",
+    tilda_no_submit_time: "Нет времени submit",
+    tilda_no_matching_submit_event: "Submit не найден",
+    tilda_ambiguous_submit_events: "Несколько submit",
+    tilda_submit_visit_not_in_metrika_map: "Submit visitID нет в карте",
+    tilda_ambiguous_submit_visits: "Несколько визитов submit",
     callibri_url_ids: "Callibri ID в заявке",
     callibri_phone_time_match: "Callibri звонок + хостес",
     ambiguous_client_sessions: "Неоднозначно",
