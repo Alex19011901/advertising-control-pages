@@ -7,7 +7,10 @@ import os
 import re
 import ssl
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import date
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import URLError
@@ -31,10 +34,16 @@ QUALITY_STATUSES = [
     for item in os.getenv("LEAD_CONTROL_QUALITY_STATUSES", "").split(",")
     if item.strip()
 ]
+MOSCOW = timezone(timedelta(hours=3))
+RANGE_KEYS = ["today", "yesterday", "7", "30", "all"]
 
 
 def now_utc() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def today_moscow() -> date:
+    return datetime.now(MOSCOW).date()
 
 
 def read_json(path: Path, fallback: dict[str, Any]) -> dict[str, Any]:
@@ -93,6 +102,61 @@ def safe_div(numerator: float | None, denominator: float | None) -> float | None
     return numerator / denominator
 
 
+def parse_date(value: Any) -> date | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        return date.fromisoformat(text[:10])
+    except ValueError:
+        return None
+
+
+def fallback_range_bounds(key: str, today: date | None = None) -> tuple[date | None, date | None]:
+    current = today or today_moscow()
+    if key == "today":
+        return current, current
+    if key == "yesterday":
+        previous = current - timedelta(days=1)
+        return previous, previous
+    if key == "7":
+        return current - timedelta(days=6), current
+    if key == "30":
+        return current - timedelta(days=29), current
+    return None, None
+
+
+def range_bounds(range_payload: dict[str, Any], key: str) -> tuple[date | None, date | None]:
+    start = parse_date(range_payload.get("start"))
+    end = parse_date(range_payload.get("end"))
+    if start or end:
+        return start, end
+    return fallback_range_bounds(key)
+
+
+def in_date_range(value: Any, start: date | None, end: date | None) -> bool:
+    item_date = parse_date(value)
+    if not item_date:
+        return False
+    if start and item_date < start:
+        return False
+    if end and item_date > end:
+        return False
+    return True
+
+
+def filter_direct_rows_by_range(rows: list[dict[str, str]], start: date | None, end: date | None) -> list[dict[str, str]]:
+    if start is None and end is None:
+        return list(rows)
+    return [row for row in rows if in_date_range(row.get("Date"), start, end)]
+
+
+def filter_leads_by_range(leads: list[dict[str, Any]], start: date | None, end: date | None) -> list[dict[str, Any]]:
+    if start is None and end is None:
+        return list(leads)
+    return [lead for lead in leads if in_date_range(lead.get("created_at"), start, end)]
+
+
 def load_direct_rows(status: dict[str, Any]) -> list[dict[str, str]]:
     if status.get("status") != "ok" or not DIRECT_REPORT.exists():
         return []
@@ -129,7 +193,7 @@ def load_advertising_leads() -> tuple[dict[str, Any], dict[str, Any]]:
 
 def lead_ranges(payload: dict[str, Any]) -> dict[str, Any]:
     ranges: dict[str, Any] = {}
-    for key in ["today", "yesterday", "7", "30", "all"]:
+    for key in RANGE_KEYS:
         item = (payload.get("ranges") or {}).get(key) or {}
         ranges[key] = {
             "start": item.get("start") or item.get("s"),
@@ -261,6 +325,70 @@ def linked_spend_summary(breakdown: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def build_direct_payload(rows: list[dict[str, str]], leads: list[dict[str, Any]], *, include_entities: bool = True) -> dict[str, Any]:
+    counts = lead_match_counts(leads)
+    totals, breakdown = direct_summary(rows, counts)
+    payload = {
+        "row_count": len(rows),
+        "totals": totals,
+        "breakdown": breakdown,
+        "linked_spend": linked_spend_summary(breakdown),
+        "summary": counts,
+    }
+    if include_entities:
+        payload["entities"] = entity_breakdown(rows, counts)
+    return payload
+
+
+def build_kpi_payload(direct_payload: dict[str, Any], lead_range: dict[str, Any]) -> dict[str, Any]:
+    totals = direct_payload.get("totals") or {}
+    real_leads = lead_range.get("real_leads")
+    if real_leads is None:
+        real_leads = (direct_payload.get("summary") or {}).get("exact_id_matches_available")
+    quality_leads = derive_quality_leads(lead_range)
+    fact_cpl = safe_div(totals.get("cost"), real_leads)
+    quality_cpl = safe_div(totals.get("cost"), quality_leads)
+    return {
+        "cost": totals.get("cost"),
+        "impressions": totals.get("impressions"),
+        "clicks": totals.get("clicks"),
+        "ctr": totals.get("ctr"),
+        "cpc": totals.get("cpc"),
+        "direct_conversions": totals.get("direct_conversions"),
+        "real_leads": real_leads,
+        "fact_cpl": round(fact_cpl, 2) if fact_cpl is not None else None,
+        "quality_leads": quality_leads,
+        "quality_cpl": round(quality_cpl, 2) if quality_cpl is not None else None,
+        "sales_result": None,
+        "roas": totals.get("roas"),
+    }
+
+
+def build_range_payloads(
+    rows: list[dict[str, str]],
+    leads: list[dict[str, Any]],
+    lead_control_ranges: dict[str, Any],
+) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key in RANGE_KEYS:
+        lead_range = lead_control_ranges.get(key) or {}
+        start, end = range_bounds(lead_range, key)
+        range_rows = filter_direct_rows_by_range(rows, start, end)
+        range_leads = filter_leads_by_range(leads, start, end)
+        direct_payload = build_direct_payload(range_rows, range_leads, include_entities=False)
+        result[key] = {
+            "start": start.isoformat() if start else lead_range.get("start"),
+            "end": end.isoformat() if end else lead_range.get("end"),
+            "kpi": build_kpi_payload(direct_payload, lead_range),
+            "direct": direct_payload,
+            "lead_attribution": {
+                "summary": direct_payload.get("summary") or {},
+                "lead_count": len(range_leads),
+            },
+        }
+    return result
+
+
 def lead_match_counts(leads: list[dict[str, Any]]) -> dict[str, Any]:
     by_campaign: dict[str, int] = defaultdict(int)
     by_group: dict[str, int] = defaultdict(int)
@@ -355,34 +483,18 @@ def main() -> int:
     attribution_status, attribution_payload = load_advertising_leads()
     ranges = lead_ranges(lead_payload)
     selected_range = ranges.get("30") or {}
-    quality_leads = derive_quality_leads(selected_range)
 
     rows = load_direct_rows(direct_status)
     if direct_status.get("status") == "ok" and not rows:
         direct_status = {**direct_status, "status": "no_data", "message": "Yandex Direct report was loaded but returned no rows."}
 
     advertising_leads = attribution_payload.get("leads") or []
-    counts = lead_match_counts(advertising_leads)
+    direct_payload = build_direct_payload(rows, advertising_leads)
+    counts = direct_payload.get("summary") or {}
     exact_leads = int(counts.get("exact_id_matches_available") or 0)
-    totals, breakdown = direct_summary(rows, counts)
-    linked_spend = linked_spend_summary(breakdown)
-    entity = entity_breakdown(rows, counts)
-    quality_cpl = safe_div(totals.get("cost"), quality_leads)
-
-    kpi = {
-        "cost": totals.get("cost"),
-        "impressions": totals.get("impressions"),
-        "clicks": totals.get("clicks"),
-        "ctr": totals.get("ctr"),
-        "cpc": totals.get("cpc"),
-        "direct_conversions": totals.get("direct_conversions"),
-        "real_leads": exact_leads,
-        "fact_cpl": totals.get("fact_cpl"),
-        "quality_leads": quality_leads,
-        "quality_cpl": round(quality_cpl, 2) if quality_cpl is not None else None,
-        "sales_result": None,
-        "roas": totals.get("roas"),
-    }
+    range_payloads = build_range_payloads(rows, advertising_leads, ranges)
+    selected_payload = range_payloads.get("30") or {}
+    kpi = selected_payload.get("kpi") or build_kpi_payload(direct_payload, selected_range)
 
     payload = {
         "schema_version": 2,
@@ -403,7 +515,8 @@ def main() -> int:
             "lead_attribution": attribution_status,
         },
         "kpi": kpi,
-        "direct": {"row_count": len(rows), "totals": totals, "breakdown": breakdown, "linked_spend": linked_spend, "entities": entity},
+        "ranges": range_payloads,
+        "direct": direct_payload,
         "lead_attribution": {
             "mode": "exact_ids_only",
             "historical_backfill": False,

@@ -9,6 +9,11 @@ const RANGE_LABELS = {
 
 let dashboard = null;
 let activeRange = "30";
+const EXACT_METRIKA_METHODS = new Set([
+  "metrika_client_session_exact",
+  "metrika_client_session_utm_campaign_exact",
+  "metrika_client_session_exact_utm_campaign_exact"
+]);
 
 const rub = new Intl.NumberFormat("ru-RU", {
   style: "currency",
@@ -111,8 +116,46 @@ function currentLeadRange() {
   return dashboard?.lead_control?.ranges?.[activeRange] || {};
 }
 
+function currentDashboardRange() {
+  return dashboard?.ranges?.[activeRange] || {};
+}
+
+function currentDirectRange() {
+  return currentDashboardRange().direct || dashboard?.direct || {};
+}
+
+function dateOnly(value) {
+  const text = String(value || "").trim();
+  return text ? text.slice(0, 10) : "";
+}
+
+function currentRangeBounds() {
+  const fromDashboard = currentDashboardRange();
+  const fromLeads = currentLeadRange();
+  return {
+    start: fromDashboard.start || fromLeads.start || "",
+    end: fromDashboard.end || fromLeads.end || ""
+  };
+}
+
+function isWithinActiveRange(value) {
+  const day = dateOnly(value);
+  if (!day) return false;
+  const { start, end } = currentRangeBounds();
+  if (start && day < start) return false;
+  if (end && day > end) return false;
+  return true;
+}
+
+function currentAttributionRows() {
+  const rows = dashboard?.lead_attribution?.leads || [];
+  const { start, end } = currentRangeBounds();
+  if (!start && !end) return rows;
+  return rows.filter((lead) => isWithinActiveRange(lead.created_at));
+}
+
 function mergedKpi() {
-  const base = { ...(dashboard?.kpi || {}) };
+  const base = { ...(currentDashboardRange().kpi || dashboard?.kpi || {}) };
   const leads = currentLeadRange();
   base.real_leads = leads.real_leads ?? base.real_leads ?? null;
   if (base.cost !== null && base.cost !== undefined && base.real_leads) {
@@ -174,7 +217,7 @@ function renderBars(id, values) {
 }
 
 function renderBreakdown() {
-  const rows = dashboard?.direct?.breakdown || [];
+  const rows = currentDirectRange().breakdown || [];
   if (!rows.length) {
     byId("breakdownBody").innerHTML = "";
     byId("breakdownEmpty").style.display = "grid";
@@ -200,8 +243,9 @@ function renderBreakdown() {
 }
 
 function renderDirectSummary() {
-  const totals = dashboard?.direct?.totals || {};
-  byId("directRows").textContent = fmtNumber(dashboard?.direct?.row_count ?? null);
+  const direct = currentDirectRange();
+  const totals = direct.totals || {};
+  byId("directRows").textContent = fmtNumber(direct.row_count ?? null);
   byId("directCost").textContent = fmtMoney(totals.cost ?? null);
   byId("directClicks").textContent = fmtNumber(totals.clicks ?? null);
   byId("directConversions").textContent = fmtDecimal(totals.direct_conversions ?? null);
@@ -209,7 +253,7 @@ function renderDirectSummary() {
 }
 
 function renderLinkedSpend() {
-  const summary = dashboard?.direct?.linked_spend || {};
+  const summary = currentDirectRange().linked_spend || {};
   const rows = Array.isArray(summary.rows) ? summary.rows : [];
   byId("linkedRows").textContent = fmtNumber(summary.row_count ?? null);
   byId("linkedLeads").textContent = fmtNumber(summary.leads ?? null);
@@ -270,10 +314,107 @@ function callibriStatusLabel(value) {
   return labels[value] || value || "Нет данных";
 }
 
+function isTildaLead(lead) {
+  const source = String(lead?.source || "").toLowerCase();
+  return source.includes("tilda") || source.includes("тильда");
+}
+
+function isHostessLead(lead) {
+  return String(lead?.source || "").toLowerCase().includes("заявки хост");
+}
+
+function hasMetrikaClientId(lead) {
+  return Boolean(lead?.has_metrika_client_id || lead?.metrika_client_id_sha256);
+}
+
+function hasAdIds(lead) {
+  return Boolean(lead?.ad_id || lead?.group_id || lead?.campaign_id);
+}
+
+function isCallibriAttribution(lead) {
+  return String(lead?.advertising_id_source || "").startsWith("callibri");
+}
+
+function countBy(rows, getter) {
+  return rows.reduce((acc, row) => {
+    const key = getter(row) || "unknown";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+function latestRows(rows, count = 5) {
+  return rows
+    .slice()
+    .sort((a, b) => String(b.created_at || "").localeCompare(String(a.created_at || "")))
+    .slice(0, count);
+}
+
+function summarizeTildaRows(rows) {
+  const tildaRows = rows.filter(isTildaLead);
+  const withClient = tildaRows.filter(hasMetrikaClientId).length;
+  const metrikaMatched = tildaRows.filter((lead) => EXACT_METRIKA_METHODS.has(lead.attribution_method)).length;
+  const methods = countBy(tildaRows, (lead) => lead.attribution_method);
+  return {
+    total: tildaRows.length,
+    with_client_id: withClient,
+    without_client_id: tildaRows.length - withClient,
+    metrika_matched: metrikaMatched,
+    with_client_id_unmatched: Math.max(0, withClient - metrikaMatched),
+    client_id_not_in_metrika_map: methods.client_id_not_in_metrika_map || 0,
+    client_id_no_session_match: methods.client_id_no_session_match || 0,
+    ambiguous_client_sessions: methods.ambiguous_client_sessions || 0,
+    method_counts: methods,
+    latest: latestRows(tildaRows).map((lead) => ({
+      lead_id: lead.lead_id,
+      created_at: lead.created_at,
+      source: lead.source,
+      has_metrika_client_id: hasMetrikaClientId(lead),
+      attribution_method: lead.attribution_method
+    }))
+  };
+}
+
+function summarizeHostessRows(rows) {
+  const hostessRows = rows.filter(isHostessLead);
+  const statuses = countBy(hostessRows, (lead) => lead.callibri_match_status || "not_matched");
+  return {
+    total: hostessRows.length,
+    with_ad_ids: hostessRows.filter(hasAdIds).length,
+    without_ad_ids: hostessRows.filter((lead) => !hasAdIds(lead)).length,
+    with_callibri: hostessRows.filter(isCallibriAttribution).length,
+    callibri_phone_not_found: statuses.no_callibri_phone_match || 0,
+    callibri_ambiguous: statuses.ambiguous_callibri_calls || 0,
+    match_status_counts: statuses,
+    latest: latestRows(hostessRows).map((lead) => ({
+      lead_id: lead.lead_id,
+      created_at: lead.created_at,
+      source: lead.source,
+      has_ad_ids: hasAdIds(lead),
+      advertising_id_source: lead.advertising_id_source || "",
+      attribution_method: lead.attribution_method || "",
+      callibri_match_status: lead.callibri_match_status || "",
+      callibri_candidate_count: lead.callibri_candidate_count
+    }))
+  };
+}
+
+function summarizeAttributionRows(rows) {
+  return {
+    leads_total: rows.length,
+    leads_with_metrika_client_id: rows.filter(hasMetrikaClientId).length,
+    matched: rows.filter((lead) => EXACT_METRIKA_METHODS.has(lead.attribution_method)).length,
+    method_counts: countBy(rows, (lead) => lead.attribution_method),
+    tilda_client_id: summarizeTildaRows(rows),
+    hostess_calls: summarizeHostessRows(rows)
+  };
+}
+
 function renderAttributionSummary() {
   const source = dashboard?.data_sources?.lead_attribution || {};
   const map = source?.metrika_attribution_map || {};
-  const diagnostics = source?.metrika_attribution_diagnostics || {};
+  const rows = currentAttributionRows();
+  const diagnostics = summarizeAttributionRows(rows);
   const methods = diagnostics.method_counts || {};
   const period = map.date1 && map.date2 ? `${map.date1} - ${map.date2}` : "Нет данных";
   const counter = map.counter_id ? `${map.counter_id}` : "Нет данных";
@@ -281,8 +422,8 @@ function renderAttributionSummary() {
 
   byId("attrLeadsTotal").textContent = fmtNumber(diagnostics.leads_total ?? source.lead_count ?? null);
   byId("attrLeadsClient").textContent = fmtNumber(diagnostics.leads_with_metrika_client_id ?? null);
-  byId("attrMapRows").textContent = fmtNumber(diagnostics.metrika_rows ?? map.mapped_rows ?? null);
-  byId("attrMatches").textContent = fmtNumber(diagnostics.matched ?? source.metrika_client_session_matches ?? null);
+  byId("attrMapRows").textContent = fmtNumber(map.mapped_rows ?? source?.metrika_attribution_diagnostics?.metrika_rows ?? null);
+  byId("attrMatches").textContent = fmtNumber(diagnostics.matched ?? null);
   byId("attrCounter").textContent = `${counter}${target}`;
   byId("attrPeriod").textContent = period;
   byId("attrMessage").textContent = map.message || source.message || "Атрибуция строится по ClientID из Lead Control и визитам Метрики.";
@@ -307,8 +448,8 @@ function renderTildaClientIdSummary(summary) {
   byId("tildaWithClient").textContent = fmtNumber(summary.with_client_id ?? null);
   byId("tildaMetrikaMatched").textContent = fmtNumber(metrikaMatched);
   byId("tildaWithoutClient").textContent = fmtNumber(summary.without_client_id ?? null);
-  byId("tildaToday").textContent = fmtClientIdRatio(summary.today);
-  byId("tilda7Days").textContent = fmtClientIdRatio(summary.last_7_days);
+  byId("tildaToday").textContent = fmtRatio(summary.with_client_id, summary.total);
+  byId("tilda7Days").textContent = fmtRatio(metrikaMatched, summary.with_client_id);
   byId("tildaClientUnmatched").textContent = fmtNumber(summary.with_client_id_unmatched ?? null);
   byId("tildaNotInMap").textContent = fmtNumber(summary.client_id_not_in_metrika_map ?? methods.client_id_not_in_metrika_map ?? null);
   byId("tildaNoSession").textContent = fmtNumber(
@@ -327,17 +468,17 @@ function renderTildaClientIdSummary(summary) {
   `).join("") : `<div class="empty-state">Нет данных</div>`;
 }
 
-function fmtClientIdRatio(windowSummary) {
-  if (!windowSummary) return "Нет данных";
-  return `${fmtNumber(windowSummary.with_client_id ?? 0)} / ${fmtNumber(windowSummary.total ?? 0)}`;
+function fmtRatio(numerator, denominator) {
+  if (numerator === null || numerator === undefined || denominator === null || denominator === undefined) return "Нет данных";
+  return `${fmtNumber(numerator)} / ${fmtNumber(denominator)}`;
 }
 
 function renderHostessCallSummary(summary) {
   const latest = Array.isArray(summary.latest) ? summary.latest[0] : null;
   const statuses = summary.match_status_counts || {};
   byId("hostessTotal").textContent = fmtNumber(summary.total ?? null);
-  byId("hostessToday").textContent = fmtNumber(summary.today?.total ?? null);
-  byId("hostess7Days").textContent = fmtNumber(summary.last_7_days?.total ?? null);
+  byId("hostessToday").textContent = fmtNumber(summary.with_callibri ?? null);
+  byId("hostess7Days").textContent = fmtNumber(summary.without_ad_ids ?? null);
   byId("hostessWithAds").textContent = fmtNumber(summary.with_ad_ids ?? null);
   byId("hostessCallibri").textContent = fmtNumber(summary.with_callibri ?? null);
   byId("hostessPhoneNotFound").textContent = fmtNumber(summary.callibri_phone_not_found ?? statuses.no_callibri_phone_match ?? null);
@@ -355,7 +496,7 @@ function renderHostessCallSummary(summary) {
 }
 
 function renderAttributedLeads() {
-  const rows = dashboard?.lead_attribution?.leads || [];
+  const rows = currentAttributionRows();
   const body = byId("leadsBody");
   const empty = byId("leadsEmpty");
   if (!rows.length) {
@@ -392,6 +533,10 @@ function bindRanges() {
       button.classList.add("active");
       renderKpis();
       renderLeadSummary();
+      renderDirectSummary();
+      renderBreakdown();
+      renderAttributionSummary();
+      renderAttributedLeads();
     });
   });
 }

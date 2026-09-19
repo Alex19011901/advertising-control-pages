@@ -66,6 +66,27 @@ class AttributionTests(unittest.TestCase):
         self.assertEqual(result["cpl"], 50.0)
         self.assertEqual([row["campaign"] for row in result["rows"]], ["A", "C"])
 
+    def test_range_payloads_filter_direct_rows_and_leads(self) -> None:
+        rows = [
+            {"Date": "2026-09-18", "CampaignId": "10", "CampaignName": "Campaign", "AdGroupId": "20", "AdGroupName": "Group", "AdId": "30", "Cost": "100", "Clicks": "2", "Impressions": "20"},
+            {"Date": "2026-09-19", "CampaignId": "10", "CampaignName": "Campaign", "AdGroupId": "20", "AdGroupName": "Group", "AdId": "31", "Cost": "50", "Clicks": "1", "Impressions": "10"},
+        ]
+        leads = [
+            {"created_at": "2026-09-18T12:00:00+03:00", "ad_id": "30", "has_yclid": False},
+            {"created_at": "2026-09-19T12:00:00+03:00", "ad_id": "31", "has_yclid": False},
+        ]
+        ranges = {
+            "yesterday": {"start": "2026-09-18", "end": "2026-09-18", "real_leads": 3},
+        }
+
+        result = module.build_range_payloads(rows, leads, ranges)["yesterday"]
+
+        self.assertEqual(result["direct"]["row_count"], 1)
+        self.assertEqual(result["direct"]["totals"]["cost"], 100.0)
+        self.assertEqual(result["direct"]["summary"]["exact_id_matches_available"], 1)
+        self.assertEqual(result["kpi"]["real_leads"], 3)
+        self.assertEqual(result["kpi"]["fact_cpl"], 33.33)
+
 
 if __name__ == "__main__":
     unittest.main()
