@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-26T01:30:24+00:00",
+  "generated_at": "2026-09-26T07:36:37+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "5739146742295143608",
-      "updated_at": "2026-09-26T01:30:17+00:00",
+      "request_id": "8251077630351367253",
+      "updated_at": "2026-09-26T07:36:31+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-26"
     },
@@ -39553,17 +39553,17 @@
     }
   },
   "direct": {
-    "row_count": 5140,
+    "row_count": 5144,
     "totals": {
-      "cost": 529144.08,
-      "impressions": 1727299,
-      "clicks": 30608,
+      "cost": 529148.8,
+      "impressions": 1727306,
+      "clicks": 30609,
       "ctr": 1.77,
       "cpc": 17.29,
       "direct_conversions": 7820.0,
       "revenue": null,
       "real_leads": 33,
-      "fact_cpl": 16034.67,
+      "fact_cpl": 16034.81,
       "roas": null
     },
     "breakdown": [
@@ -39587,9 +39587,9 @@
         "ad_or_query": "17085709725"
       },
       {
-        "cost": 34634.33,
-        "impressions": 176967,
-        "clicks": 5478,
+        "cost": 34639.05,
+        "impressions": 176970,
+        "clicks": 5479,
         "ctr": 3.1,
         "cpc": 6.32,
         "direct_conversions": 33.0,
@@ -39645,7 +39645,7 @@
       },
       {
         "cost": 14251.34,
-        "impressions": 95463,
+        "impressions": 95464,
         "clicks": 992,
         "ctr": 1.04,
         "cpc": 14.37,
@@ -40994,7 +40994,7 @@
       },
       {
         "cost": 1317.81,
-        "impressions": 8733,
+        "impressions": 8734,
         "clicks": 204,
         "ctr": 2.34,
         "cpc": 6.46,
@@ -45440,9 +45440,9 @@
       },
       {
         "cost": null,
-        "impressions": 589,
+        "impressions": 590,
         "clicks": 16,
-        "ctr": 2.72,
+        "ctr": 2.71,
         "cpc": 0.0,
         "direct_conversions": 10.0,
         "revenue": null,
@@ -47055,7 +47055,7 @@
       },
       {
         "cost": null,
-        "impressions": 187,
+        "impressions": 188,
         "clicks": 1,
         "ctr": 0.53,
         "cpc": 0.0,
@@ -49510,7 +49510,7 @@
       "campaigns": [
         {
           "cost": 102271.03,
-          "impressions": 425031,
+          "impressions": 425032,
           "clicks": 5926,
           "ctr": 1.39,
           "cpc": 17.26,
@@ -49537,9 +49537,9 @@
           "campaign": "Поиск Банкеты( конверсии)"
         },
         {
-          "cost": 72108.88,
-          "impressions": 529272,
-          "clicks": 8733,
+          "cost": 72113.6,
+          "impressions": 529275,
+          "clicks": 8734,
           "ctr": 1.65,
           "cpc": 8.26,
           "direct_conversions": 60.0,
@@ -49552,7 +49552,7 @@
         },
         {
           "cost": 69175.02,
-          "impressions": 472584,
+          "impressions": 472585,
           "clicks": 7635,
           "ctr": 1.62,
           "cpc": 9.06,
@@ -49650,7 +49650,7 @@
         },
         {
           "cost": null,
-          "impressions": 637,
+          "impressions": 638,
           "clicks": 23,
           "ctr": 3.61,
           "cpc": 0.0,
@@ -49664,9 +49664,9 @@
         },
         {
           "cost": null,
-          "impressions": 661,
+          "impressions": 662,
           "clicks": 30,
-          "ctr": 4.54,
+          "ctr": 4.53,
           "cpc": 0.0,
           "direct_conversions": null,
           "revenue": null,
@@ -49680,7 +49680,7 @@
       "groups": [
         {
           "cost": 102057.24,
-          "impressions": 421471,
+          "impressions": 421472,
           "clicks": 5925,
           "ctr": 1.41,
           "cpc": 17.22,
@@ -49696,7 +49696,7 @@
         },
         {
           "cost": 47506.29,
-          "impressions": 370341,
+          "impressions": 370342,
           "clicks": 2805,
           "ctr": 0.76,
           "cpc": 16.94,
@@ -49711,9 +49711,9 @@
           "group": "свадьба в москве"
         },
         {
-          "cost": 35113.65,
-          "impressions": 181276,
-          "clicks": 5559,
+          "cost": 35118.37,
+          "impressions": 181279,
+          "clicks": 5560,
           "ctr": 3.07,
           "cpc": 6.32,
           "direct_conversions": 33.0,
@@ -52544,7 +52544,7 @@
         },
         {
           "cost": null,
-          "impressions": 637,
+          "impressions": 638,
           "clicks": 23,
           "ctr": 3.61,
           "cpc": 0.0,
@@ -53280,7 +53280,7 @@
         },
         {
           "cost": null,
-          "impressions": 258,
+          "impressions": 259,
           "clicks": 1,
           "ctr": 0.39,
           "cpc": 0.0,
@@ -54994,9 +54994,9 @@
           "group": "Банкеты"
         },
         {
-          "cost": 34634.33,
-          "impressions": 176967,
-          "clicks": 5478,
+          "cost": 34639.05,
+          "impressions": 176970,
+          "clicks": 5479,
           "ctr": 3.1,
           "cpc": 6.32,
           "direct_conversions": 33.0,
@@ -55046,7 +55046,7 @@
         },
         {
           "cost": 14251.34,
-          "impressions": 95463,
+          "impressions": 95464,
           "clicks": 992,
           "ctr": 1.04,
           "cpc": 14.37,
@@ -56253,7 +56253,7 @@
         },
         {
           "cost": 1317.81,
-          "impressions": 8733,
+          "impressions": 8734,
           "clicks": 204,
           "ctr": 2.34,
           "cpc": 6.46,
@@ -60231,9 +60231,9 @@
         },
         {
           "cost": null,
-          "impressions": 589,
+          "impressions": 590,
           "clicks": 16,
-          "ctr": 2.72,
+          "ctr": 2.71,
           "cpc": 0.0,
           "direct_conversions": 10.0,
           "revenue": null,
@@ -61676,7 +61676,7 @@
         },
         {
           "cost": null,
-          "impressions": 187,
+          "impressions": 188,
           "clicks": 1,
           "ctr": 0.53,
           "cpc": 0.0,
