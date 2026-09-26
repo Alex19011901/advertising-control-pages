@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-26T19:49:36+00:00",
+  "generated_at": "2026-09-26T22:44:23+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,10 +8,10 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "4168503431029329672",
-      "updated_at": "2026-09-26T19:49:31+00:00",
+      "request_id": "3415843063990766856",
+      "updated_at": "2026-09-26T22:44:18+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
-      "date_range": "2026-09-05..2026-09-26"
+      "date_range": "2026-09-05..2026-09-27"
     },
     "lead_control": {
       "status": "ok",
@@ -81,8 +81,8 @@
             "tilda_ambiguous_submit_events": 1
           },
           "today": {
-            "total": 1,
-            "with_client_id": 1,
+            "total": 0,
+            "with_client_id": 0,
             "without_client_id": 0,
             "metrika_matched": 0
           },
@@ -143,9 +143,9 @@
             "no_callibri_phone_match": 101
           },
           "today": {
-            "total": 7,
+            "total": 0,
             "with_ad_ids": 0,
-            "without_ad_ids": 7,
+            "without_ad_ids": 0,
             "with_callibri": 0
           },
           "last_7_days": {
@@ -211,15 +211,15 @@
     }
   },
   "kpi": {
-    "cost": 541804.06,
-    "impressions": 1758653,
-    "clicks": 31488,
+    "cost": 541808.28,
+    "impressions": 1758655,
+    "clicks": 31489,
     "ctr": 1.79,
     "cpc": 17.21,
     "direct_conversions": 8028.0,
     "real_leads": 263,
     "attributed_leads": 35,
-    "fact_cpl": 15480.12,
+    "fact_cpl": 15480.24,
     "quality_leads": null,
     "quality_cpl": null,
     "sales_result": null,
@@ -230,15 +230,15 @@
       "start": "2026-09-26",
       "end": "2026-09-26",
       "kpi": {
-        "cost": 12659.98,
-        "impressions": 31356,
-        "clicks": 880,
+        "cost": 12664.2,
+        "impressions": 31358,
+        "clicks": 881,
         "ctr": 2.81,
-        "cpc": 14.39,
+        "cpc": 14.37,
         "direct_conversions": 208.0,
         "real_leads": 8,
         "attributed_leads": 1,
-        "fact_cpl": 12659.98,
+        "fact_cpl": 12664.2,
         "quality_leads": null,
         "quality_cpl": null,
         "sales_result": null,
@@ -247,15 +247,15 @@
       "direct": {
         "row_count": 161,
         "totals": {
-          "cost": 12659.98,
-          "impressions": 31356,
-          "clicks": 880,
+          "cost": 12664.2,
+          "impressions": 31358,
+          "clicks": 881,
           "ctr": 2.81,
-          "cpc": 14.39,
+          "cpc": 14.37,
           "direct_conversions": 208.0,
           "revenue": null,
           "real_leads": 1,
-          "fact_cpl": 12659.98,
+          "fact_cpl": 12664.2,
           "roas": null
         },
         "breakdown": [
@@ -299,9 +299,9 @@
           },
           {
             "cost": 1284.58,
-            "impressions": 3662,
+            "impressions": 3663,
             "clicks": 269,
-            "ctr": 7.35,
+            "ctr": 7.34,
             "cpc": 4.78,
             "direct_conversions": null,
             "revenue": null,
@@ -355,11 +355,11 @@
             "ad_or_query": "17718636756"
           },
           {
-            "cost": 937.85,
-            "impressions": 5746,
-            "clicks": 85,
-            "ctr": 1.48,
-            "cpc": 11.03,
+            "cost": 942.07,
+            "impressions": 5747,
+            "clicks": 86,
+            "ctr": 1.5,
+            "cpc": 10.95,
             "direct_conversions": null,
             "revenue": null,
             "real_leads": null,
@@ -8010,15 +8010,15 @@
       "start": "2026-09-20",
       "end": "2026-09-26",
       "kpi": {
-        "cost": 181464.35,
-        "impressions": 545344,
-        "clicks": 9438,
+        "cost": 181468.57,
+        "impressions": 545346,
+        "clicks": 9439,
         "ctr": 1.73,
         "cpc": 19.23,
         "direct_conversions": 2405.0,
         "real_leads": 62,
         "attributed_leads": 15,
-        "fact_cpl": 12097.62,
+        "fact_cpl": 12097.9,
         "quality_leads": null,
         "quality_cpl": null,
         "sales_result": null,
@@ -8027,15 +8027,15 @@
       "direct": {
         "row_count": 1685,
         "totals": {
-          "cost": 181464.35,
-          "impressions": 545344,
-          "clicks": 9438,
+          "cost": 181468.57,
+          "impressions": 545346,
+          "clicks": 9439,
           "ctr": 1.73,
           "cpc": 19.23,
           "direct_conversions": 2405.0,
           "revenue": null,
           "real_leads": 15,
-          "fact_cpl": 12097.62,
+          "fact_cpl": 12097.9,
           "roas": null
         },
         "breakdown": [
@@ -8078,10 +8078,10 @@
             "ad_or_query": "17085710534"
           },
           {
-            "cost": 10367.81,
-            "impressions": 77761,
-            "clicks": 1885,
-            "ctr": 2.42,
+            "cost": 10372.03,
+            "impressions": 77762,
+            "clicks": 1886,
+            "ctr": 2.43,
             "cpc": 5.5,
             "direct_conversions": 27.0,
             "revenue": null,
@@ -8117,7 +8117,7 @@
           },
           {
             "cost": 6422.67,
-            "impressions": 23449,
+            "impressions": 23450,
             "clicks": 993,
             "ctr": 4.23,
             "cpc": 6.47,
@@ -17413,15 +17413,15 @@
       "start": "2026-08-28",
       "end": "2026-09-26",
       "kpi": {
-        "cost": 541804.06,
-        "impressions": 1758653,
-        "clicks": 31488,
+        "cost": 541808.28,
+        "impressions": 1758655,
+        "clicks": 31489,
         "ctr": 1.79,
         "cpc": 17.21,
         "direct_conversions": 8028.0,
         "real_leads": 263,
         "attributed_leads": 35,
-        "fact_cpl": 15480.12,
+        "fact_cpl": 15480.24,
         "quality_leads": null,
         "quality_cpl": null,
         "sales_result": null,
@@ -17430,15 +17430,15 @@
       "direct": {
         "row_count": 5299,
         "totals": {
-          "cost": 541804.06,
-          "impressions": 1758653,
-          "clicks": 31488,
+          "cost": 541808.28,
+          "impressions": 1758655,
+          "clicks": 31489,
           "ctr": 1.79,
           "cpc": 17.21,
           "direct_conversions": 8028.0,
           "revenue": null,
           "real_leads": 35,
-          "fact_cpl": 15480.12,
+          "fact_cpl": 15480.24,
           "roas": null
         },
         "breakdown": [
@@ -17463,7 +17463,7 @@
           },
           {
             "cost": 35918.91,
-            "impressions": 180628,
+            "impressions": 180629,
             "clicks": 5747,
             "ctr": 3.18,
             "cpc": 6.25,
@@ -17481,15 +17481,15 @@
             "ad_or_query": "17085710335"
           },
           {
-            "cost": 35385.11,
-            "impressions": 221152,
-            "clicks": 5642,
+            "cost": 35389.33,
+            "impressions": 221153,
+            "clicks": 5643,
             "ctr": 2.55,
             "cpc": 6.27,
             "direct_conversions": 83.0,
             "revenue": null,
             "real_leads": 1,
-            "fact_cpl": 35385.11,
+            "fact_cpl": 35389.33,
             "roas": null,
             "direction": "РСЯ банкетное меню",
             "campaign_id": "708328266",
@@ -26945,9 +26945,9 @@
         ],
         "linked_spend": {
           "row_count": 23,
-          "cost": 243321.04,
+          "cost": 243325.26,
           "leads": 35,
-          "cpl": 6952.03,
+          "cpl": 6952.15,
           "rows": [
             {
               "cost": 98691.56,
@@ -26969,15 +26969,15 @@
               "ad_or_query": "17085709725"
             },
             {
-              "cost": 35385.11,
-              "impressions": 221152,
-              "clicks": 5642,
+              "cost": 35389.33,
+              "impressions": 221153,
+              "clicks": 5643,
               "ctr": 2.55,
               "cpc": 6.27,
               "direct_conversions": 83.0,
               "revenue": null,
               "real_leads": 1,
-              "fact_cpl": 35385.11,
+              "fact_cpl": 35389.33,
               "roas": null,
               "direction": "РСЯ банкетное меню",
               "campaign_id": "708328266",
@@ -27463,15 +27463,15 @@
       "start": "2026-07-01",
       "end": "2026-09-26",
       "kpi": {
-        "cost": 541804.06,
-        "impressions": 1758653,
-        "clicks": 31488,
+        "cost": 541808.28,
+        "impressions": 1758655,
+        "clicks": 31489,
         "ctr": 1.79,
         "cpc": 17.21,
         "direct_conversions": 8028.0,
         "real_leads": 676,
         "attributed_leads": 35,
-        "fact_cpl": 15480.12,
+        "fact_cpl": 15480.24,
         "quality_leads": null,
         "quality_cpl": null,
         "sales_result": null,
@@ -27480,15 +27480,15 @@
       "direct": {
         "row_count": 5299,
         "totals": {
-          "cost": 541804.06,
-          "impressions": 1758653,
-          "clicks": 31488,
+          "cost": 541808.28,
+          "impressions": 1758655,
+          "clicks": 31489,
           "ctr": 1.79,
           "cpc": 17.21,
           "direct_conversions": 8028.0,
           "revenue": null,
           "real_leads": 35,
-          "fact_cpl": 15480.12,
+          "fact_cpl": 15480.24,
           "roas": null
         },
         "breakdown": [
@@ -27513,7 +27513,7 @@
           },
           {
             "cost": 35918.91,
-            "impressions": 180628,
+            "impressions": 180629,
             "clicks": 5747,
             "ctr": 3.18,
             "cpc": 6.25,
@@ -27531,15 +27531,15 @@
             "ad_or_query": "17085710335"
           },
           {
-            "cost": 35385.11,
-            "impressions": 221152,
-            "clicks": 5642,
+            "cost": 35389.33,
+            "impressions": 221153,
+            "clicks": 5643,
             "ctr": 2.55,
             "cpc": 6.27,
             "direct_conversions": 83.0,
             "revenue": null,
             "real_leads": 1,
-            "fact_cpl": 35385.11,
+            "fact_cpl": 35389.33,
             "roas": null,
             "direction": "РСЯ банкетное меню",
             "campaign_id": "708328266",
@@ -36995,9 +36995,9 @@
         ],
         "linked_spend": {
           "row_count": 23,
-          "cost": 243321.04,
+          "cost": 243325.26,
           "leads": 35,
-          "cpl": 6952.03,
+          "cpl": 6952.15,
           "rows": [
             {
               "cost": 98691.56,
@@ -37019,15 +37019,15 @@
               "ad_or_query": "17085709725"
             },
             {
-              "cost": 35385.11,
-              "impressions": 221152,
-              "clicks": 5642,
+              "cost": 35389.33,
+              "impressions": 221153,
+              "clicks": 5643,
               "ctr": 2.55,
               "cpc": 6.27,
               "direct_conversions": 83.0,
               "revenue": null,
               "real_leads": 1,
-              "fact_cpl": 35385.11,
+              "fact_cpl": 35389.33,
               "roas": null,
               "direction": "РСЯ банкетное меню",
               "campaign_id": "708328266",
@@ -37511,17 +37511,17 @@
     }
   },
   "direct": {
-    "row_count": 5299,
+    "row_count": 5301,
     "totals": {
-      "cost": 541804.06,
-      "impressions": 1758653,
-      "clicks": 31488,
+      "cost": 541808.28,
+      "impressions": 1758657,
+      "clicks": 31489,
       "ctr": 1.79,
       "cpc": 17.21,
       "direct_conversions": 8028.0,
       "revenue": null,
       "real_leads": 35,
-      "fact_cpl": 15480.12,
+      "fact_cpl": 15480.24,
       "roas": null
     },
     "breakdown": [
@@ -37546,7 +37546,7 @@
       },
       {
         "cost": 35918.91,
-        "impressions": 180628,
+        "impressions": 180629,
         "clicks": 5747,
         "ctr": 3.18,
         "cpc": 6.25,
@@ -37564,15 +37564,15 @@
         "ad_or_query": "17085710335"
       },
       {
-        "cost": 35385.11,
-        "impressions": 221152,
-        "clicks": 5642,
+        "cost": 35389.33,
+        "impressions": 221153,
+        "clicks": 5643,
         "ctr": 2.55,
         "cpc": 6.27,
         "direct_conversions": 83.0,
         "revenue": null,
         "real_leads": 1,
-        "fact_cpl": 35385.11,
+        "fact_cpl": 35389.33,
         "roas": null,
         "direction": "РСЯ банкетное меню",
         "campaign_id": "708328266",
@@ -37584,7 +37584,7 @@
       },
       {
         "cost": 33945.5,
-        "impressions": 283815,
+        "impressions": 283816,
         "clicks": 1897,
         "ctr": 0.67,
         "cpc": 17.89,
@@ -38040,7 +38040,7 @@
       },
       {
         "cost": 3444.03,
-        "impressions": 17951,
+        "impressions": 17952,
         "clicks": 662,
         "ctr": 3.69,
         "cpc": 5.2,
@@ -47028,9 +47028,9 @@
     ],
     "linked_spend": {
       "row_count": 23,
-      "cost": 243321.04,
+      "cost": 243325.26,
       "leads": 35,
-      "cpl": 6952.03,
+      "cpl": 6952.15,
       "rows": [
         {
           "cost": 98691.56,
@@ -47052,15 +47052,15 @@
           "ad_or_query": "17085709725"
         },
         {
-          "cost": 35385.11,
-          "impressions": 221152,
-          "clicks": 5642,
+          "cost": 35389.33,
+          "impressions": 221153,
+          "clicks": 5643,
           "ctr": 2.55,
           "cpc": 6.27,
           "direct_conversions": 83.0,
           "revenue": null,
           "real_leads": 1,
-          "fact_cpl": 35385.11,
+          "fact_cpl": 35389.33,
           "roas": null,
           "direction": "РСЯ банкетное меню",
           "campaign_id": "708328266",
@@ -47072,7 +47072,7 @@
         },
         {
           "cost": 33945.5,
-          "impressions": 283815,
+          "impressions": 283816,
           "clicks": 1897,
           "ctr": 0.67,
           "cpc": 17.89,
@@ -47508,7 +47508,7 @@
       "campaigns": [
         {
           "cost": 104663.71,
-          "impressions": 429103,
+          "impressions": 429104,
           "clicks": 6098,
           "ctr": 1.42,
           "cpc": 17.16,
@@ -47536,7 +47536,7 @@
         },
         {
           "cost": 73481.77,
-          "impressions": 534485,
+          "impressions": 534486,
           "clicks": 9018,
           "ctr": 1.69,
           "cpc": 8.15,
@@ -47550,7 +47550,7 @@
         },
         {
           "cost": 70544.23,
-          "impressions": 485774,
+          "impressions": 485775,
           "clicks": 7857,
           "ctr": 1.62,
           "cpc": 8.98,
@@ -47591,9 +47591,9 @@
           "campaign": "Поиск Корпоративы"
         },
         {
-          "cost": 35385.11,
-          "impressions": 221152,
-          "clicks": 5642,
+          "cost": 35389.33,
+          "impressions": 221153,
+          "clicks": 5643,
           "ctr": 2.55,
           "cpc": 6.27,
           "direct_conversions": 83.0,
@@ -47678,7 +47678,7 @@
       "groups": [
         {
           "cost": 104449.92,
-          "impressions": 425534,
+          "impressions": 425535,
           "clicks": 6097,
           "ctr": 1.43,
           "cpc": 17.13,
@@ -47694,7 +47694,7 @@
         },
         {
           "cost": 48727.65,
-          "impressions": 382712,
+          "impressions": 382713,
           "clicks": 2914,
           "ctr": 0.76,
           "cpc": 16.72,
@@ -47710,7 +47710,7 @@
         },
         {
           "cost": 36398.23,
-          "impressions": 185012,
+          "impressions": 185013,
           "clicks": 5828,
           "ctr": 3.15,
           "cpc": 6.25,
@@ -47725,9 +47725,9 @@
           "group": "корпоратив на 200 челоек"
         },
         {
-          "cost": 35385.11,
-          "impressions": 221152,
-          "clicks": 5642,
+          "cost": 35389.33,
+          "impressions": 221153,
+          "clicks": 5643,
           "ctr": 2.55,
           "cpc": 6.27,
           "direct_conversions": 83.0,
@@ -53009,7 +53009,7 @@
         },
         {
           "cost": 35918.91,
-          "impressions": 180628,
+          "impressions": 180629,
           "clicks": 5747,
           "ctr": 3.18,
           "cpc": 6.25,
@@ -53025,15 +53025,15 @@
           "group": "корпоратив на 200 челоек"
         },
         {
-          "cost": 35385.11,
-          "impressions": 221152,
-          "clicks": 5642,
+          "cost": 35389.33,
+          "impressions": 221153,
+          "clicks": 5643,
           "ctr": 2.55,
           "cpc": 6.27,
           "direct_conversions": 83.0,
           "revenue": null,
           "real_leads": 1,
-          "fact_cpl": 35385.11,
+          "fact_cpl": 35389.33,
           "roas": null,
           "ad_id": "17663635579",
           "campaign_id": "708328266",
@@ -53043,7 +53043,7 @@
         },
         {
           "cost": 33945.5,
-          "impressions": 283815,
+          "impressions": 283816,
           "clicks": 1897,
           "ctr": 0.67,
           "cpc": 17.89,
@@ -53451,7 +53451,7 @@
         },
         {
           "cost": 3444.03,
-          "impressions": 17951,
+          "impressions": 17952,
           "clicks": 662,
           "ctr": 3.69,
           "cpc": 5.2,
