@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-26T22:44:23+00:00",
+  "generated_at": "2026-09-27T01:23:02+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "3415843063990766856",
-      "updated_at": "2026-09-26T22:44:18+00:00",
+      "request_id": "4357821666738914485",
+      "updated_at": "2026-09-27T01:22:58+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-09-27"
     },
