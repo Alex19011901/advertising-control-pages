@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-01T23:09:11+00:00",
+  "generated_at": "2026-10-02T02:15:10+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "5953047748708365697",
-      "updated_at": "2026-10-01T23:09:03+00:00",
+      "request_id": "838628803179953666",
+      "updated_at": "2026-10-02T02:15:03+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-10-02"
     },
@@ -41345,17 +41345,17 @@
     }
   },
   "direct": {
-    "row_count": 6645,
+    "row_count": 6647,
     "totals": {
-      "cost": 682739.41,
-      "impressions": 2309845,
-      "clicks": 40349,
+      "cost": 682745.08,
+      "impressions": 2309851,
+      "clicks": 40350,
       "ctr": 1.75,
       "cpc": 16.92,
       "direct_conversions": 9995.0,
       "revenue": null,
       "real_leads": 42,
-      "fact_cpl": 16255.7,
+      "fact_cpl": 16255.84,
       "roas": null
     },
     "breakdown": [
@@ -41380,7 +41380,7 @@
       },
       {
         "cost": 49003.1,
-        "impressions": 427450,
+        "impressions": 427452,
         "clicks": 2590,
         "ctr": 0.61,
         "cpc": 18.92,
@@ -41399,7 +41399,7 @@
       },
       {
         "cost": 47319.81,
-        "impressions": 220803,
+        "impressions": 220804,
         "clicks": 7622,
         "ctr": 3.45,
         "cpc": 6.21,
@@ -42158,11 +42158,11 @@
         "ad_or_query": "16902913985"
       },
       {
-        "cost": 2981.02,
-        "impressions": 34045,
-        "clicks": 240,
-        "ctr": 0.7,
-        "cpc": 12.42,
+        "cost": 2986.69,
+        "impressions": 34046,
+        "clicks": 241,
+        "ctr": 0.71,
+        "cpc": 12.39,
         "direct_conversions": 6.0,
         "revenue": null,
         "real_leads": null,
@@ -47764,7 +47764,7 @@
       },
       {
         "cost": null,
-        "impressions": 903,
+        "impressions": 905,
         "clicks": 19,
         "ctr": 2.1,
         "cpc": 0.0,
@@ -50887,7 +50887,7 @@
         },
         {
           "cost": 49003.1,
-          "impressions": 427450,
+          "impressions": 427452,
           "clicks": 2590,
           "ctr": 0.61,
           "cpc": 18.92,
@@ -50906,7 +50906,7 @@
         },
         {
           "cost": 47319.81,
-          "impressions": 220803,
+          "impressions": 220804,
           "clicks": 7622,
           "ctr": 3.45,
           "cpc": 6.21,
@@ -51429,10 +51429,10 @@
           "campaign": "Поиск Банкеты( конверсии)"
         },
         {
-          "cost": 92855.7,
-          "impressions": 662298,
-          "clicks": 11755,
-          "ctr": 1.77,
+          "cost": 92861.37,
+          "impressions": 662300,
+          "clicks": 11756,
+          "ctr": 1.78,
           "cpc": 7.9,
           "direct_conversions": 79.0,
           "revenue": null,
@@ -51444,7 +51444,7 @@
         },
         {
           "cost": 91642.26,
-          "impressions": 667039,
+          "impressions": 667041,
           "clicks": 9845,
           "ctr": 1.48,
           "cpc": 9.31,
@@ -51542,9 +51542,9 @@
         },
         {
           "cost": null,
-          "impressions": 1186,
+          "impressions": 1188,
           "clicks": 29,
-          "ctr": 2.45,
+          "ctr": 2.44,
           "cpc": 0.0,
           "direct_conversions": 22.0,
           "revenue": null,
@@ -51588,7 +51588,7 @@
         },
         {
           "cost": 66287.36,
-          "impressions": 545738,
+          "impressions": 545740,
           "clicks": 3856,
           "ctr": 0.71,
           "cpc": 17.19,
@@ -51604,7 +51604,7 @@
         },
         {
           "cost": 47906.68,
-          "impressions": 225880,
+          "impressions": 225881,
           "clicks": 7719,
           "ctr": 3.42,
           "cpc": 6.21,
@@ -51891,11 +51891,11 @@
           "group": "лучший ресторан для корпоратива"
         },
         {
-          "cost": 6352.72,
-          "impressions": 69216,
-          "clicks": 502,
+          "cost": 6358.39,
+          "impressions": 69217,
+          "clicks": 503,
           "ctr": 0.73,
-          "cpc": 12.65,
+          "cpc": 12.64,
           "direct_conversions": 7.0,
           "revenue": null,
           "real_leads": 0,
@@ -54644,9 +54644,9 @@
         },
         {
           "cost": null,
-          "impressions": 1186,
+          "impressions": 1188,
           "clicks": 29,
-          "ctr": 2.45,
+          "ctr": 2.44,
           "cpc": 0.0,
           "direct_conversions": 22.0,
           "revenue": null,
@@ -57351,7 +57351,7 @@
         },
         {
           "cost": 49003.1,
-          "impressions": 427450,
+          "impressions": 427452,
           "clicks": 2590,
           "ctr": 0.61,
           "cpc": 18.92,
@@ -57368,7 +57368,7 @@
         },
         {
           "cost": 47319.81,
-          "impressions": 220803,
+          "impressions": 220804,
           "clicks": 7622,
           "ctr": 3.45,
           "cpc": 6.21,
@@ -58047,11 +58047,11 @@
           "group": "корпоратив в ресторане"
         },
         {
-          "cost": 2981.02,
-          "impressions": 34045,
-          "clicks": 240,
-          "ctr": 0.7,
-          "cpc": 12.42,
+          "cost": 2986.69,
+          "impressions": 34046,
+          "clicks": 241,
+          "ctr": 0.71,
+          "cpc": 12.39,
           "direct_conversions": 6.0,
           "revenue": null,
           "real_leads": 0,
@@ -63063,7 +63063,7 @@
         },
         {
           "cost": null,
-          "impressions": 903,
+          "impressions": 905,
           "clicks": 19,
           "ctr": 2.1,
           "cpc": 0.0,
