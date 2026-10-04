@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-03T21:10:50+00:00",
+  "generated_at": "2026-10-04T00:34:40+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "3370671175814379164",
-      "updated_at": "2026-10-03T21:10:43+00:00",
+      "request_id": "7463706512591103424",
+      "updated_at": "2026-10-04T00:34:33+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-10-04"
     },
@@ -37422,17 +37422,17 @@
     }
   },
   "direct": {
-    "row_count": 7017,
+    "row_count": 7021,
     "totals": {
-      "cost": 715112.79,
-      "impressions": 2427750,
-      "clicks": 42533,
+      "cost": 715117.03,
+      "impressions": 2427760,
+      "clicks": 42534,
       "ctr": 1.75,
       "cpc": 16.81,
       "direct_conversions": 10375.0,
       "revenue": null,
       "real_leads": 42,
-      "fact_cpl": 17026.5,
+      "fact_cpl": 17026.6,
       "roas": null
     },
     "breakdown": [
@@ -37457,7 +37457,7 @@
       },
       {
         "cost": 53242.3,
-        "impressions": 452741,
+        "impressions": 452742,
         "clicks": 2794,
         "ctr": 0.62,
         "cpc": 19.06,
@@ -37475,15 +37475,15 @@
         "ad_or_query": "17085710534"
       },
       {
-        "cost": 49425.8,
-        "impressions": 228188,
-        "clicks": 7981,
+        "cost": 49430.04,
+        "impressions": 228189,
+        "clicks": 7982,
         "ctr": 3.5,
         "cpc": 6.19,
         "direct_conversions": 42.0,
         "revenue": null,
         "real_leads": 1,
-        "fact_cpl": 49425.8,
+        "fact_cpl": 49430.04,
         "roas": null,
         "direction": "Тест РСЯ Корпоративы",
         "campaign_id": "700792082",
@@ -43879,7 +43879,7 @@
       },
       {
         "cost": null,
-        "impressions": 1017,
+        "impressions": 1020,
         "clicks": 21,
         "ctr": 2.06,
         "cpc": 0.0,
@@ -46558,9 +46558,9 @@
       },
       {
         "cost": null,
-        "impressions": 326,
+        "impressions": 331,
         "clicks": 3,
-        "ctr": 0.92,
+        "ctr": 0.91,
         "cpc": 0.0,
         "direct_conversions": 3.0,
         "revenue": null,
@@ -46939,9 +46939,9 @@
     ],
     "linked_spend": {
       "row_count": 26,
-      "cost": 375581.14,
+      "cost": 375585.38,
       "leads": 42,
-      "cpl": 8942.41,
+      "cpl": 8942.51,
       "rows": [
         {
           "cost": 117777.59,
@@ -46964,7 +46964,7 @@
         },
         {
           "cost": 53242.3,
-          "impressions": 452741,
+          "impressions": 452742,
           "clicks": 2794,
           "ctr": 0.62,
           "cpc": 19.06,
@@ -46982,15 +46982,15 @@
           "ad_or_query": "17085710534"
         },
         {
-          "cost": 49425.8,
-          "impressions": 228188,
-          "clicks": 7981,
+          "cost": 49430.04,
+          "impressions": 228189,
+          "clicks": 7982,
           "ctr": 3.5,
           "cpc": 6.19,
           "direct_conversions": 42.0,
           "revenue": null,
           "real_leads": 1,
-          "fact_cpl": 49425.8,
+          "fact_cpl": 49430.04,
           "roas": null,
           "direction": "Тест РСЯ Корпоративы",
           "campaign_id": "700792082",
@@ -47506,9 +47506,9 @@
           "campaign": "Поиск Банкеты( конверсии)"
         },
         {
-          "cost": 99656.93,
-          "impressions": 699479,
-          "clicks": 12639,
+          "cost": 99661.17,
+          "impressions": 699480,
+          "clicks": 12640,
           "ctr": 1.81,
           "cpc": 7.88,
           "direct_conversions": 86.0,
@@ -47521,7 +47521,7 @@
         },
         {
           "cost": 97223.48,
-          "impressions": 698681,
+          "impressions": 698682,
           "clicks": 10244,
           "ctr": 1.47,
           "cpc": 9.49,
@@ -47619,9 +47619,9 @@
         },
         {
           "cost": null,
-          "impressions": 1383,
+          "impressions": 1391,
           "clicks": 34,
-          "ctr": 2.46,
+          "ctr": 2.44,
           "cpc": 0.0,
           "direct_conversions": 27.0,
           "revenue": null,
@@ -47665,7 +47665,7 @@
         },
         {
           "cost": 71225.47,
-          "impressions": 574804,
+          "impressions": 574805,
           "clicks": 4132,
           "ctr": 0.72,
           "cpc": 17.24,
@@ -47680,9 +47680,9 @@
           "group": "свадьба в москве"
         },
         {
-          "cost": 50045.25,
-          "impressions": 233586,
-          "clicks": 8087,
+          "cost": 50049.49,
+          "impressions": 233587,
+          "clicks": 8088,
           "ctr": 3.46,
           "cpc": 6.19,
           "direct_conversions": 42.0,
@@ -50737,9 +50737,9 @@
         },
         {
           "cost": null,
-          "impressions": 1383,
+          "impressions": 1391,
           "clicks": 34,
-          "ctr": 2.46,
+          "ctr": 2.44,
           "cpc": 0.0,
           "direct_conversions": 27.0,
           "revenue": null,
@@ -53556,7 +53556,7 @@
         },
         {
           "cost": 53242.3,
-          "impressions": 452741,
+          "impressions": 452742,
           "clicks": 2794,
           "ctr": 0.62,
           "cpc": 19.06,
@@ -53572,15 +53572,15 @@
           "group": "свадьба в москве"
         },
         {
-          "cost": 49425.8,
-          "impressions": 228188,
-          "clicks": 7981,
+          "cost": 49430.04,
+          "impressions": 228189,
+          "clicks": 7982,
           "ctr": 3.5,
           "cpc": 6.19,
           "direct_conversions": 42.0,
           "revenue": null,
           "real_leads": 1,
-          "fact_cpl": 49425.8,
+          "fact_cpl": 49430.04,
           "roas": null,
           "ad_id": "17085710335",
           "campaign_id": "700792082",
@@ -59302,7 +59302,7 @@
         },
         {
           "cost": null,
-          "impressions": 1017,
+          "impressions": 1020,
           "clicks": 21,
           "ctr": 2.06,
           "cpc": 0.0,
@@ -61699,9 +61699,9 @@
         },
         {
           "cost": null,
-          "impressions": 326,
+          "impressions": 331,
           "clicks": 3,
-          "ctr": 0.92,
+          "ctr": 0.91,
           "cpc": 0.0,
           "direct_conversions": 3.0,
           "revenue": null,
