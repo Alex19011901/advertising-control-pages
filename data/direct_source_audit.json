@@ -10,10 +10,10 @@
   "unique_ads_with_activity": 700,
   "duplicate_date_ad_keys": [],
   "totals": {
-    "impressions": 2473820,
+    "impressions": 2473966,
     "clicks": 43589,
     "cost": 727204.39,
-    "conversions": 10511.0
+    "conversions": 10515.0
   },
   "active_campaigns_total": 12,
   "active_campaigns_with_activity_in_period": 12,
