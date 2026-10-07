@@ -17,7 +17,7 @@
     "118776764"
   ],
   "campaigns_total": 27,
-  "campaigns_active_or_nonarchived": 14,
+  "campaigns_active_or_nonarchived": 12,
   "campaigns_active_with_target_counter": 10,
   "all_active_campaigns_have_target_counter": false,
   "campaign_counter_audit": [
@@ -153,8 +153,8 @@
       "campaign_id": "700089672",
       "campaign_name": "Поиск Веранда",
       "type": "TEXT_CAMPAIGN",
-      "state": "ENDED",
-      "status": "ACCEPTED",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
       "metrika_counter_ids": [
         21405064,
         60220033
@@ -259,8 +259,8 @@
       "campaign_id": "700792095",
       "campaign_name": "Тест РСЯ Веранда",
       "type": "TEXT_CAMPAIGN",
-      "state": "ENDED",
-      "status": "ACCEPTED",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
       "metrika_counter_ids": [
         21405064,
         60220033
@@ -283,7 +283,7 @@
       "campaign_id": "708328266",
       "campaign_name": "РСЯ банкетное меню",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "SUSPENDED",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
