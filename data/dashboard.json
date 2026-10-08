@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-07T21:57:57+00:00",
+  "generated_at": "2026-10-08T01:53:57+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "1065801881264928997",
-      "updated_at": "2026-10-07T21:57:51+00:00",
+      "request_id": "2911420176076718022",
+      "updated_at": "2026-10-08T01:53:50+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-10-08"
     },
@@ -40839,10 +40839,10 @@
     }
   },
   "direct": {
-    "row_count": 8022,
+    "row_count": 8025,
     "totals": {
       "cost": 825129.8,
-      "impressions": 2778476,
+      "impressions": 2778480,
       "clicks": 47952,
       "ctr": 1.73,
       "cpc": 17.21,
@@ -40855,7 +40855,7 @@
     "breakdown": [
       {
         "cost": 127627.99,
-        "impressions": 473763,
+        "impressions": 473764,
         "clicks": 6386,
         "ctr": 1.35,
         "cpc": 19.99,
@@ -40893,7 +40893,7 @@
       },
       {
         "cost": 54020.83,
-        "impressions": 324507,
+        "impressions": 324508,
         "clicks": 8142,
         "ctr": 2.51,
         "cpc": 6.63,
@@ -47676,7 +47676,7 @@
       },
       {
         "cost": null,
-        "impressions": 1089,
+        "impressions": 1090,
         "clicks": 24,
         "ctr": 2.2,
         "cpc": 0.0,
@@ -50362,7 +50362,7 @@
       "rows": [
         {
           "cost": 127627.99,
-          "impressions": 473763,
+          "impressions": 473764,
           "clicks": 6386,
           "ctr": 1.35,
           "cpc": 19.99,
@@ -50400,7 +50400,7 @@
         },
         {
           "cost": 54020.83,
-          "impressions": 324507,
+          "impressions": 324508,
           "clicks": 8142,
           "ctr": 2.51,
           "cpc": 6.63,
@@ -50936,7 +50936,7 @@
       "campaigns": [
         {
           "cost": 151499.18,
-          "impressions": 671007,
+          "impressions": 671008,
           "clicks": 9288,
           "ctr": 1.38,
           "cpc": 16.31,
@@ -51020,7 +51020,7 @@
         },
         {
           "cost": 54020.83,
-          "impressions": 324507,
+          "impressions": 324508,
           "clicks": 8142,
           "ctr": 2.51,
           "cpc": 6.63,
@@ -51076,7 +51076,7 @@
         },
         {
           "cost": null,
-          "impressions": 1629,
+          "impressions": 1631,
           "clicks": 37,
           "ctr": 2.27,
           "cpc": 0.0,
@@ -51106,7 +51106,7 @@
       "groups": [
         {
           "cost": 149707.54,
-          "impressions": 612718,
+          "impressions": 612719,
           "clicks": 9279,
           "ctr": 1.51,
           "cpc": 16.13,
@@ -51138,7 +51138,7 @@
         },
         {
           "cost": 54020.83,
-          "impressions": 324507,
+          "impressions": 324508,
           "clicks": 8142,
           "ctr": 2.51,
           "cpc": 6.63,
@@ -54402,7 +54402,7 @@
         },
         {
           "cost": null,
-          "impressions": 1629,
+          "impressions": 1631,
           "clicks": 37,
           "ctr": 2.27,
           "cpc": 0.0,
@@ -57124,7 +57124,7 @@
       "ads": [
         {
           "cost": 127627.99,
-          "impressions": 473763,
+          "impressions": 473764,
           "clicks": 6386,
           "ctr": 1.35,
           "cpc": 19.99,
@@ -57158,7 +57158,7 @@
         },
         {
           "cost": 54020.83,
-          "impressions": 324507,
+          "impressions": 324508,
           "clicks": 8142,
           "ctr": 2.51,
           "cpc": 6.63,
@@ -63227,7 +63227,7 @@
         },
         {
           "cost": null,
-          "impressions": 1089,
+          "impressions": 1090,
           "clicks": 24,
           "ctr": 2.2,
           "cpc": 0.0,
@@ -69143,7 +69143,7 @@
         },
         {
           "cost": null,
-          "impressions": 22,
+          "impressions": 23,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
