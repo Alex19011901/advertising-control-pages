@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-08T22:02:41+00:00",
+  "generated_at": "2026-10-09T02:06:17+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "7591365956925897476",
-      "updated_at": "2026-10-08T22:02:36+00:00",
+      "request_id": "4389791481366293975",
+      "updated_at": "2026-10-09T02:06:10+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-10-09"
     },
@@ -41305,17 +41305,17 @@
     }
   },
   "direct": {
-    "row_count": 8329,
+    "row_count": 8332,
     "totals": {
-      "cost": 857789.45,
-      "impressions": 2841817,
-      "clicks": 48460,
+      "cost": 857789.93,
+      "impressions": 2841821,
+      "clicks": 48461,
       "ctr": 1.71,
       "cpc": 17.7,
       "direct_conversions": 12247.0,
       "revenue": null,
       "real_leads": 50,
-      "fact_cpl": 17155.79,
+      "fact_cpl": 17155.8,
       "roas": null
     },
     "breakdown": [
@@ -41530,7 +41530,7 @@
       },
       {
         "cost": 9351.23,
-        "impressions": 73772,
+        "impressions": 73773,
         "clicks": 908,
         "ctr": 1.23,
         "cpc": 10.3,
@@ -41549,7 +41549,7 @@
       },
       {
         "cost": 9306.51,
-        "impressions": 64803,
+        "impressions": 64804,
         "clicks": 1471,
         "ctr": 2.27,
         "cpc": 6.33,
@@ -42233,7 +42233,7 @@
       },
       {
         "cost": 3436.69,
-        "impressions": 38192,
+        "impressions": 38193,
         "clicks": 610,
         "ctr": 1.6,
         "cpc": 5.63,
@@ -46393,11 +46393,11 @@
         "ad_or_query": "1915822986185365521"
       },
       {
-        "cost": 275.66,
-        "impressions": 814,
-        "clicks": 123,
-        "ctr": 15.11,
-        "cpc": 2.24,
+        "cost": 276.14,
+        "impressions": 815,
+        "clicks": 124,
+        "ctr": 15.21,
+        "cpc": 2.23,
         "direct_conversions": 130.0,
         "revenue": null,
         "real_leads": null,
@@ -51170,7 +51170,7 @@
         },
         {
           "cost": 3436.69,
-          "impressions": 38192,
+          "impressions": 38193,
           "clicks": 610,
           "ctr": 1.6,
           "cpc": 5.63,
@@ -51442,7 +51442,7 @@
       "campaigns": [
         {
           "cost": 156542.73,
-          "impressions": 690227,
+          "impressions": 690228,
           "clicks": 9428,
           "ctr": 1.37,
           "cpc": 16.6,
@@ -51470,7 +51470,7 @@
         },
         {
           "cost": 117011.39,
-          "impressions": 835338,
+          "impressions": 835339,
           "clicks": 14113,
           "ctr": 1.69,
           "cpc": 8.29,
@@ -51483,9 +51483,9 @@
           "campaign": "Тест РСЯ Корпоративы"
         },
         {
-          "cost": 116166.49,
-          "impressions": 824027,
-          "clicks": 12218,
+          "cost": 116166.97,
+          "impressions": 824028,
+          "clicks": 12219,
           "ctr": 1.48,
           "cpc": 9.51,
           "direct_conversions": 10911.0,
@@ -51554,7 +51554,7 @@
         },
         {
           "cost": 22437.89,
-          "impressions": 149779,
+          "impressions": 149780,
           "clicks": 3340,
           "ctr": 2.23,
           "cpc": 6.72,
@@ -51612,7 +51612,7 @@
       "groups": [
         {
           "cost": 154635.62,
-          "impressions": 628100,
+          "impressions": 628101,
           "clicks": 9418,
           "ctr": 1.5,
           "cpc": 16.42,
@@ -51692,7 +51692,7 @@
         },
         {
           "cost": 17248.81,
-          "impressions": 79968,
+          "impressions": 79969,
           "clicks": 2949,
           "ctr": 3.69,
           "cpc": 5.85,
@@ -51724,7 +51724,7 @@
         },
         {
           "cost": 14240.32,
-          "impressions": 118865,
+          "impressions": 118866,
           "clicks": 1317,
           "ctr": 1.11,
           "cpc": 10.81,
@@ -53643,10 +53643,10 @@
           "group": "организация свадьбы под ключ"
         },
         {
-          "cost": 794.34,
-          "impressions": 3440,
-          "clicks": 674,
-          "ctr": 19.59,
+          "cost": 794.82,
+          "impressions": 3441,
+          "clicks": 675,
+          "ctr": 19.62,
           "cpc": 1.18,
           "direct_conversions": 687.0,
           "revenue": null,
@@ -57897,7 +57897,7 @@
         },
         {
           "cost": 9351.23,
-          "impressions": 73772,
+          "impressions": 73773,
           "clicks": 908,
           "ctr": 1.23,
           "cpc": 10.3,
@@ -57914,7 +57914,7 @@
         },
         {
           "cost": 9306.51,
-          "impressions": 64803,
+          "impressions": 64804,
           "clicks": 1471,
           "ctr": 2.27,
           "cpc": 6.33,
@@ -58526,7 +58526,7 @@
         },
         {
           "cost": 3436.69,
-          "impressions": 38192,
+          "impressions": 38193,
           "clicks": 610,
           "ctr": 1.6,
           "cpc": 5.63,
@@ -62248,11 +62248,11 @@
           "group": "банкетный зал 80"
         },
         {
-          "cost": 275.66,
-          "impressions": 814,
-          "clicks": 123,
-          "ctr": 15.11,
-          "cpc": 2.24,
+          "cost": 276.14,
+          "impressions": 815,
+          "clicks": 124,
+          "ctr": 15.21,
+          "cpc": 2.23,
           "direct_conversions": 130.0,
           "revenue": null,
           "real_leads": 0,
