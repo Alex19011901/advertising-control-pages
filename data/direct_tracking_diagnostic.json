@@ -46,7 +46,7 @@
       "campaign_id": "118776764",
       "campaign_name": "Поиск Конференция",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         60220033
@@ -57,7 +57,7 @@
       "campaign_id": "118776773",
       "campaign_name": "Поиск Корпоративы",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -69,7 +69,7 @@
       "campaign_id": "118776779",
       "campaign_name": "Поиск Свадебные банкеты",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -81,7 +81,7 @@
       "campaign_id": "118776785",
       "campaign_name": "Ремаркетинг",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -201,7 +201,7 @@
       "campaign_id": "700792063",
       "campaign_name": "Тест РСЯ банкет",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -225,7 +225,7 @@
       "campaign_id": "700792072",
       "campaign_name": "Тест РСЯ конференции",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240
@@ -236,7 +236,7 @@
       "campaign_id": "700792082",
       "campaign_name": "Тест РСЯ Корпоративы",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240
@@ -247,7 +247,7 @@
       "campaign_id": "700792084",
       "campaign_name": "Тест РСЯ Свадебные банкеты",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -271,7 +271,7 @@
       "campaign_id": "702195391",
       "campaign_name": "Тест РСЯ банкет (Похожие сайты)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -295,7 +295,7 @@
       "campaign_id": "709907560",
       "campaign_name": "Поиск Банкеты( конверсии)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
@@ -319,7 +319,7 @@
       "campaign_id": "712849433",
       "campaign_name": "Поиск Банкеты квиз( конверсии)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "OFF",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         60220033,
