@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-26T19:14:24+00:00",
+  "generated_at": "2026-10-26T23:50:05+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,17 +8,17 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "8914106998520253676",
-      "updated_at": "2026-10-26T19:14:18+00:00",
+      "request_id": "5260072038092966604",
+      "updated_at": "2026-10-26T23:49:58+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
-      "date_range": "2026-09-05..2026-10-26"
+      "date_range": "2026-09-05..2026-10-27"
     },
     "lead_control": {
       "status": "ok",
       "message": "Lead Control JSON loaded.",
       "url": "https://alex19011901.github.io/lead-control-pages/dashboard_view.json",
       "snapshot_at": "2026-10-26T19:07:19+03:00",
-      "snapshot_generated_at": "2026-10-26T18:01:23Z"
+      "snapshot_generated_at": "2026-10-26T20:13:45Z"
     },
     "lead_attribution": {
       "status": "ok",
@@ -81,9 +81,9 @@
             "tilda_ambiguous_submit_events": 6
           },
           "today": {
-            "total": 4,
-            "with_client_id": 3,
-            "without_client_id": 1,
+            "total": 0,
+            "with_client_id": 0,
+            "without_client_id": 0,
             "metrika_matched": 0
           },
           "last_7_days": {
@@ -145,9 +145,9 @@
             "no_phone_or_time": 1
           },
           "today": {
-            "total": 9,
+            "total": 0,
             "with_ad_ids": 0,
-            "without_ad_ids": 9,
+            "without_ad_ids": 0,
             "with_callibri": 0
           },
           "last_7_days": {
