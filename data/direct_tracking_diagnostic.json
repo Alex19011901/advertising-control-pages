@@ -16,9 +16,9 @@
     "712849433",
     "118776764"
   ],
-  "campaigns_total": 27,
-  "campaigns_active_or_nonarchived": 12,
-  "campaigns_active_with_target_counter": 10,
+  "campaigns_total": 28,
+  "campaigns_active_or_nonarchived": 13,
+  "campaigns_active_with_target_counter": 11,
   "all_active_campaigns_have_target_counter": false,
   "campaign_counter_audit": [
     {
@@ -338,6 +338,18 @@
         110789048
       ],
       "has_target_counter": false
+    },
+    {
+      "campaign_id": "715552340",
+      "campaign_name": "Поиск Корпоративы (конверсии)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
     }
   ],
   "group_count": 0,
