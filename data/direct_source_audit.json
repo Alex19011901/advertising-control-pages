@@ -1,26 +1,26 @@
 {
   "schema_version": 1,
   "source_report_type": "AD_PERFORMANCE_REPORT",
-  "rows": 12755,
+  "rows": 12974,
   "date_min": "2026-09-05",
   "date_max": "2026-10-29",
   "required_fields_missing": [],
   "unique_campaigns_with_activity": 12,
-  "unique_groups_with_activity": 429,
-  "unique_ads_with_activity": 844,
+  "unique_groups_with_activity": 430,
+  "unique_ads_with_activity": 853,
   "duplicate_date_ad_keys": [],
   "totals": {
-    "impressions": 4406209,
-    "clicks": 60393,
-    "cost": 1346674.34,
-    "conversions": 14837.0
+    "impressions": 4555301,
+    "clicks": 61938,
+    "cost": 1379051.41,
+    "conversions": 15164.0
   },
   "active_campaigns_total": 12,
   "active_campaigns_with_activity_in_period": 11,
   "active_campaigns_without_activity_in_period": [
     {
-      "campaign_id": "715552340",
-      "campaign_name": "Поиск Корпоративы (конверсии)",
+      "campaign_id": "715589369",
+      "campaign_name": "Поиск Корпоративы (ОЗК)",
       "present_in_report": false
     }
   ],

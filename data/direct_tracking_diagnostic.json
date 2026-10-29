@@ -16,7 +16,7 @@
     "712849433",
     "118776764"
   ],
-  "campaigns_total": 28,
+  "campaigns_total": 29,
   "campaigns_active_or_nonarchived": 13,
   "campaigns_active_with_target_counter": 11,
   "all_active_campaigns_have_target_counter": false,
@@ -293,7 +293,7 @@
     },
     {
       "campaign_id": "709907560",
-      "campaign_name": "Поиск Банкеты( конверсии)",
+      "campaign_name": "Поиск Банкеты",
       "type": "TEXT_CAMPAIGN",
       "state": "ON",
       "status": "ACCEPTED",
@@ -343,8 +343,20 @@
       "campaign_id": "715552340",
       "campaign_name": "Поиск Корпоративы (конверсии)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "ARCHIVED",
       "status": "MODERATION",
+      "metrika_counter_ids": [
+        52597240,
+        60220033
+      ],
+      "has_target_counter": true
+    },
+    {
+      "campaign_id": "715589369",
+      "campaign_name": "Поиск Корпоративы (ОЗК)",
+      "type": "TEXT_CAMPAIGN",
+      "state": "ON",
+      "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
         60220033
