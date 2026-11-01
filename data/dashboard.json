@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-01T01:05:56+00:00",
+  "generated_at": "2026-11-01T07:28:42+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "1973754652395220549",
-      "updated_at": "2026-11-01T01:05:49+00:00",
+      "request_id": "5360140069137069338",
+      "updated_at": "2026-11-01T07:28:36+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-11-01"
     },
@@ -35396,10 +35396,10 @@
     }
   },
   "direct": {
-    "row_count": 13239,
+    "row_count": 13240,
     "totals": {
       "cost": 1415783.53,
-      "impressions": 4627295,
+      "impressions": 4627300,
       "clicks": 63488,
       "ctr": 1.37,
       "cpc": 22.3,
@@ -43506,7 +43506,7 @@
       },
       {
         "cost": null,
-        "impressions": 2155,
+        "impressions": 2159,
         "clicks": 50,
         "ctr": 2.32,
         "cpc": 0.0,
@@ -45704,9 +45704,9 @@
         },
         {
           "cost": null,
-          "impressions": 3886,
+          "impressions": 3891,
           "clicks": 76,
-          "ctr": 1.96,
+          "ctr": 1.95,
           "cpc": 0.0,
           "direct_conversions": 85.0,
           "revenue": null,
@@ -49606,9 +49606,9 @@
         },
         {
           "cost": null,
-          "impressions": 3886,
+          "impressions": 3891,
           "clicks": 76,
-          "ctr": 1.96,
+          "ctr": 1.95,
           "cpc": 0.0,
           "direct_conversions": 85.0,
           "revenue": null,
@@ -59874,7 +59874,7 @@
         },
         {
           "cost": null,
-          "impressions": 2155,
+          "impressions": 2159,
           "clicks": 50,
           "ctr": 2.32,
           "cpc": 0.0,
@@ -61608,7 +61608,7 @@
         },
         {
           "cost": null,
-          "impressions": 1256,
+          "impressions": 1257,
           "clicks": 5,
           "ctr": 0.4,
           "cpc": 0.0,
