@@ -2,11 +2,11 @@
   "status": "ok",
   "message": "Yandex Direct report downloaded.",
   "client_login": "e-20027205",
-  "updated_at": "2026-11-03T20:57:15+00:00",
+  "updated_at": "2026-11-04T01:18:12+00:00",
   "http_status": 200,
-  "request_id": "8343422097772068139",
+  "request_id": "7078627444505356966",
   "units": null,
   "api_access_pending": false,
   "report_type": "AD_PERFORMANCE_REPORT",
-  "date_range": "2026-09-05..2026-11-03"
+  "date_range": "2026-09-05..2026-11-04"
 }
