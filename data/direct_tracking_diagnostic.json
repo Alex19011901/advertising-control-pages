@@ -272,7 +272,7 @@
       "campaign_id": "702195391",
       "campaign_name": "Тест РСЯ банкет (Похожие сайты)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "SUSPENDED",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         52597240,
