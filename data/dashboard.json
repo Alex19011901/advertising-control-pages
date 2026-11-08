@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-07T20:51:14+00:00",
+  "generated_at": "2026-11-08T00:31:13+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,10 +8,10 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "5333817121275337231",
-      "updated_at": "2026-11-07T20:51:08+00:00",
+      "request_id": "789495206840713059",
+      "updated_at": "2026-11-08T00:31:06+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
-      "date_range": "2026-09-05..2026-11-07"
+      "date_range": "2026-09-05..2026-11-08"
     },
     "lead_control": {
       "status": "ok",
@@ -81,8 +81,8 @@
             "tilda_ambiguous_submit_events": 8
           },
           "today": {
-            "total": 2,
-            "with_client_id": 2,
+            "total": 0,
+            "with_client_id": 0,
             "without_client_id": 0,
             "metrika_matched": 0
           },
@@ -37761,10 +37761,10 @@
     }
   },
   "direct": {
-    "row_count": 14835,
+    "row_count": 14839,
     "totals": {
       "cost": 1589469.16,
-      "impressions": 4979805,
+      "impressions": 4979811,
       "clicks": 69749,
       "ctr": 1.4,
       "cpc": 22.79,
@@ -37777,7 +37777,7 @@
     "breakdown": [
       {
         "cost": 238296.36,
-        "impressions": 841928,
+        "impressions": 841930,
         "clicks": 8274,
         "ctr": 0.98,
         "cpc": 28.8,
@@ -37891,7 +37891,7 @@
       },
       {
         "cost": 33892.42,
-        "impressions": 203591,
+        "impressions": 203592,
         "clicks": 2424,
         "ctr": 1.19,
         "cpc": 13.98,
@@ -47284,7 +47284,7 @@
       "rows": [
         {
           "cost": 238296.36,
-          "impressions": 841928,
+          "impressions": 841930,
           "clicks": 8274,
           "ctr": 0.98,
           "cpc": 28.8,
@@ -47398,7 +47398,7 @@
         },
         {
           "cost": 33892.42,
-          "impressions": 203591,
+          "impressions": 203592,
           "clicks": 2424,
           "ctr": 1.19,
           "cpc": 13.98,
@@ -47932,7 +47932,7 @@
       "campaigns": [
         {
           "cost": 308023.3,
-          "impressions": 1474893,
+          "impressions": 1474895,
           "clicks": 12588,
           "ctr": 0.85,
           "cpc": 24.47,
@@ -47946,7 +47946,7 @@
         },
         {
           "cost": 277013.16,
-          "impressions": 1726738,
+          "impressions": 1726739,
           "clicks": 24816,
           "ctr": 1.44,
           "cpc": 11.16,
@@ -48100,9 +48100,9 @@
         },
         {
           "cost": null,
-          "impressions": 21,
+          "impressions": 24,
           "clicks": 3,
-          "ctr": 14.29,
+          "ctr": 12.5,
           "cpc": 0.0,
           "direct_conversions": 2.0,
           "revenue": null,
@@ -48116,7 +48116,7 @@
       "groups": [
         {
           "cost": 299876.54,
-          "impressions": 1286305,
+          "impressions": 1286307,
           "clicks": 12541,
           "ctr": 0.97,
           "cpc": 23.91,
@@ -48180,7 +48180,7 @@
         },
         {
           "cost": 52064.0,
-          "impressions": 311159,
+          "impressions": 311160,
           "clicks": 4006,
           "ctr": 1.29,
           "cpc": 13.0,
@@ -55300,7 +55300,7 @@
         },
         {
           "cost": null,
-          "impressions": 1,
+          "impressions": 3,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
@@ -55540,7 +55540,7 @@
         },
         {
           "cost": null,
-          "impressions": 2,
+          "impressions": 3,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
@@ -55590,7 +55590,7 @@
       "ads": [
         {
           "cost": 238296.36,
-          "impressions": 841928,
+          "impressions": 841930,
           "clicks": 8274,
           "ctr": 0.98,
           "cpc": 28.8,
@@ -55692,7 +55692,7 @@
         },
         {
           "cost": 33892.42,
-          "impressions": 203591,
+          "impressions": 203592,
           "clicks": 2424,
           "ctr": 1.19,
           "cpc": 13.98,
@@ -70856,7 +70856,7 @@
         },
         {
           "cost": null,
-          "impressions": 1,
+          "impressions": 3,
           "clicks": null,
           "ctr": 0.0,
           "cpc": null,
@@ -71499,6 +71499,23 @@
           "campaign": "Поиск Корпоративы (ОЗК)",
           "group_id": "5817697441",
           "group": "корпоратив на 30 человек"
+        },
+        {
+          "cost": null,
+          "impressions": 1,
+          "clicks": null,
+          "ctr": 0.0,
+          "cpc": null,
+          "direct_conversions": null,
+          "revenue": null,
+          "real_leads": 0,
+          "fact_cpl": null,
+          "roas": null,
+          "ad_id": "1925509958503689748",
+          "campaign_id": "715589369",
+          "campaign": "Поиск Корпоративы (ОЗК)",
+          "group_id": "5817697431",
+          "group": "ресторан для корпоратива"
         }
       ]
     }
