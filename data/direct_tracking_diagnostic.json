@@ -18,8 +18,8 @@
     "715589369"
   ],
   "campaigns_total": 29,
-  "campaigns_active_or_nonarchived": 13,
-  "campaigns_active_with_target_counter": 11,
+  "campaigns_active_or_nonarchived": 12,
+  "campaigns_active_with_target_counter": 10,
   "all_active_campaigns_have_target_counter": false,
   "campaign_counter_audit": [
     {
@@ -284,8 +284,8 @@
       "campaign_id": "708328266",
       "campaign_name": "РСЯ банкетное меню",
       "type": "TEXT_CAMPAIGN",
-      "state": "SUSPENDED",
-      "status": "ACCEPTED",
+      "state": "ARCHIVED",
+      "status": "MODERATION",
       "metrika_counter_ids": [
         52597240,
         60220033
