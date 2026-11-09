@@ -38,8 +38,8 @@
       "state": "ARCHIVED",
       "status": "MODERATION",
       "metrika_counter_ids": [
-        60220033,
-        52597240
+        52597240,
+        60220033
       ],
       "has_target_counter": true
     },
@@ -311,8 +311,8 @@
       "state": "ARCHIVED",
       "status": "MODERATION",
       "metrika_counter_ids": [
-        60220033,
-        52597240
+        52597240,
+        60220033
       ],
       "has_target_counter": true
     },
@@ -323,8 +323,8 @@
       "state": "ON",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
-        60220033,
-        110789048
+        110789048,
+        60220033
       ],
       "has_target_counter": false
     },
@@ -335,8 +335,8 @@
       "state": "ARCHIVED",
       "status": "MODERATION",
       "metrika_counter_ids": [
-        60220033,
-        110789048
+        110789048,
+        60220033
       ],
       "has_target_counter": false
     },
