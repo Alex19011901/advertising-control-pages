@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-18T21:53:41+00:00",
+  "generated_at": "2026-11-19T03:19:25+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "2980706623718442696",
-      "updated_at": "2026-11-18T21:53:35+00:00",
+      "request_id": "7303908124142058778",
+      "updated_at": "2026-11-19T03:19:19+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-11-19"
     },
@@ -38824,10 +38824,10 @@
     }
   },
   "direct": {
-    "row_count": 17063,
+    "row_count": 17064,
     "totals": {
       "cost": 1874560.43,
-      "impressions": 5577231,
+      "impressions": 5577232,
       "clicks": 75366,
       "ctr": 1.35,
       "cpc": 24.87,
@@ -38954,7 +38954,7 @@
       },
       {
         "cost": 38538.28,
-        "impressions": 182720,
+        "impressions": 182721,
         "clicks": 4682,
         "ctr": 2.56,
         "cpc": 8.23,
@@ -48461,7 +48461,7 @@
         },
         {
           "cost": 38538.28,
-          "impressions": 182720,
+          "impressions": 182721,
           "clicks": 4682,
           "ctr": 2.56,
           "cpc": 8.23,
@@ -49059,7 +49059,7 @@
         },
         {
           "cost": 192387.28,
-          "impressions": 1176256,
+          "impressions": 1176257,
           "clicks": 18310,
           "ctr": 1.56,
           "cpc": 10.51,
@@ -49299,7 +49299,7 @@
         },
         {
           "cost": 39868.85,
-          "impressions": 187696,
+          "impressions": 187697,
           "clicks": 5105,
           "ctr": 2.72,
           "cpc": 7.81,
@@ -57355,7 +57355,7 @@
         },
         {
           "cost": 38538.28,
-          "impressions": 182720,
+          "impressions": 182721,
           "clicks": 4682,
           "ctr": 2.56,
           "cpc": 8.23,
