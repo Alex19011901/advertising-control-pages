@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-21T23:08:28+00:00",
+  "generated_at": "2026-11-22T03:08:35+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "3790417122489604903",
-      "updated_at": "2026-11-21T23:08:23+00:00",
+      "request_id": "6003252147456161780",
+      "updated_at": "2026-11-22T03:08:28+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-11-22"
     },
@@ -38338,10 +38338,10 @@
     }
   },
   "direct": {
-    "row_count": 17730,
+    "row_count": 17731,
     "totals": {
       "cost": 1934681.96,
-      "impressions": 5713270,
+      "impressions": 5713271,
       "clicks": 76291,
       "ctr": 1.34,
       "cpc": 25.36,
@@ -38354,7 +38354,7 @@
     "breakdown": [
       {
         "cost": 318576.83,
-        "impressions": 1183840,
+        "impressions": 1183841,
         "clicks": 9920,
         "ctr": 0.84,
         "cpc": 32.11,
@@ -47861,7 +47861,7 @@
       "rows": [
         {
           "cost": 318576.83,
-          "impressions": 1183840,
+          "impressions": 1183841,
           "clicks": 9920,
           "ctr": 0.84,
           "cpc": 32.11,
@@ -48517,7 +48517,7 @@
       "campaigns": [
         {
           "cost": 390978.52,
-          "impressions": 1829825,
+          "impressions": 1829826,
           "clicks": 14320,
           "ctr": 0.78,
           "cpc": 27.3,
@@ -48701,7 +48701,7 @@
       "groups": [
         {
           "cost": 382081.1,
-          "impressions": 1637219,
+          "impressions": 1637220,
           "clicks": 14268,
           "ctr": 0.87,
           "cpc": 26.78,
@@ -56863,7 +56863,7 @@
       "ads": [
         {
           "cost": 318576.83,
-          "impressions": 1183840,
+          "impressions": 1183841,
           "clicks": 9920,
           "ctr": 0.84,
           "cpc": 32.11,
