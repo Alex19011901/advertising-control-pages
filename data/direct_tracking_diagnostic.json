@@ -321,7 +321,7 @@
       "campaign_id": "712849433",
       "campaign_name": "Поиск Банкеты квиз( конверсии)",
       "type": "TEXT_CAMPAIGN",
-      "state": "ON",
+      "state": "SUSPENDED",
       "status": "ACCEPTED",
       "metrika_counter_ids": [
         110789048,
