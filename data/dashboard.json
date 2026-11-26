@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-25T22:28:12+00:00",
+  "generated_at": "2026-11-26T04:58:47+00:00",
   "project": "advertising-control-pages",
   "client_login": "e-20027205",
   "data_sources": {
@@ -8,8 +8,8 @@
       "status": "ok",
       "message": "Yandex Direct report downloaded.",
       "http_status": 200,
-      "request_id": "6872764279486957572",
-      "updated_at": "2026-11-25T22:28:03+00:00",
+      "request_id": "6456142407247568012",
+      "updated_at": "2026-11-26T04:58:37+00:00",
       "report_type": "AD_PERFORMANCE_REPORT",
       "date_range": "2026-09-05..2026-11-26"
     },
@@ -40997,10 +40997,10 @@
     }
   },
   "direct": {
-    "row_count": 18607,
+    "row_count": 18608,
     "totals": {
       "cost": 2044883.24,
-      "impressions": 5894146,
+      "impressions": 5894148,
       "clicks": 77613,
       "ctr": 1.32,
       "cpc": 26.35,
@@ -41013,7 +41013,7 @@
     "breakdown": [
       {
         "cost": 340490.65,
-        "impressions": 1258127,
+        "impressions": 1258129,
         "clicks": 10234,
         "ctr": 0.81,
         "cpc": 33.27,
@@ -50520,7 +50520,7 @@
       "rows": [
         {
           "cost": 340490.65,
-          "impressions": 1258127,
+          "impressions": 1258129,
           "clicks": 10234,
           "ctr": 0.81,
           "cpc": 33.27,
@@ -51181,7 +51181,7 @@
       "campaigns": [
         {
           "cost": 414268.3,
-          "impressions": 1908078,
+          "impressions": 1908080,
           "clicks": 14646,
           "ctr": 0.77,
           "cpc": 28.29,
@@ -51365,7 +51365,7 @@
       "groups": [
         {
           "cost": 405259.96,
-          "impressions": 1714733,
+          "impressions": 1714735,
           "clicks": 14593,
           "ctr": 0.85,
           "cpc": 27.77,
@@ -59719,7 +59719,7 @@
       "ads": [
         {
           "cost": 340490.65,
-          "impressions": 1258127,
+          "impressions": 1258129,
           "clicks": 10234,
           "ctr": 0.81,
           "cpc": 33.27,
